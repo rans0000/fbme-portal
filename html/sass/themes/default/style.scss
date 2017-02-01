@@ -109,6 +109,16 @@ label{
     }
 }
 
+//----------------------------------------------------
+//panels
+.panel{
+    background: $color-neutral;border-radius: .3rem;
+}
+.panel-heading{
+    @extend %clearfix;
+    color: $color-copy2;border-bottom: .1rem solid $color-border;
+}
+
 
 //----------------------------------------------------
 .wrapper-header{
@@ -186,4 +196,9 @@ label{
 .wrapper-main{
     flex-grow: 1;
     flex-basis: 100%;
+}
+
+//----------------------------------------------------
+.login-container{
+    width: 40rem;max-width: 100%;margin: auto;
 }

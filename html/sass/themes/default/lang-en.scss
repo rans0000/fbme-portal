@@ -129,3 +129,14 @@ th{
 .tools-level1{
     float: $text-reverse;
 }
+
+//----------------------------------------------------
+.panel{
+    margin-bottom: $lineheight;
+}
+.panel-heading{
+    padding: ($lineheight / 2) 1.4rem (($lineheight / 2) - .1rem);margin: 0 -.1rem;font-size: $fsize-lg;
+}
+.panel-title{
+    float: $text-direction;
+}
