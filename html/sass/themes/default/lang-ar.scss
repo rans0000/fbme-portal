@@ -1,5 +1,32 @@
-$service-name: 'arabic';
-$language: 'ar';
-$direction: 'rtl';
-$text-direction: right;
-$arabic: true;
+@import '_settings-ar-AE';
+
+@font-face {
+    font-family: 'noto_kufi_arabicregular';
+    src: url('/fonts/notosans-ar/notokufiarabic-regular-webfont.woff2') format('woff2'),
+        url('/fonts/notosans-ar/notokufiarabic-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'noto_kufi_arabicregular';
+    src: url('/fonts/notosans-ar/notokufiarabic-bold-webfont.woff2') format('woff2'),
+        url('/fonts/notosans-ar/notokufiarabic-bold-webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+html{
+    direction: $direction;
+}
+body{
+    font-family: 'noto_kufi_arabicregular', Arial, "Helvetica Neue", Helvetica, sans-serif;
+    line-height: $lineheight;
+    
+}
+
+
+//----------------------------------------------------
+//ovverrides: language
+th{
+    text-align: $text-direction;
+}
