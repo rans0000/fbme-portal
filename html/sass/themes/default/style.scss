@@ -62,6 +62,34 @@ label{
     color: $color-link;
 }
 
+//----------------------------------------------------
+//ovverrides: tables
+
+.table{
+    background: $color-neutral;color: $color-copy2;
+    > thead{
+        > tr{
+            th{
+                border-bottom-color: $color-border;
+            }
+        }
+    }
+    > tbody{
+        > tr{
+            td{
+                border-bottom-color: $color-border;
+            }
+        }
+    }
+}
+.table-hover{
+    > tbody{
+        > tr:hover{
+            background-color: lighten($color-border, 10%);
+        }
+    }
+}
+
 
 //----------------------------------------------------
 .wrapper-header{

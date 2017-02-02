@@ -66,6 +66,39 @@ label{
     }
 }
 
+//----------------------------------------------------
+//ovverrides: tables
+.table{
+    margin-bottom: $lineheight;font-size: $fsize-normal;
+    > thead{
+        > tr{
+            th{
+                border-bottom-width: .1rem;border-bottom-style: solid;padding: ($lineheight) 1rem ($lineheight - .1rem);line-height: $lineheight;font-weight: normal;font-size: $fsize-h2;
+            }
+        }
+    }
+    > tbody{
+        > tr{
+            td{
+                border-bottom-width: .1rem;border-bottom-style: solid;padding: (($lineheight / 6) + .1rem) 1rem;line-height: ($lineheight * 1.5);font-weight: normal;border-top: 0;
+                
+                &:first-of-type{
+                    padding-#{$text-direction}: 1.5rem;
+                }
+            }
+        }
+    }
+}
+
+//----------------------------------------------------
+//misc
+.text-left{
+    text-align: $text-direction;
+}
+.text-right{
+    text-align: $text-reverse;
+}
+
 
 //----------------------------------------------------
 .avatar-holder{
