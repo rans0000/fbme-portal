@@ -1,0 +1,1 @@
+{"version":3,"file":"lang-ar.css","sources":["themes/default/lang-ar.scss"],"sourcesContent":["$service-name: 'arabic';\r\n$language: 'ar';\r\n$direction: 'rtl';\r\n$text-direction: right;\r\n$arabic: true;"],"names":[],"mappings":""}

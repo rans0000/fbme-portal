@@ -1,0 +1,1 @@
+{"version":3,"file":"lang-en.css","sources":["themes/default/lang-en.scss"],"sourcesContent":["$service-name: 'english';\r\n$language: 'en';\r\n$direction: 'ltr';\r\n$text-direction: left;\r\n$english: true;"],"names":[],"mappings":""}
