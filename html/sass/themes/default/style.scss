@@ -1,1 +1,77 @@
+/*all structure & color related styles should go here*/
+
 @import 'variables';
+
+html{
+    font-size: 62.5%;
+}
+body{
+    background: $bg-color;
+}
+%clearfix{
+    &:after{
+        content: '.';display: block;height: 0;clear: both;visibility: hidden;
+    }
+}
+.wrapper-inner{
+    @extend %clearfix;
+    padding: 0 30px;
+}
+
+
+//----------------------------------------------------
+//ovverrides: language
+.input-group{
+    .btn{
+        display: table-cell;
+    }
+}
+
+//----------------------------------------------------
+.wrapper-header{
+    margin: 0 -15px;background: $color-neutral;border-bottom: .1rem solid $color-border;
+}
+
+//----------------------------------------------------
+.header-tools{
+    @extend %clearfix;
+    list-style-type: none;padding: 0;margin: 0;
+    > .tools-item{
+        display: inline-block;
+    }
+}
+.user-area{
+
+}
+.avatar-holder{
+    width: 2.5rem;height: ($lineheight * 1.5);
+}
+
+//----------------------------------------------------
+.wrapper-container{
+    margin: 0 -15px;
+}
+
+.toolsarea-level1{
+    background: $color-neutral;border-bottom: .1rem solid $color-border;
+
+    .breadcrumb{
+        margin: 0;padding: 0;background-color: transparent;
+    }
+}
+.tools-level1{
+    margin: 0;padding: 0;
+    > .tools-item{
+        display: inline-block;
+    }
+}
+
+.toolsarea-level2{
+    background: $color-border;
+}
+.tools-level2{
+    margin: 0;padding: 0;
+    > .tools-item{
+        display: inline-block;
+    }
+}

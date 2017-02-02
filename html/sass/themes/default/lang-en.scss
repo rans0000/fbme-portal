@@ -1,3 +1,5 @@
+/*culture specific styles should go here*/
+
 @import '_settings-en-US';
 
 @font-face {
@@ -32,3 +34,28 @@ body{
 
 //----------------------------------------------------
 //ovverrides: language
+
+
+//----------------------------------------------------
+.avatar-holder{
+    float: $text-direction;
+}
+.header-tools{
+    float: $text-reverse;
+}
+
+
+//----------------------------------------------------
+.toolsarea-level1{
+    .breadcrumb{
+        float: $text-direction;
+    }
+}
+.tools-level1{
+    float: $text-reverse;
+}
+
+
+
+
+

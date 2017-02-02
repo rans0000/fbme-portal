@@ -1,3 +1,5 @@
+/*culture specific styles should go here*/
+
 @import '_settings-ar-AE';
 
 @font-face {
@@ -29,4 +31,23 @@ body{
 //ovverrides: language
 th{
     text-align: $text-direction;
+}
+
+//----------------------------------------------------
+.avatar-holder{
+    float: $text-direction;
+}
+.header-tools{
+    float: $text-reverse;
+}
+
+
+//----------------------------------------------------
+.toolsarea-level1{
+    .breadcrumb{
+        float: $text-direction;
+    }
+}
+.tools-level1{
+    float: $text-reverse;
 }
