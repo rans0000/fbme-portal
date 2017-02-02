@@ -13,7 +13,7 @@
     font-style: normal;
 }
 @font-face {
-    font-family: 'noto_sansbold';
+    font-family: 'noto_sansregular';
     src: url('/fonts/notosans-en/NotoSans-Bold-webfont.eot');
     src: url('/fonts/notosans-en/NotoSans-Bold-webfont.eot?#iefix') format('embedded-opentype'),
         url('/fonts/notosans-en/NotoSans-Bold-webfont.woff') format('woff'),
@@ -27,13 +27,44 @@ html{
     direction: $direction;
 }
 body{
-    font-family: 'noto_sansregular', Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-family: $font-family;
     line-height: $lineheight;
+    font-size: $fsize-normal;
 }
 
 
 //----------------------------------------------------
-//ovverrides: language
+//ovverrides: forms
+.form-group{
+    margin-bottom: ($lineheight / 2);
+}
+label{
+    margin-bottom: 0;font-weight: normal;
+}
+.form-control{
+    height: ($lineheight * 1.5);padding: 0 1rem;line-height: ($lineheight * 1.5);font-size: $fsize-sm;
+}
+
+.form-lg{
+    label{
+        font-size: $fsize-md;
+}
+    .form-control{
+        height: ($lineheight * 2);line-height: ($lineheight * 2);
+    }
+}
+
+//----------------------------------------------------
+//ovverrides: buttons
+.btn{
+    font-size: $fsize-normal;line-height: $lineheight;padding: ($lineheight / 6) .9rem (($lineheight / 6) + .1rem);font-family: $font-family;
+    &.btn-lg{
+        font-size: $fsize-lg;padding: (($lineheight / 2) - .1rem) .9rem;
+    }
+    &.btn-sm{
+        font-size: $fsize-sm;
+    }
+}
 
 
 //----------------------------------------------------
@@ -54,8 +85,3 @@ body{
 .tools-level1{
     float: $text-reverse;
 }
-
-
-
-
-

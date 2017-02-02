@@ -2,6 +2,7 @@
 
 @import 'variables';
 
+
 html{
     font-size: 62.5%;min-height: 100%;
 }
@@ -11,7 +12,7 @@ body{
     display: -ms-flex;
     display: -o-flex;
     display: flex;
-    background: $bg-color;height: 100%;
+    background: $bg-color;height: 100%;color: $color-copy1;
 }
 %clearfix{
     &:after{
@@ -34,12 +35,33 @@ body{
 
 
 //----------------------------------------------------
-//ovverrides: language
-.input-group{
-    .btn{
-        display: table-cell;
+//ovverrides: forms
+label{
+}
+.form-control{
+    box-shadow: none;color: $color-copy2;border-radius: .2rem;
+}
+.form-lg{
+    .form-control{
+        border-radius: 0;
     }
 }
+
+//----------------------------------------------------
+//ovverrides: buttons
+.btn{
+    border-radius: .2rem;border-width: .1rem;
+    &.btn-lg{
+        border-radius: 0;
+    }
+}
+.btn-primary{
+    color: $color-neutral;background-color: $color-primary;border-color: $color-primary;
+}
+.btn-link{
+    color: $color-link;
+}
+
 
 //----------------------------------------------------
 .wrapper-header{
