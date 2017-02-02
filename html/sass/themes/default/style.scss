@@ -3,15 +3,29 @@
 @import 'variables';
 
 html{
-    font-size: 62.5%;
+    font-size: 62.5%;min-height: 100%;
 }
 body{
-    background: $bg-color;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    background: $bg-color;height: 100%;
 }
 %clearfix{
     &:after{
         content: '.';display: block;height: 0;clear: both;visibility: hidden;
     }
+}
+.wrapper-all{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
 }
 .wrapper-inner{
     @extend %clearfix;
@@ -49,6 +63,13 @@ body{
 
 //----------------------------------------------------
 .wrapper-container{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
     margin: 0 -15px;
 }
 
@@ -74,4 +95,26 @@ body{
     > .tools-item{
         display: inline-block;
     }
+}
+
+
+//----------------------------------------------------
+.app-area{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    flex-grow: 1;
+}
+
+//----------------------------------------------------
+.wrapper-sidenav{
+    flex-basis: $sidenav-width;
+}
+
+//----------------------------------------------------
+.wrapper-main{
+    flex-grow: 1;
+    flex-basis: 100%;
 }
