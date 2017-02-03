@@ -28,10 +28,82 @@ body{
 
 
 //----------------------------------------------------
-//ovverrides: language
+//ovverrides: forms
+.form-group{
+    margin-bottom: ($lineheight / 2);
+}
+label{
+    margin-bottom: 0;font-weight: normal;
+}
+.form-control{
+    height: ($lineheight * 1.5);padding: 0 1rem;line-height: ($lineheight * 1.5);font-size: $fsize-sm;
+}
+
+.form-lg{
+    label{
+        font-size: $fsize-md;
+}
+    .form-control{
+        height: ($lineheight * 2);line-height: ($lineheight * 2);
+    }
+}
+.checkbox-primary{
+    margin-#{$text-reverse}: .5rem;
+    input[type="checkbox"]{
+        + label{
+            width: $lineheight;height: $lineheight;
+        }
+    }
+}
+
+//----------------------------------------------------
+//ovverrides: buttons
+.btn{
+    font-size: $fsize-normal;line-height: $lineheight;padding: ($lineheight / 6) .9rem (($lineheight / 6) + .1rem);font-family: $font-family;
+    &.btn-lg{
+        font-size: $fsize-lg;padding: (($lineheight / 2) - .1rem) .9rem;
+    }
+    &.btn-sm{
+        font-size: $fsize-sm;
+    }
+}
+
+//----------------------------------------------------
+//ovverrides: tables
 th{
     text-align: $text-direction;
 }
+.table{
+    margin-bottom: $lineheight;font-size: $fsize-normal;
+    > thead{
+        > tr{
+            th{
+                border-bottom-width: .1rem;border-bottom-style: solid;padding: ($lineheight) 1rem ($lineheight - .1rem);line-height: $lineheight;font-weight: normal;font-size: $fsize-h2;
+            }
+        }
+    }
+    > tbody{
+        > tr{
+            td{
+                border-bottom-width: .1rem;border-bottom-style: solid;padding: (($lineheight / 6) + .1rem) 1rem;line-height: ($lineheight * 1.5);font-weight: normal;border-top: 0;
+                
+                &:first-of-type{
+                    padding-#{$text-direction}: 1.5rem;
+                }
+            }
+        }
+    }
+}
+
+//----------------------------------------------------
+//misc
+.text-left{
+    text-align: $text-direction;
+}
+.text-right{
+    text-align: $text-reverse;
+}
+
 
 //----------------------------------------------------
 .avatar-holder{

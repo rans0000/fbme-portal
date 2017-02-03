@@ -48,9 +48,17 @@ label{
 .form-lg{
     label{
         font-size: $fsize-md;
-}
+    }
     .form-control{
         height: ($lineheight * 2);line-height: ($lineheight * 2);
+    }
+}
+.checkbox-primary{
+    margin-#{$text-reverse}: .5rem;
+    input[type="checkbox"]{
+        + label{
+            width: $lineheight;height: $lineheight;
+        }
     }
 }
 
@@ -68,6 +76,9 @@ label{
 
 //----------------------------------------------------
 //ovverrides: tables
+th{
+    text-align: $text-direction;
+}
 .table{
     margin-bottom: $lineheight;font-size: $fsize-normal;
     > thead{
@@ -81,7 +92,7 @@ label{
         > tr{
             td{
                 border-bottom-width: .1rem;border-bottom-style: solid;padding: (($lineheight / 6) + .1rem) 1rem;line-height: ($lineheight * 1.5);font-weight: normal;border-top: 0;
-                
+
                 &:first-of-type{
                     padding-#{$text-direction}: 1.5rem;
                 }
