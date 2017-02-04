@@ -77,6 +77,12 @@ label{
         font-size: $fsize-sm;
     }
 }
+.btn-round{
+    width: ($lineheight * 1.5);height: ($lineheight * 1.5);padding: 0;line-height: ($lineheight * 1.5);
+}
+.btn-iconed{
+    width: ($lineheight * 1.5);height: ($lineheight * 1.5);padding: 0;line-height: ($lineheight * 1.5);
+}
 
 //----------------------------------------------------
 //ovverrides: tables
@@ -163,4 +169,12 @@ th{
 //----------------------------------------------------
 .logo-container{
     margin: ($lineheight * 2) 0 $lineheight;
+}
+
+//----------------------------------------------------
+.wrapper-header{
+    padding: ($lineheight / 2) 0;
+}
+.logo{
+    float: $text-direction;
 }

@@ -78,7 +78,10 @@ label{
 //----------------------------------------------------
 //ovverrides: buttons
 .btn{
-    border-radius: .2rem;border-width: .1rem;
+    border-radius: .2rem;border-width: .1rem;transition: .3s;
+    &:hover, &:focus{
+        color: $color-neutral;border-color: $color-secondary;background-color: $color-secondary;
+    }
     &.btn-lg{
         border-radius: 0;
     }
@@ -88,6 +91,12 @@ label{
 }
 .btn-link{
     color: $color-link;
+}
+.btn-round{
+    border: .1rem solid $color-border;background: $color-neutral;border-radius: 50%;
+}
+.btn-iconed{
+    border: .1rem solid $color-border;background: $color-neutral;border-radius: .2rem;
 }
 
 //----------------------------------------------------
@@ -143,7 +152,7 @@ label{
     @extend %clearfix;
     list-style-type: none;padding: 0;margin: 0;
     > .tools-item{
-        display: inline-block;
+        display: inline-block;vertical-align: middle;
     }
 }
 .user-area{
