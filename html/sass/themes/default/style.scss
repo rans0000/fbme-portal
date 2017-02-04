@@ -39,7 +39,7 @@ body{
 a{
     color: $color-link;text-decoration: underline;transition: .3s;
     &:hover, &:focus{
-        color: $color-primary;
+        color: $color-secondary;
     }
 }
 
@@ -96,6 +96,9 @@ label{
 }
 .btn-link{
     color: $color-link;
+    &:hover, &:focus{
+        background-color: transparent;border-color: transparent;color: $color-secondary;
+    }
 }
 .btn-round{
     border: .1rem solid $color-border;background: $color-neutral;border-radius: 50%;
