@@ -47,11 +47,17 @@ label{
 }
 
 .form-lg{
+    .form-group{
+        margin-bottom: ($lineheight);
+    }
     label{
         font-size: $fsize-md;
     }
     .form-control{
         height: ($lineheight * 2);line-height: ($lineheight * 2);
+    }
+    .submit-group{
+        margin: ($lineheight * 2) 0 $lineheight;
     }
 }
 .checkbox-primary{
@@ -61,6 +67,9 @@ label{
             width: $lineheight;height: $lineheight;
         }
     }
+}
+.submit-group{
+    margin: $lineheight 0;
 }
 
 //----------------------------------------------------
@@ -153,6 +162,11 @@ th{
         }
     }
     > .panel-body{
-        padding: ($lineheight) 1.5rem;
+        padding: ($lineheight) 3rem;
     }
+}
+
+//----------------------------------------------------
+.logo-container{
+    margin: ($lineheight * 2) 0 $lineheight;
 }

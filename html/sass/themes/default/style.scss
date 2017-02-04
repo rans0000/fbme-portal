@@ -35,6 +35,15 @@ body{
 
 
 //----------------------------------------------------
+//links
+a{
+    color: $color-link;text-decoration: underline;transition: .3s;
+    &:hover, &:focus{
+        color: $color-primary;
+    }
+}
+
+//----------------------------------------------------
 //ovverrides: forms
 label{
 }
@@ -205,4 +214,12 @@ label{
 //----------------------------------------------------
 .login-container{
     width: 40rem;max-width: 100%;margin: auto;
+}
+.logo-container{
+    text-align: center;
+}
+
+//----------------------------------------------------
+.wrapper-footer{
+    text-align: center;
 }
