@@ -21,9 +21,10 @@ html{
     direction: $direction;
 }
 body{
-    font-family: 'noto_kufi_arabicregular', Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-family: $font-family;
     line-height: $lineheight;
-    
+    font-size: $fsize-normal;
+    text-align: $text-direction;
 }
 
 
@@ -123,3 +124,31 @@ th{
 .tools-level1{
     float: $text-reverse;
 }
+
+//----------------------------------------------------
+.panel{
+    margin-bottom: $lineheight;
+}
+.panel-heading{
+    padding: ($lineheight / 2) 1.4rem (($lineheight / 2) - .1rem);margin: 0 -.1rem;font-size: $fsize-lg;
+}
+.panel-title{
+    float: $text-direction;
+}
+.panel-body{
+    padding: ($lineheight / 2) 1.5rem;
+}
+
+.panel-secondary{
+    > .panel-heading{
+        padding: ($lineheight) 1.5rem;text-align: center;
+        > .panel-title{
+            float: none;font-size: $fsize-h1;text-transform: uppercase;
+        }
+    }
+    > .panel-body{
+        padding: ($lineheight) 1.5rem;
+    }
+}
+
+//----------------------------------------------------

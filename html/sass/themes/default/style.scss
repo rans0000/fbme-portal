@@ -118,7 +118,11 @@ label{
     @extend %clearfix;
     color: $color-copy2;border-bottom: .1rem solid $color-border;
 }
-
+.panel-secondary{
+    > .panel-heading{
+        color: $color-copy2;
+    }
+}
 
 //----------------------------------------------------
 .wrapper-header{

@@ -30,6 +30,7 @@ body{
     font-family: $font-family;
     line-height: $lineheight;
     font-size: $fsize-normal;
+    text-align: $text-direction;
 }
 
 
@@ -139,4 +140,19 @@ th{
 }
 .panel-title{
     float: $text-direction;
+}
+.panel-body{
+    padding: ($lineheight / 2) 1.5rem;
+}
+
+.panel-secondary{
+    > .panel-heading{
+        padding: ($lineheight) 1.5rem;text-align: center;
+        > .panel-title{
+            float: none;font-size: $fsize-h1;text-transform: uppercase;
+        }
+    }
+    > .panel-body{
+        padding: ($lineheight) 1.5rem;
+    }
 }
