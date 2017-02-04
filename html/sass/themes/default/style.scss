@@ -74,6 +74,11 @@ label{
         }
     }
 }
+.form-group-button{
+    > .btn{
+        //border-radius: 0 .2rem .2rem 0;
+    }
+}
 
 //----------------------------------------------------
 //ovverrides: buttons
@@ -179,12 +184,15 @@ label{
 
     .breadcrumb{
         margin: 0;padding: 0;background-color: transparent;
+        a{
+            text-decoration: none;
+        }
     }
 }
 .tools-level1{
     margin: 0;padding: 0;
     > .tools-item{
-        display: inline-block;
+        display: inline-block;vertical-align: middle;
     }
 }
 

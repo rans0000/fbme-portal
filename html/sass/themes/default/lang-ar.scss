@@ -65,6 +65,15 @@ label{
 .submit-group{
     margin: $lineheight 0;
 }
+.form-group-button{
+    position: relative;padding-#{$text-reverse}: ($lineheight * 1.5);
+    > .btn{
+        position: absolute;top: 0;#{$text-reverse}: 0;
+    }
+    .form-control{
+        text-align: $text-reverse;
+    }
+}
 
 //----------------------------------------------------
 //ovverrides: buttons
@@ -82,6 +91,9 @@ label{
 }
 .btn-iconed{
     width: ($lineheight * 1.5);height: ($lineheight * 1.5);padding: 0;line-height: ($lineheight * 1.5);
+}
+.btn-hasicon{
+    padding: 0;
 }
 
 //----------------------------------------------------
@@ -132,12 +144,20 @@ th{
 
 //----------------------------------------------------
 .toolsarea-level1{
+    padding: ($lineheight / 2) 0;
     .breadcrumb{
-        float: $text-direction;
+        float: $text-direction;font-size: $fsize-sm;
+        > li{
+            margin: ($lineheight / 4) 0 ($lineheight / 4);
+        }
     }
 }
 .tools-level1{
     float: $text-reverse;
+}
+
+.toolsarea-level2{
+    padding: ($lineheight / 4) 0;
 }
 
 //----------------------------------------------------
