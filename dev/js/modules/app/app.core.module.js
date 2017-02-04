@@ -8,7 +8,8 @@
     angular.module('app.core.module', [
         'ui.router',
         'ui.bootstrap',
-        'ui.bootstrap.contextMenu'
+        'ui.bootstrap.contextMenu',
+        'login.module'
     ])
         .config(routerConfiguration)
         .config(debugConfiguration)
@@ -20,17 +21,24 @@
         $urlRouterProvider.otherwise('/');
 
         $stateProvider
-            .state('collaborationListing', {
-            url: '/',
-            templateUrl: 'js/modules/collaboration/collaborationListTemplate.html',
-            controller: 'CollaborationListController',
-            controllerAs: 'CollaborationListVM'
+            .state('login', {
+            url: '/login',
+            templateUrl: 'js/modules/login/login.template.html',
+            controller: 'LoginController',
+            controllerAs: 'loginVM'
         })
-            .state('collaborationDetails', {
-            url: '/details/{collaborationId:int}',
-            templateUrl: 'js/modules/collaboration/collaborationDetailsTemplate.html',
-            controller: 'CollaborationDetailsController',
-            controllerAs: 'CollaborationVM'
+            .state('root', {
+            abstract: true,
+            views: {
+                '': {
+                    templateUrl: 'js/modules/layout/contentArea/contentAreaTemplate.html'
+                }/*,
+                'sidemenu@root': {
+                    templateUrl: 'app/modules/layout/sidemenuArea/sidemenuTemplate.html',
+                    controller: 'SidemenuController',
+                    controllerAs: 'sidemenuVM'
+                }*/
+            }
         });
     }
 

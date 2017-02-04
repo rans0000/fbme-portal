@@ -14,7 +14,7 @@
 <![endif]-->
     </head>
     <body>
-        <div class="wrapper-all container-fluid">
+        <div class="wrapper-all container-fluid" id="container" ui-view>
             <!--header starts here-->
             <header class="wrapper-header">
                 <div class="wrapper-inner">
@@ -124,5 +124,9 @@
         <script src="js/libs/contextMenu.js"></script>
         <!--angular script-->
         <script src="js/modules/app/app.core.module.js"></script>
+        
+        <script src="js/modules/login/login.module.js"></script>
+        <script src="js/modules/login/login.service.js"></script>
+        <script src="js/modules/login/login.controller.js"></script>
     </body>
 </html>
