@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app.core.module" ng-strict-di>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>FBME</title>
+        <link rel="stylesheet" href="css/libs/bootstrap.min.css">
+        <link rel="stylesheet" href="css/themes/default/style.css">
+        <link rel="stylesheet" href="css/themes/default/lang-en.css">
+        <!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+    </head>
+    <body>
+        <div class="wrapper-all container-fluid">
+            <!--header starts here-->
+            <header class="wrapper-header">
+                <div class="wrapper-inner">
+                    <a href="#" class="logo"><img src="images/fbme-bank-logo.png" height="36" width="72" alt="FBME"></a>
+                    <ul class="header-tools">
+                        <li class="tools-item">
+                            <button type="button" class="btn btn-round">
+                                <span class="sr-only">home</span>
+                                <span class="glyphicon glyphicon-home"></span>
+                            </button>
+                        </li>
+                        <li class="tools-item">
+                            <div class="avatar-holder">
+                                <img src="images/tmp-avatar.png" class="img-responsive" alt="Username">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </header>
+            <!--header ends here-->
+            <div class="wrapper-container">
+                <!--toolsarea starts here-->
+                <div class="wrapper-toolsarea">
+                    <!--toolsarea-level1 starts here-->
+                    <div class="toolsarea-level1">
+                        <div class="wrapper-inner">
+                            <ol class="breadcrumb">
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">Collaboration</a></li>
+                                <li>Bank Employee Salary Auditing</li>
+                            </ol>
+                            <ul class="tools-level1">
+                                <li class="tools-item">
+                                    <button type="button" class="btn btn-primary">Create Folder</button>
+                                </li>
+                                <li class="tools-item">
+                                    <button type="button" class="btn btn-primary">Upload File</button>
+                                </li>
+                                <li class="tools-item">
+                                    <form action="#">
+                                        <div class="form-group-button">
+                                            <input type="text" class="form-control headerSearch" id="headerSearch" placeholder="Doc Search">
+                                            <button type="button" class="btn btn-primary">
+                                                <span class="sr-only">Search</span>
+                                                <span class="glyphicon glyphicon-search"></span>
+                                            </button>
+                                        </div>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--toolsarea-level1 ends here-->
+                    <!--toolsarea-level2 starts here-->
+                    <div class="toolsarea-level2">
+                        <div class="wrapper-inner">
+                            <ul class="tools-level2">
+                                <li class="tools-item">
+                                    <button type="button" class="btn btn-primary">
+                                        <span class="glyphicon glyphicon-menu-hamburger"></span>
+                                        <span class="sr-only">Toggle Sidenav</span>
+                                    </button>
+                                </li>
+                                <li class="tools-item">
+                                    <button type="button" class="btn btn-link">
+                                        <span class="glyphicon glyphicon-check"></span>
+                                        <span class="btn-text">Select All</span>
+                                    </button>
+                                </li>
+                                <li class="tools-item">
+                                    <button type="button" class="btn btn-link">
+                                        <span class="glyphicon glyphicon-trash"></span>
+                                        <span class="btn-text">Delete</span>
+                                    </button>
+                                </li>
+                                <li class="tools-item">
+                                    <button type="button" class="btn btn-link">
+                                        <span class="glyphicon glyphicon-download-alt"></span>
+                                        <span class="btn-text">Download</span>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--toolsarea-level2 ends here-->
+                </div>
+                <div class="app-area">
+                    <!--toolsarea ends here-->
+                    <!--sidenav starts here-->
+                    <div class="wrapper-sidenav">
+                        sidenav here...
+                    </div>
+                    <!--sidenav ends here-->
+                    <!--main starts here-->
+                    <main class="wrapper-main">
+
+                    </main>
+                    <!--main ends here-->
+                </div>
+            </div>
+        </div>
+        <script src="js/libs/jquery.min.js"></script>
+        <script src="js/libs/angular.min.js"></script>
+        <script src="js/libs/angular-ui-router.min.js"></script>
+        <script src="js/libs/angular-animate.min.js"></script>
+        <script src="js/libs/ui-bootstrap-tpls.min.js"></script>
+        <script src="js/libs/contextMenu.js"></script>
+        <!--angular script-->
+        <script src="js/modules/app/app.core.module.js"></script>
+    </body>
+</html>

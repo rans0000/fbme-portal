@@ -1,0 +1,211 @@
+/*culture specific styles should go here*/
+
+@import '_settings-en-US';
+
+@font-face {
+    font-family: 'noto_sansregular';
+    src: url('/fonts/notosans-en/NotoSans-Regular-webfont.eot');
+    src: url('/fonts/notosans-en/NotoSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+        url('/fonts/notosans-en/NotoSans-Regular-webfont.woff') format('woff'),
+        url('/fonts/notosans-en/NotoSans-Regular-webfont.ttf') format('truetype'),
+        url('/fonts/notosans-en/NotoSans-Regular-webfont.svg#noto_sansregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'noto_sansregular';
+    src: url('/fonts/notosans-en/NotoSans-Bold-webfont.eot');
+    src: url('/fonts/notosans-en/NotoSans-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+        url('/fonts/notosans-en/NotoSans-Bold-webfont.woff') format('woff'),
+        url('/fonts/notosans-en/NotoSans-Bold-webfont.ttf') format('truetype'),
+        url('/fonts/notosans-en/NotoSans-Bold-webfont.svg#noto_sansbold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+html{
+    direction: $direction;
+}
+body{
+    font-family: $font-family;
+    line-height: $lineheight;
+    font-size: $fsize-normal;
+    text-align: $text-direction;
+}
+
+
+//----------------------------------------------------
+//ovverrides: forms
+.form-group{
+    margin-bottom: ($lineheight / 2);
+}
+label{
+    margin-bottom: 0;font-weight: normal;
+}
+.form-control{
+    height: ($lineheight * 1.5);padding: 0 1rem;line-height: ($lineheight * 1.5);font-size: $fsize-sm;
+}
+
+.form-lg{
+    .form-group{
+        margin-bottom: ($lineheight);
+    }
+    label{
+        font-size: $fsize-md;
+    }
+    .form-control{
+        height: ($lineheight * 2);line-height: ($lineheight * 2);
+    }
+    .submit-group{
+        margin: ($lineheight * 2) 0 $lineheight;
+    }
+}
+.checkbox-primary{
+    margin-#{$text-reverse}: .5rem;
+    input[type="checkbox"]{
+        + label{
+            width: $lineheight;height: $lineheight;
+        }
+    }
+}
+.submit-group{
+    margin: $lineheight 0;
+}
+.form-group-button{
+    position: relative;padding-#{$text-reverse}: ($lineheight * 1.5);
+    > .btn{
+        position: absolute;top: 0;#{$text-reverse}: 0;
+    }
+    .form-control{
+        text-align: $text-reverse;
+    }
+}
+
+//----------------------------------------------------
+//ovverrides: buttons
+.btn{
+    font-size: $fsize-normal;line-height: $lineheight;padding: ($lineheight / 6) .9rem (($lineheight / 6) + .1rem);font-family: $font-family;
+    &.btn-lg{
+        font-size: $fsize-lg;padding: (($lineheight / 2) - .1rem) .9rem;
+    }
+    &.btn-sm{
+        font-size: $fsize-sm;
+    }
+}
+.btn-round{
+    width: ($lineheight * 1.5);height: ($lineheight * 1.5);padding: 0;line-height: ($lineheight * 1.5);
+}
+.btn-iconed{
+    width: ($lineheight * 1.5);height: ($lineheight * 1.5);padding: 0;line-height: ($lineheight * 1.5);
+}
+.btn-hasicon{
+    padding: 0;
+}
+
+//----------------------------------------------------
+//ovverrides: tables
+th{
+    text-align: $text-direction;
+}
+.table{
+    margin-bottom: $lineheight;font-size: $fsize-normal;
+    > thead{
+        > tr{
+            th{
+                border-bottom-width: .1rem;border-bottom-style: solid;padding: ($lineheight) 1rem ($lineheight - .1rem);line-height: $lineheight;font-weight: normal;font-size: $fsize-h2;
+            }
+        }
+    }
+    > tbody{
+        > tr{
+            td{
+                border-bottom-width: .1rem;border-bottom-style: solid;padding: (($lineheight / 6) + .1rem) 1rem;line-height: ($lineheight * 1.5);font-weight: normal;border-top: 0;
+
+                &:first-of-type{
+                    padding-#{$text-direction}: 1.5rem;
+                }
+            }
+        }
+    }
+}
+
+//----------------------------------------------------
+//misc
+.text-left{
+    text-align: $text-direction;
+}
+.text-right{
+    text-align: $text-reverse;
+}
+
+
+//----------------------------------------------------
+.avatar-holder{
+    float: $text-direction;
+}
+.header-tools{
+    float: $text-reverse;
+}
+
+
+//----------------------------------------------------
+.toolsarea-level1{
+    padding: ($lineheight / 2) 0;
+    .breadcrumb{
+        float: $text-direction;font-size: $fsize-sm;
+        > li{
+            margin: ($lineheight / 4) 0 ($lineheight / 4);
+        }
+    }
+}
+.tools-level1{
+    float: $text-reverse;
+}
+
+.toolsarea-level2{
+    padding: ($lineheight / 4) 0;
+}
+
+//----------------------------------------------------
+.panel{
+    margin-bottom: $lineheight;
+}
+.panel-heading{
+    padding: ($lineheight / 2) 1.4rem (($lineheight / 2) - .1rem);margin: 0 -.1rem;font-size: $fsize-lg;
+}
+.panel-title{
+    float: $text-direction;
+}
+.panel-body{
+    padding: ($lineheight / 2) 1.5rem;
+}
+
+.panel-secondary{
+    > .panel-heading{
+        padding: ($lineheight) 1.5rem;text-align: center;
+        > .panel-title{
+            float: none;font-size: $fsize-h1;text-transform: uppercase;
+        }
+    }
+    > .panel-body{
+        padding: ($lineheight) 3rem;
+    }
+}
+
+//----------------------------------------------------
+.logo-container{
+    margin: ($lineheight * 2) 0 $lineheight;
+}
+
+//----------------------------------------------------
+.wrapper-header{
+    padding: ($lineheight / 2) 0;
+}
+.logo{
+    float: $text-direction;
+}
+
+//----------------------------------------------------
+.wrapper-main{
+    padding: $lineheight 3rem 0;
+}

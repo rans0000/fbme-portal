@@ -1,0 +1,245 @@
+/*all structure & color related styles should go here*/
+
+@import 'variables';
+
+
+html{
+    font-size: 62.5%;min-height: 100%;height: 100%;
+}
+body{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    background: $color-bg;height: 100%;color: $color-copy1;
+}
+%clearfix{
+    &:after{
+        content: '.';display: block;height: 0;clear: both;visibility: hidden;
+    }
+}
+.wrapper-all{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+}
+.wrapper-inner{
+    @extend %clearfix;
+    padding: 0 30px;
+}
+
+
+//----------------------------------------------------
+//links
+a{
+    color: $color-link;text-decoration: underline;transition: .3s;
+    &:hover, &:focus{
+        color: $color-secondary;
+    }
+}
+
+//----------------------------------------------------
+//ovverrides: forms
+label{
+}
+.form-control{
+    box-shadow: none;color: $color-copy2;border-radius: .2rem;
+}
+.form-lg{
+    .form-control{
+        border-radius: 0;
+    }
+}
+.checkbox-primary{
+    display: inline-block;vertical-align: bottom;
+    input[type="checkbox"]{
+        width: 0;height: 0;display: block;margin: 0;padding: 0;overflow: hidden;
+        + label{
+            display: block;background-color: $color-neutral;border: .1rem solid $color-border;text-indent: 100%;overflow: hidden;white-space: nowrap;position: relative;font-family: 'Glyphicons Halflings';-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;user-select: none;cursor: pointer;
+
+            &:before{
+                content: "\e013";color: $color-neutral;opacity: 0;position: absolute;top: -.1rem;left: .1rem;text-indent: 0;transition: .3s opacity;
+            }
+        }
+        &:checked + label{
+            background-color: $color-primary;border-color: $color-primary;
+            &:before{
+                content: "\e013";color: $color-neutral;opacity: 1;
+            }
+        }
+    }
+}
+.form-group-button{
+    > .btn{
+        //border-radius: 0 .2rem .2rem 0;
+    }
+}
+
+//----------------------------------------------------
+//ovverrides: buttons
+.btn{
+    border-radius: .2rem;border-width: .1rem;transition: .3s;
+    &:hover, &:focus{
+        color: $color-neutral;border-color: $color-secondary;background-color: $color-secondary;
+    }
+    &.btn-lg{
+        border-radius: 0;
+    }
+}
+.btn-primary{
+    color: $color-neutral;background-color: $color-primary;border-color: $color-primary;
+}
+.btn-link{
+    color: $color-link;
+    &:hover, &:focus{
+        background-color: transparent;border-color: transparent;color: $color-secondary;
+    }
+}
+.btn-round{
+    border: .1rem solid $color-border;background: $color-neutral;border-radius: 50%;
+}
+.btn-iconed{
+    border: .1rem solid $color-border;background: $color-neutral;border-radius: .2rem;
+}
+
+//----------------------------------------------------
+//ovverrides: tables
+
+.table{
+    background: $color-neutral;color: $color-copy2;
+    > thead{
+        > tr{
+            th{
+                border-bottom-color: $color-border;
+            }
+        }
+    }
+    > tbody{
+        > tr{
+            td{
+                border-bottom-color: $color-border;
+            }
+        }
+    }
+}
+.table-hover{
+    > tbody{
+        > tr:hover{
+            background-color: lighten($color-border, 10%);
+        }
+    }
+}
+
+//----------------------------------------------------
+//panels
+.panel{
+    background: $color-neutral;border-radius: .3rem;
+}
+.panel-heading{
+    @extend %clearfix;
+    color: $color-copy2;border-bottom: .1rem solid $color-border;
+}
+.panel-secondary{
+    > .panel-heading{
+        color: $color-copy2;
+    }
+}
+
+//----------------------------------------------------
+.wrapper-header{
+    margin: 0 -15px;background: $color-neutral;border-bottom: .1rem solid $color-border;
+}
+
+//----------------------------------------------------
+.header-tools{
+    @extend %clearfix;
+    list-style-type: none;padding: 0;margin: 0;
+    > .tools-item{
+        display: inline-block;vertical-align: middle;
+    }
+}
+.user-area{
+
+}
+.avatar-holder{
+    width: 2.5rem;height: ($lineheight * 1.5);
+}
+
+//----------------------------------------------------
+.wrapper-container{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin: 0 -15px;
+}
+
+.toolsarea-level1{
+    background: $color-neutral;border-bottom: .1rem solid $color-border;
+
+    .breadcrumb{
+        margin: 0;padding: 0;background-color: transparent;
+        a{
+            text-decoration: none;
+        }
+    }
+}
+.tools-level1{
+    margin: 0;padding: 0;
+    > .tools-item{
+        display: inline-block;vertical-align: middle;
+    }
+}
+
+.toolsarea-level2{
+    background: $color-border;
+}
+.tools-level2{
+    margin: 0;padding: 0;
+    > .tools-item{
+        display: inline-block;
+    }
+}
+
+
+//----------------------------------------------------
+.app-area{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    flex-grow: 1;
+}
+
+//----------------------------------------------------
+.wrapper-sidenav{
+    flex-basis: $sidenav-width;background-color: $color-alt;color: $color-neutral;
+}
+
+//----------------------------------------------------
+.wrapper-main{
+    flex-grow: 1;
+    flex-basis: 100%;
+}
+
+//----------------------------------------------------
+.login-container{
+    width: 40rem;max-width: 100%;margin: auto;
+}
+.logo-container{
+    text-align: center;
+}
+
+//----------------------------------------------------
+.wrapper-footer{
+    text-align: center;
+}
