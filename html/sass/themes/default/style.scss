@@ -4,7 +4,7 @@
 
 
 html{
-    font-size: 62.5%;min-height: 100%;
+    font-size: 62.5%;min-height: 100%;height: 100%;
 }
 body{
     display: -webkit-flex;
@@ -12,7 +12,7 @@ body{
     display: -ms-flex;
     display: -o-flex;
     display: flex;
-    background: $bg-color;height: 100%;color: $color-copy1;
+    background: $color-bg;height: 100%;color: $color-copy1;
 }
 %clearfix{
     &:after{
@@ -222,7 +222,7 @@ label{
 
 //----------------------------------------------------
 .wrapper-sidenav{
-    flex-basis: $sidenav-width;
+    flex-basis: $sidenav-width;background-color: $color-alt;color: $color-neutral;
 }
 
 //----------------------------------------------------
