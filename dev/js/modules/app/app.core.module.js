@@ -9,7 +9,8 @@
         'ui.router',
         'ui.bootstrap',
         'ui.bootstrap.contextMenu',
-        'login.module'
+        'login.module',
+        'role.module'
     ])
         .config(routerConfiguration)
         .config(debugConfiguration)
@@ -31,7 +32,7 @@
             abstract: true,
             views: {
                 '': {
-                    templateUrl: 'js/modules/layout/contentArea/contentAreaTemplate.html'
+                    templateUrl: 'js/modules/contentArea/contentArea.template.html'
                 }/*,
                 'sidemenu@root': {
                     templateUrl: 'app/modules/layout/sidemenuArea/sidemenuTemplate.html',
@@ -40,6 +41,7 @@
                 }*/
             }
         });
+        $urlRouterProvider.otherwise('/login');
     }
 
     function jQueryService () {
