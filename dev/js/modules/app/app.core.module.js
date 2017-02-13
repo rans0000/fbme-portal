@@ -10,6 +10,7 @@
         'ui.bootstrap',
         'ui.bootstrap.contextMenu',
         'login.module',
+        'dashboard.module',
         'role.module'
     ])
         .config(routerConfiguration)
@@ -40,6 +41,12 @@
                     controllerAs: 'sidemenuVM'
                 }*/
             }
+        })
+        .state('dashboard', {
+            url: '/dashboard',
+            templateUrl: 'js/modules/dashboard/dashboard.template.html',
+            controller: 'DashboardController',
+            controllerAs: 'dashVM'
         });
         $urlRouterProvider.otherwise('/login');
     }
