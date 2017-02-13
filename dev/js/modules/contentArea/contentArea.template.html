@@ -1,5 +1,6 @@
-<!--Place holder for Content Area-->
-<div ui-view id="page-wrapper" class="page-wrapper"></div>
-
-<!--Placeholder for sidemenu Area-->
-<!--<section ui-view="sidemenu" class="sidebar-wrapper" ng-class="{'expanded': sidemenuVM.open}"></section>-->
+<div class="wrapper-container">
+    <!--header starts here-->
+    <header class="wrapper-header"  ui-view="headerArea"></header>
+    <!--header ends here-->
+    <div class="wrapper-container"  ui-view></div>
+</div>

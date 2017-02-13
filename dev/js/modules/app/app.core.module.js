@@ -8,6 +8,7 @@
     angular.module('app.core.module', [
         'ui.router',
         'ui.bootstrap',
+        'headerArea.module',
         'ui.bootstrap.contextMenu',
         'login.module',
         'dashboard.module',
@@ -34,12 +35,12 @@
             views: {
                 '': {
                     templateUrl: 'js/modules/contentArea/contentArea.template.html'
-                }/*,
-                'sidemenu@root': {
-                    templateUrl: 'app/modules/layout/sidemenuArea/sidemenuTemplate.html',
-                    controller: 'SidemenuController',
-                    controllerAs: 'sidemenuVM'
-                }*/
+                },
+                'headerArea@root': {
+                    templateUrl: 'js/modules/headerArea/headerArea.template.html',
+                    controller: 'HeaderAreaController',
+                    controllerAs: 'headerAreaVM'
+                }
             }
         })
         .state('dashboard', {

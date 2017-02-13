@@ -4,5 +4,5 @@
 (function(){
     'use strict';
 
-    angular.module('dashboard.module', []);
+    angular.module('headerArea.module', []);
 })();
