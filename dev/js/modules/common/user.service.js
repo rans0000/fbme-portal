@@ -12,6 +12,7 @@
         var currentUserProfile;
 
         userObj.saveCurrentUserProfile = saveCurrentUserProfile;
+        userObj.getAllCurrentUserProfile = getAllCurrentUserProfile;
         userObj.getCurrentUserProfile = getCurrentUserProfile;
         userObj.hasPermission = hasPermission;
 
@@ -25,8 +26,19 @@
             currentUserProfile.privilegeArray = currentUserProfile.privileges.split(',');
         }
         
-        function getCurrentUserProfile () {
+        function getAllCurrentUserProfile () {
             return angular.copy(currentUserProfile);
+        }
+        
+        function getCurrentUserProfile (property) {
+            var value;
+            if(currentUserProfile.hasOwnProperty){
+                value = currentUserProfile[property];
+            }
+            else{
+                throw {message: 'Missing property in Current user profile'};
+            }
+            return value;
         }
         
         function hasPermission (permissionString) {
