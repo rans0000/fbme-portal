@@ -1,0 +1,24 @@
+{
+    "header": {
+        "responseCode": "FD200",
+        "message": "Success",
+        "requestUrl": "/FDocs/api/auth/login.json"
+    },
+    "body": {
+        "items": [
+            {
+                "itemType": "User",
+                "id": "1",
+                "userName": "admin",
+                "firstName": "Administrator",
+                "middleName": "M",
+                "lastName": "L",
+                "roles": "Super Admin:1",
+                "roleValue": "511",
+                "privileges": "PERSONAL_DOCS,ADMIN,COLLABORATION_ADMIN,ROLE_MANAGEMENT,BRANCH_MANAGEMENT,DEPARTMENT_MANAGEMENT,SETTINGS_MANAGEMENT,USER_MANAGEMENT,USER_GROUP_MANAGEMENT",
+                "statusId": "1",
+                "status": "ACTIVE"
+            }
+        ]
+    }
+}

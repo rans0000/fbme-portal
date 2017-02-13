@@ -11,20 +11,20 @@
                         <h1 class="panel-title">Login</h1>
                     </header>
                     <div class="panel-body">
-                        <form class="form-lg" name="vm.formLogin" ng-submit="vm.onLoginSubmit()">
+                        <form class="form-lg" name="formLogin" data-ng-submit="login.onLoginSubmit()" novalidate>
                             <div class="form-group">
-                                <label>Username</label>
-                                <input type="text" class="form-control">
+                                <label for="inputUsername">Username</label>
+                                <input type="text" class="form-control" name="inputUsername" id="inputUsername" data-ng-model="login.user.name" required>
                             </div>
                             <div class="form-group">
-                                <label>Password</label>
-                                <input type="password" class="form-control">
+                                <label for="inputPassword">Password</label>
+                                <input type="password" class="form-control" name="inputPassword" id="inputPassword" data-ng-model="login.user.password" required>
                             </div>
                             <div class="form-group">
                                 <label>Language</label>
                                 <select class="form-control">
                                     <option value="en-US">English</option>
-                                    <option value="ar"></option>
+                                    <option value="ar">العَرَبِيَّة</option>
                                 </select>
                             </div>
                             <div class="submit-group">

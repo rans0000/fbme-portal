@@ -7,12 +7,15 @@
     angular.module('login.module')
         .controller('LoginController', LoginController);
 
-    LoginController.$inject = ['$state'];
+    LoginController.$inject = ['$state', 'loginService'];
 
-    function LoginController ($state) {
+    function LoginController ($state, loginService) {
 
         var vm = this;
-        vm.status = true;
+        vm.user ={
+            name: '',
+            password: ''
+        };
 
         vm.onLoginSubmit = onLoginSubmit;
 
@@ -26,7 +29,21 @@
         }
 
         function onLoginSubmit () {
-            $state.go('dashboard');
-        }        
+            var isValid = loginService.validateLoginForm(vm.user);
+            if(isValid){
+                loginService.requestLogin(vm.user)
+                    .then(onLoginSuccess)
+                    .catch(onLoginError);
+            }
+        }
+
+        function onLoginSuccess (response) {
+            console.log(response);
+            //$state.go('dashboard');
+        }
+
+        function onLoginError (error) {
+            console.log(error);
+        }
     }
 })();

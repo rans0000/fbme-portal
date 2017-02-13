@@ -15,6 +15,7 @@
         'role.module'
     ])
         .config(routerConfiguration)
+        .factory('httpRequestInterceptor', httpRequestInterceptor)
         .config(debugConfiguration)
         .factory('jQuery', jQueryService);
 
@@ -28,7 +29,7 @@
             url: '/login',
             templateUrl: 'js/modules/login/login.template.html',
             controller: 'LoginController',
-            controllerAs: 'vm'
+            controllerAs: 'login'
         })
             .state('root', {
             abstract: true,
@@ -43,13 +44,38 @@
                 }
             }
         })
-        .state('dashboard', {
+            .state('dashboard', {
             url: '/dashboard',
             templateUrl: 'js/modules/dashboard/dashboard.template.html',
             controller: 'DashboardController',
             controllerAs: 'vm'
         });
         $urlRouterProvider.otherwise('/login');
+    }
+    
+    httpRequestInterceptor.$inject = ['$q'];
+    function httpRequestInterceptor ($q) {
+        var interceptObject = {};
+        //interceptObject.request = interceptRequest;
+        interceptObject.response = interceptResponseSuccess;
+        interceptObject.responseError = interceptResponseError;
+        return interceptObject;
+
+        function interceptResponseSuccess (response) {
+            var returnValue;
+            //response.data.header.responseCode is FD200 for success
+            if(response.data.header && response.data.header.responseCode !== 'FD200'){
+                returnValue = $q.reject(response);
+            }
+            else{
+                returnValue = response.data.body? response.data.body : {};
+            }
+            return returnValue;
+        }
+
+        function interceptResponseError (response) {
+            return $q.reject(response);
+        }
     }
 
     function jQueryService () {

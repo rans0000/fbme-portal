@@ -6,11 +6,24 @@
     angular.module('login.module')
         .factory('loginService', loginService);
 
-    loginService.$inject = [];
+    loginService.$inject = ['$http', 'webServiceURL'];
 
-    function loginService () {
-        var loginObject = {};
-        return loginObject;
+    function loginService ($http, webServiceURL) {
+        var loginObj = {};
+        loginObj.validateLoginForm = validateLoginForm;
+        loginObj.requestLogin = requestLogin;
+        
+        return loginObj;
+        
+        function validateLoginForm (requestObj) {
+            var isValid = (requestObj.name.trim() && requestObj.password.trim())? true : false;
+            return isValid;
+        }
+        
+        function requestLogin (requestObj) {
+            var url = webServiceURL.apiBase + webServiceURL.login;
+            return $http.get(url, requestObj);
+        }
 
     }
 })();
