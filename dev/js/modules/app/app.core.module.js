@@ -27,7 +27,7 @@
             url: '/login',
             templateUrl: 'js/modules/login/login.template.html',
             controller: 'LoginController',
-            controllerAs: 'loginVM'
+            controllerAs: 'vm'
         })
             .state('root', {
             abstract: true,
@@ -46,7 +46,7 @@
             url: '/dashboard',
             templateUrl: 'js/modules/dashboard/dashboard.template.html',
             controller: 'DashboardController',
-            controllerAs: 'dashVM'
+            controllerAs: 'vm'
         });
         $urlRouterProvider.otherwise('/login');
     }

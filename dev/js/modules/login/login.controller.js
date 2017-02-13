@@ -7,14 +7,26 @@
     angular.module('login.module')
         .controller('LoginController', LoginController);
 
-    LoginController.$inject = [];
+    LoginController.$inject = ['$state'];
 
-    function LoginController () {
+    function LoginController ($state) {
 
         var vm = this;
         vm.status = true;
 
+        vm.onLoginSubmit = onLoginSubmit;
+
+        init();
+
         //--------------------------------------
         //function declarations
+
+        function init () {
+
+        }
+
+        function onLoginSubmit () {
+            $state.go('dashboard');
+        }        
     }
 })();

@@ -11,7 +11,7 @@
                         <h1 class="panel-title">Login</h1>
                     </header>
                     <div class="panel-body">
-                        <form class="form-lg">
+                        <form class="form-lg" name="vm.formLogin" ng-submit="vm.onLoginSubmit()">
                             <div class="form-group">
                                 <label>Username</label>
                                 <input type="text" class="form-control">
@@ -28,7 +28,7 @@
                                 </select>
                             </div>
                             <div class="submit-group">
-                                <button type="button" class="btn btn-primary btn-lg btn-block">Login</button>
+                                <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
                             </div>
                             <a href="#">Forgot Password?</a>
                         </form>
