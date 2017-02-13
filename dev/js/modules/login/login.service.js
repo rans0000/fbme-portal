@@ -6,12 +6,13 @@
     angular.module('login.module')
         .factory('loginService', loginService);
 
-    loginService.$inject = ['$http', 'webServiceURL'];
+    loginService.$inject = ['$http', 'webServiceURL', 'userService'];
 
-    function loginService ($http, webServiceURL) {
+    function loginService ($http, webServiceURL, userService) {
         var loginObj = {};
         loginObj.validateLoginForm = validateLoginForm;
         loginObj.requestLogin = requestLogin;
+        loginObj.saveCurrentUserProfile = saveCurrentUserProfile;
         
         return loginObj;
         
@@ -23,6 +24,10 @@
         function requestLogin (requestObj) {
             var url = webServiceURL.apiBase + webServiceURL.login;
             return $http.post(url, requestObj);
+        }
+        
+        function saveCurrentUserProfile (userProfile) {
+            userService.saveCurrentUserProfile(userProfile);
         }
 
     }

@@ -39,7 +39,8 @@
 
         function onLoginSuccess (response) {
             console.log(response);
-            //$state.go('dashboard');
+            loginService.saveCurrentUserProfile(response.items[0]);
+            $state.go('dashboard');
         }
 
         function onLoginError (error) {
