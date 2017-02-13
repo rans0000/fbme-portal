@@ -15,14 +15,15 @@
         'role.module'
     ])
         .config(routerConfiguration)
-        .factory('httpRequestInterceptor', httpRequestInterceptor)
         .config(debugConfiguration)
+        .factory('httpRequestInterceptor', httpRequestInterceptor)
         .factory('jQuery', jQueryService);
 
 
-    routerConfiguration.$inject = ['$stateProvider', '$urlRouterProvider'];
-    function routerConfiguration ($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise('/');
+    routerConfiguration.$inject = ['$stateProvider', '$urlRouterProvider', '$httpProvider'];
+    function routerConfiguration ($stateProvider, $urlRouterProvider, $httpProvider) {
+        $urlRouterProvider.otherwise('/login');
+        $httpProvider.interceptors.push('httpRequestInterceptor');
 
         $stateProvider
             .state('login', {
@@ -50,11 +51,10 @@
             controller: 'DashboardController',
             controllerAs: 'vm'
         });
-        $urlRouterProvider.otherwise('/login');
     }
-    
-    httpRequestInterceptor.$inject = ['$q'];
-    function httpRequestInterceptor ($q) {
+
+    httpRequestInterceptor.$inject = ['$q', 'webServiceURL'];
+    function httpRequestInterceptor ($q, webServiceURL) {
         var interceptObject = {};
         //interceptObject.request = interceptRequest;
         interceptObject.response = interceptResponseSuccess;
@@ -62,13 +62,15 @@
         return interceptObject;
 
         function interceptResponseSuccess (response) {
-            var returnValue;
-            //response.data.header.responseCode is FD200 for success
-            if(response.data.header && response.data.header.responseCode !== 'FD200'){
-                returnValue = $q.reject(response);
-            }
-            else{
-                returnValue = response.data.body? response.data.body : {};
+            var returnValue = response;
+            if(response.config.url.startsWith(webServiceURL.apiBase + 'api/')){
+                //response.data.header.responseCode is FD200 for success
+                if(response.data.header && response.data.header.responseCode !== 'FD200'){
+                    returnValue = $q.reject(response);
+                }
+                else{
+                    returnValue = response.data.body? response.data.body : {};
+                }
             }
             return returnValue;
         }

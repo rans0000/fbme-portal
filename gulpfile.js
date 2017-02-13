@@ -3,6 +3,7 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
+var mockServer = require('gulp-mock-server');
 
 var mode = 'dev/';
 
@@ -16,6 +17,13 @@ gulp.task('sass', function () {
         .pipe(gulp.dest(mode + 'css'));
 });
 
+gulp.task('mock', function() {
+    gulp.src('.')
+        .pipe(mockServer({
+        port: 8090,
+        allowCrossOrigin: true
+    }));
+});
 
 gulp.task('watch', function () {
     //gulp.watch('images/sprites/**/*.png', ['sprite']);

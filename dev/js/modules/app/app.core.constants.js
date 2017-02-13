@@ -9,8 +9,8 @@
     
     function getWebServiceURL () {
         var temp = {
-            apiBase: 'http://127.0.0.1:8080/',
-            login: 'api/auth/login.json'
+            apiBase: 'http://localhost:8090/',
+            login: 'api/auth/login'
         };
         return temp;
     }

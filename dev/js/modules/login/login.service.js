@@ -22,7 +22,7 @@
         
         function requestLogin (requestObj) {
             var url = webServiceURL.apiBase + webServiceURL.login;
-            return $http.get(url, requestObj);
+            return $http.post(url, requestObj);
         }
 
     }
