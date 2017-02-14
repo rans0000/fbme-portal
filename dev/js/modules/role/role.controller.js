@@ -26,6 +26,10 @@
         }
 
         function onAllAPISuccess () {
+            loadRoleList();
+        }
+
+        function loadRoleList () {
             roleService.loadRoleList()
                 .then(onLoadRoleListSuccess)
                 .catch(onLoadRoleListError);
@@ -44,7 +48,7 @@
             vm.deletePopupData = getDeletePopupData();
             vm.deletePopupData.successResult = roleItem.id;
             vm.deletePopupData.description = 'Do you want to delete this role (' + roleItem.name + ')?';
-            
+
             var modalInstance = $uibModal.open({
                 ariaLabelledBy: 'modal-title',
                 ariaDescribedBy: 'modal-body',
@@ -79,7 +83,21 @@
             var requestObj = {
                 ids: [roleId]
             };
-            roleService.deleteRole(requestObj);
+            roleService.deleteRole(requestObj)
+                .then(onDeleteRoleSuccess)
+                .catch(onDeleteRoleError);
+        }
+
+        function onDeleteRoleSuccess (response) {
+            //@TODO: display success notification
+            console.log(response);
+            //reload role table
+            loadRoleList();
+        }
+
+        function onDeleteRoleError (error) {
+            //@TODO: display error notification
+            console.log(error);
         }
     }
 })();
