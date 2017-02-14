@@ -114,6 +114,7 @@ label{
     background: $color-neutral;color: $color-copy2;
     > thead{
         > tr{
+            transition: .3s;
             th{
                 border-bottom-color: $color-border;
             }

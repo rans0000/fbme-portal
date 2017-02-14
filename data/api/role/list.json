@@ -1,0 +1,47 @@
+{
+    "header": {
+        "responseCode": "FD200",
+        "message": "Success",
+        "requestUrl": "/FDocs/api/role/list.json"
+    },
+    "body": {
+        "currentPage": 1,
+        "totalNumItems": 2,
+        "totalNumPages": 1,
+        "pageSize": 30,
+        "items": [
+            {
+                "itemType": "Role",
+                "id": "3",
+                "name": "TestRole",
+                "description": "Test Description",
+                "value": "7",
+                "createdById": "1",
+                "createdByUserName": "admin",
+                "createdByFirstName": "Administrator",
+                "createdByMiddleName": "M",
+                "createdByLastName": "L",
+                "createdDate": "2017-01-15T09:30:52Z"
+            },
+            {
+                "itemType": "Role",
+                "id": "4",
+                "name": "TestRole34",
+                "description": "Test Description",
+                "value": "7",
+                "createdById": "1",
+                "createdByUserName": "admin",
+                "createdByFirstName": "Administrator",
+                "createdByMiddleName": "M",
+                "createdByLastName": "L",
+                "createdDate": "2017-01-15T20:33:52Z",
+                "modifiedById": "1",
+                "modifiedByUserName": "admin",
+                "modifiedByFirstName": "Administrator",
+                "modifiedByMiddleName": "M",
+                "modifiedByLastName": "L",
+                "modifiedDate": "2017-01-15T20:37:12Z"
+            }
+        ]
+    }
+}

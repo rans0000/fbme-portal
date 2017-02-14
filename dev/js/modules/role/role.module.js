@@ -14,7 +14,7 @@
             url: '/role/list',
             templateUrl: 'js/modules/role/role.template.html',
             controller: 'RoleController',
-            controllerAs: 'vm'
+            controllerAs: 'role'
         });
     }
 })();

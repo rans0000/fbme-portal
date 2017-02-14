@@ -77,20 +77,16 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th>Heading #</th>
-                            <th>Heading #</th>
-                            <th class="text-right">Heading #</th>
-                            <th>Heading #</th>
-                            <th>Heading #</th>
+                            <th>Role Name</th>
+                            <th class="text-right">Created Date</th>
+                            <th class="text-right">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>label</td>
-                            <td>Title content 1</td>
-                            <td class="text-right">9875.00</td>
-                            <td>23/2/2017</td>
-                            <td>
+                        <tr data-ng-repeat="item in role.roleList">
+                            <td data-ng-bind="item.name"></td>
+                            <td class="text-right" data-ng-bind="item.createdDate | date"></td>
+                            <td class="text-right">
                                 <button type="button" class="btn btn-iconed" title="Edit">
                                     <span class="glyphicon glyphicon-edit"></span>
                                     <span class="sr-only">Edit</span>
