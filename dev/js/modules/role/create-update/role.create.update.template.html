@@ -1,0 +1,25 @@
+<div class="modal-header">
+    <h1 class="modal-title" id="modal-title" ng-bind="roleDialog.data.headingText">Heading</h1>
+</div>
+<div class="modal-body" id="modal-body">
+    <uib-tabset active="active">
+        <uib-tab index="0" heading="Static title">
+            <div class="row">
+                <div class="col-md-12">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, quis. Eum illo veritatis nemo dolor sunt totam rem amet harum quasi laborum optio quam soluta pariatur, placeat tempora, nihil? Aut.</p>
+                    <button class="btn btn-primary" type="button" data-ng-click="roleDialog.ok()" ng-bind="roleDialog.data.confirmText">OK</button>
+                    <button class="btn btn-warning" type="button" data-ng-click="roleDialog.cancel()" ng-bind="roleDialog.data.cancelText">Cancel</button>
+                </div>
+            </div>
+        </uib-tab>
+        <uib-tab index="1" heading="Static2 title">
+            <div class="row">
+                <div class="col-md-12">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae eligendi fugiat expedita cupiditate neque rem aspernatur, corrupti, veritatis iusto vel eum quas minima blanditiis laboriosam voluptatum consequatur. Vero, soluta, unde!</p>
+                    <button class="btn btn-primary" type="button" data-ng-click="roleDialog.ok()" ng-bind="roleDialog.data.confirmText">OK</button>
+                    <button class="btn btn-warning" type="button" data-ng-click="roleDialog.cancel()" ng-bind="roleDialog.data.cancelText">Cancel</button>
+                </div>
+            </div>
+        </uib-tab>
+    </uib-tabset>
+</div>

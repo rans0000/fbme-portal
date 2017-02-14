@@ -16,8 +16,10 @@
         vm.deletePopupData = {};
 
         vm.onDeleteRoleInitiate = onDeleteRoleInitiate;
+        vm.onUpdateRoleInitiate = onUpdateRoleInitiate;
 
         init();
+        
         //--------------------------------------
         //function declarations
 
@@ -52,7 +54,6 @@
             var modalInstance = $uibModal.open({
                 ariaLabelledBy: 'modal-title',
                 ariaDescribedBy: 'modal-body',
-                //templateUrl: 'myModalContent.html',
                 templateUrl: 'js/modules/common/confirmDialog/confirm.dialog.template.html',
                 controller: 'ModalInstanceCtrl',
                 controllerAs: '$ctrl',
@@ -98,6 +99,27 @@
         function onDeleteRoleError (error) {
             //@TODO: display error notification
             console.log(error);
+        }
+        
+        function onUpdateRoleInitiate () {
+            var modalInstance = $uibModal.open({
+                ariaLabelledBy: 'modal-title',
+                ariaDescribedBy: 'modal-body',
+                templateUrl: 'js/modules/role/create-update/role.create.update.template.html',
+                controller: 'RoleCreateUpdateController',
+                controllerAs: 'roleDialog',
+                resolve: {
+                    dialogData: function () {
+                        return vm.deletePopupData;
+                    }
+                }
+            });
+            
+            modalInstance.result.then(updateRole);
+        }
+        
+        function updateRole (roleObject) {
+            console.log(roleObject);
         }
     }
 })();
