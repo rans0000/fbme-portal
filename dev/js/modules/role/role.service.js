@@ -11,6 +11,7 @@
     function roleService ($http, webServiceURL) {
         var roleObject = {};
         roleObject.loadRoleList = loadRoleList;
+        roleObject.deleteRole = deleteRole;
 
         return roleObject;
 
@@ -33,6 +34,11 @@
                 createdDateTo: toDate.toISOString().substring(0,19)
             };
             return $http.get(url, requestObj);
+        }
+        
+        function deleteRole (requestObj) {
+            var url = webServiceURL.apiBase + webServiceURL.roledelete;
+            return $http.post(url, requestObj);
         }
     }
 })();
