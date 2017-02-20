@@ -32,27 +32,44 @@
         <uib-tab index="1" heading="Permission &amp; Priviliges" disable="!roleDialog.validateRoleDetail()">
             <div class="row">
                 <div class="col-md-12">
-                    <form>
+                    <form class="form-lg">
                         <div class="row">
                             <div class="col-xs-5">
                                 <fieldset>
-                                    <ul>
-                                        <li>
-                                            <input type="checkbox" id="id1"><label for="id1">text1</label>
-                                        </li>
-                                        <li>
-                                            <input type="checkbox" id="id2"><label for="id2">text1</label>
+                                    <ul class="list-unstyled">
+                                        <li data-ng-repeat="(item, enabled) in roleDialog.unselectedPermissions">
+                                            <input type="checkbox" id="{{inputUnselectedRoles}}{{$index}}" name="inputUnselectedRoles" data-ng-model="roleDialog.unselectedPermissions[item]">
+                                            <label for="{{inputUnselectedRoles}}{{$index}}">{{item}}</label>
                                         </li>
                                     </ul>
                                 </fieldset>
                             </div>
                             <div class="col-xs-2">
-                                <button type="button" class="btn btn-primary btn-sm btn-block">&rarr;</button>
-                                <button type="button" class="btn btn-primary btn-sm btn-block">&rArr;</button>
-                                <button type="button" class="btn btn-primary btn-sm btn-block">&larr;</button>
-                                <button type="button" class="btn btn-primary btn-sm btn-block">&lArr;</button>
+                                <button type="button" class="btn btn-primary btn-sm btn-block" ng-click="roleDialog.movePermissions(roleDialog.unselectedPermissions, roleDialog.selectedPermissions)">&rarr;</button>
+                                <button type="button" class="btn btn-primary btn-sm btn-block" ng-click="roleDialog.movePermissions(roleDialog.unselectedPermissions, roleDialog.selectedPermissions, true)">&rArr;</button>
+                                <button type="button" class="btn btn-primary btn-sm btn-block" ng-click="roleDialog.movePermissions(roleDialog.selectedPermissions, roleDialog.unselectedPermissions)">&larr;</button>
+                                <button type="button" class="btn btn-primary btn-sm btn-block" ng-click="roleDialog.movePermissions(roleDialog.selectedPermissions, roleDialog.unselectedPermissions, true)">&lArr;</button>
                             </div>
-                            <div class="col-xs-5"></div>
+                            <div class="col-xs-5">
+                                <fieldset>
+                                    <ul class="list-unstyled">
+                                        <li data-ng-repeat="(item, enabled) in roleDialog.selectedPermissions">
+                                            <input type="checkbox" id="{{inputSelectedRoles}}{{$index}}" name="inputSelectedRoles" data-ng-model="roleDialog.selectedPermissions[item]">
+                                            <label for="{{inputSelectedRoles}}{{$index}}">{{item}}</label>
+                                        </li>
+                                    </ul>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="submit-group">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <button type="button" class="btn btn-primary btn-lg btn-block" data-ng-click="roleDialog.ok()" ng-bind="roleDialog.data.confirmText" data-ng-disabled="!roleDialog.validateRoleDetail()">OK</button>
+                                </div>
+                                <div class="col-sm-6">
+                                    <button type="button" class="btn btn-default btn-lg btn-block" data-ng-click="roleDialog.cancel()" ng-bind="roleDialog.data.cancelText">Cancel</button>
+                                </div>
+                            </div>
                         </div>
                     </form>
                 </div>
