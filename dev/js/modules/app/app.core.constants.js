@@ -21,17 +21,17 @@
     }
 
     function getPermissions () {
-        var temp = [
-            {name: 'PERSONAL_DOCS', id: 1},
-            {name: 'ADMIN', id: 2},
-            {name: 'COLLABORATION_ADMIN', id: 4},
-            {name: 'ROLE_MANAGEMENT', id: 8},
-            {name: 'BRANCH_MANAGEMENT', id: 16},
-            {name: 'DEPARTMENT_MANAGEMENT', id: 32},
-            {name: 'SETTINGS_MANAGEMENT', id: 64},
-            {name: 'USER_MANAGEMENT', id: 128},
-            {name: 'USER_GROUP_MANAGEMENT', id: 256}
-        ];
+        var temp = {
+            PERSONAL_DOCS: 1,
+            ADMIN: 2,
+            COLLABORATION_ADMIN: 4,
+            ROLE_MANAGEMENT: 8,
+            BRANCH_MANAGEMENT: 16,
+            DEPARTMENT_MANAGEMENT: 32,
+            SETTINGS_MANAGEMENT: 64,
+            USER_MANAGEMENT: 128,
+            USER_GROUP_MANAGEMENT: 256
+        };
         return temp;
     }
 

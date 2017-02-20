@@ -18,6 +18,7 @@
 
         vm.onDeleteRoleInitiate = onDeleteRoleInitiate;
         vm.onUpdateRoleInitiate = onUpdateRoleInitiate;
+        vm.onCreateRoleInitiate = onCreateRoleInitiate;
 
         init();
 
@@ -154,5 +155,33 @@
 
             return temp;
         }
+
+        function onCreateRoleInitiate () {
+            /*vm.createRolePopupData.item = {
+                name: '',
+                description: '',
+                privileges: ''
+            };
+            var modalInstance = $uibModal.open({
+                ariaLabelledBy: 'modal-title',
+                ariaDescribedBy: 'modal-body',
+                templateUrl: 'js/modules/role/create-update/role.create.update.template.html',
+                controller: 'RoleUpdateController',
+                controllerAs: 'roleDialog',
+                size: 'sm',
+                resolve: {
+                    dialogData: function () {
+                        return vm.createRolePopupData;
+                    }
+                }
+            });
+
+            modalInstance.result.then(onCreateRoleSuccess);*/
+        }
+
+        /*function onCreateRoleSuccess () {
+            //update tree
+            loadRoleList();
+        }*/
     }
 })();

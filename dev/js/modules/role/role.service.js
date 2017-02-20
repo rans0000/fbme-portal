@@ -6,14 +6,15 @@
     angular.module('role.module')
         .factory('roleService', roleService);
 
-    roleService.$inject = ['$http', 'webServiceURL'];
+    roleService.$inject = ['$http', 'webServiceURL', 'permissions'];
 
-    function roleService ($http, webServiceURL) {
+    function roleService ($http, webServiceURL, permissions) {
         var roleObject = {};
         roleObject.loadRoleList = loadRoleList;
         roleObject.loadRoleDetails = loadRoleDetails;
         roleObject.updateRole = updateRole;
         roleObject.deleteRole = deleteRole;
+        roleObject.getPermissionArray = getPermissionArray;
 
         return roleObject;
 
@@ -25,7 +26,7 @@
             var fromDate = new Date();
             var toDate = new Date(fromDate);
             toDate.setMonth(toDate.getMonth() -1);
-            
+
             requestObj = requestObj || {
                 page: 1,
                 pageSize: 30,
@@ -37,20 +38,37 @@
             };
             return $http.get(url, requestObj);
         }
-        
+
         function deleteRole (requestObj) {
             var url = webServiceURL.apiBase + webServiceURL.roledelete;
             return $http.post(url, requestObj);
         }
-        
+
         function updateRole (requestObj) {
             var url = webServiceURL.apiBase + webServiceURL.roleUpdate;
             return $http.post(url, requestObj);
         }
-        
+
         function loadRoleDetails (requestObj) {
             var url = webServiceURL.apiBase + webServiceURL.roleDetails;
             return $http.get(url, requestObj);
+        }
+
+        function getPermissionArray (privileges) {
+            var temp = privileges.split(',');
+            var returObj = {
+                unselected: {},
+                selected: {}
+            };
+            for(var key in permissions){
+                if(temp.indexOf(key) < 0){
+                    returObj.unselected[key] = false;
+                }
+                else{
+                    returObj.selected[key] = true;
+                }
+            }
+            return returObj;
         }
     }
 })();

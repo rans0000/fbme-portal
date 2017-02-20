@@ -6,19 +6,20 @@
     angular.module('app.core.module')
         .controller('RoleUpdateController', RoleUpdateController);
 
-    RoleUpdateController.$inject = ['$uibModalInstance', 'dialogData', 'permissions', 'roleService'];
+    RoleUpdateController.$inject = ['$uibModalInstance', 'dialogData', 'roleService'];
 
-    function RoleUpdateController ($uibModalInstance, dialogData, permissions, roleService) {
+    function RoleUpdateController ($uibModalInstance, dialogData, roleService) {
         var vm = this;
         vm.activeTab = 0;
         vm.data = dialogData;
         vm.role = {
-            name: '',
-            description: ''
+            name: dialogData.item.name,
+            description: dialogData.item.description
         };
-        vm.appPermissions = permissions;
-        vm.unselectedPermissions = {blue: false, green: true};
-        vm.selectedPermissions = {};
+        var permissionList = roleService.getPermissionArray(dialogData.item.privileges);
+        
+        vm.unselectedPermissions = permissionList.selected;
+        vm.selectedPermissions = permissionList.unselected;
 
         vm.validateRoleDetail = validateRoleDetail;
         vm.movePermissions = movePermissions;
@@ -31,7 +32,7 @@
 
         function validateRoleDetail () {
             var isValid =  ((vm.role.name) && (vm.role.description))? true : false;
-            return !isValid;
+            return isValid;
         }
 
         function movePermissions (item1, item2, forceMove) {
@@ -43,9 +44,6 @@
                     if(item1[key] || forceMove){
                         item2[key] = false;
                         delete item1[key];
-                    }
-                    else{
-                        item1[key] = false;
                     }
                 }
             }
