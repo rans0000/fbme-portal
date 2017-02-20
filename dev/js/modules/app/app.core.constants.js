@@ -14,6 +14,7 @@
             login: 'auth/login.json',
             roleList: 'role/list.json',
             roleDetails: 'role/details.json',
+            roleCreate: 'role/create.json',
             roleUpdate: 'role/update.json',
             roledelete: 'role/delete.json'
         };

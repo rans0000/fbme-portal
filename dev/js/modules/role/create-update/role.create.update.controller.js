@@ -17,13 +17,14 @@
             description: dialogData.item.description
         };
         var permissionList = roleService.getPermissionArray(dialogData.item.privileges);
-        
+        var mode = dialogData.mode;
+
         vm.unselectedPermissions = permissionList.selected;
         vm.selectedPermissions = permissionList.unselected;
 
         vm.validateRoleDetail = validateRoleDetail;
         vm.movePermissions = movePermissions;
-        vm.updateRole = updateRole;
+        vm.createUpdateRole = createUpdateRole;
         vm.nextTab = nextTab;
         vm.cancel = cancel;
 
@@ -56,21 +57,42 @@
             $uibModalInstance.dismiss(vm.data.cancelResult);
         }
 
+        function createUpdateRole () {
+            if(mode === 'create'){
+                createRole();
+            }
+            else{
+                updateRole();
+            }
+        }
+
+        function createRole () {
+            var privileges = createPermissionString(vm.selectedPermissions);
+            var requestObj = {
+                name: vm.role.name,
+                description: vm.role.description,
+                privileges: privileges
+            };
+            console.log(requestObj);
+            roleService.createRole(requestObj)
+                .then(onCreateRoleSuccess)
+                .catch(onCreateRoleError);
+        }
+
+        function onCreateRoleSuccess () {
+            $uibModalInstance.close();
+        }
+
+        function onCreateRoleError (error) {
+            console.log(error);
+        }
+
         function updateRole () {
-            var privileges = '';
-            var temp = [];
-            for(var key in vm.selectedPermissions){
-                if(vm.selectedPermissions.hasOwnProperty(key)){
-                    temp.push(key);
-                }
-            }
-            if(temp.length){
-                privileges = temp.join(',');
-            }
+            var privileges = createPermissionString(vm.selectedPermissions);
             var requestObj = {
                 id: vm.data.item.id,
-                name: vm.data.item.createdByUserName,
-                description: vm.data.item.description,
+                name: vm.role.name,
+                description: vm.role.description,
                 privileges: privileges
             };
             console.log(requestObj);
@@ -85,6 +107,21 @@
 
         function onUpdateRoleError (error) {
             console.log(error);
+        }
+
+        function createPermissionString (Obj) {
+            var privileges = '';
+            var temp = [];
+            for(var key in Obj){
+                if(Obj.hasOwnProperty(key)){
+                    temp.push(key);
+                }
+            }
+            if(temp.length){
+                privileges = temp.join(',');
+            }
+            
+            return privileges;
         }
     }
 })();

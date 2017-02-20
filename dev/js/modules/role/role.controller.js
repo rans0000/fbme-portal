@@ -151,6 +151,7 @@
                 cancelResult: 'cancel',
                 currentPermissions: [],
                 item: null,
+                mode: 'update',
                 translation: null
             };
 
@@ -195,6 +196,7 @@
                 cancelResult: 'cancel',
                 currentPermissions: [],
                 item: null,
+                mode: 'create',
                 translation: null
             };
 

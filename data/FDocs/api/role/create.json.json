@@ -1,0 +1,15 @@
+{
+    "header": {
+        "responseCode": "FD200",
+        "message": "Success",
+        "requestUrl": "/FDocs/api/role/create.json"
+    },
+    "body": {
+        "items": [
+            {
+                "itemType": "Role",
+                "id": "4"
+            }
+        ]
+    }
+}

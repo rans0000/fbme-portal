@@ -12,6 +12,7 @@
         var roleObject = {};
         roleObject.loadRoleList = loadRoleList;
         roleObject.loadRoleDetails = loadRoleDetails;
+        roleObject.createRole = createRole;
         roleObject.updateRole = updateRole;
         roleObject.deleteRole = deleteRole;
         roleObject.getPermissionArray = getPermissionArray;
@@ -41,6 +42,11 @@
 
         function deleteRole (requestObj) {
             var url = webServiceURL.apiBase + webServiceURL.roledelete;
+            return $http.post(url, requestObj);
+        }
+        
+        function createRole (requestObj) {
+            var url = webServiceURL.apiBase + webServiceURL.roleCreate;
             return $http.post(url, requestObj);
         }
 
