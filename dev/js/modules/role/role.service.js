@@ -62,10 +62,10 @@
             };
             for(var key in permissions){
                 if(temp.indexOf(key) < 0){
-                    returObj.unselected[key] = false;
+                    returObj.selected[key] = false;
                 }
                 else{
-                    returObj.selected[key] = true;
+                    returObj.unselected[key] = false;
                 }
             }
             return returObj;

@@ -15,6 +15,7 @@
         vm.roleList = [];
         vm.deletePopupData = {};
         vm.updateRolePopupData = getUpdateRolePopupData();
+        vm.createRolePopupData = getCreateRolePopupData();
 
         vm.onDeleteRoleInitiate = onDeleteRoleInitiate;
         vm.onUpdateRoleInitiate = onUpdateRoleInitiate;
@@ -157,7 +158,7 @@
         }
 
         function onCreateRoleInitiate () {
-            /*vm.createRolePopupData.item = {
+            vm.createRolePopupData.item = {
                 name: '',
                 description: '',
                 privileges: ''
@@ -176,12 +177,28 @@
                 }
             });
 
-            modalInstance.result.then(onCreateRoleSuccess);*/
+            modalInstance.result.then(onCreateRoleSuccess);
         }
 
-        /*function onCreateRoleSuccess () {
+        function onCreateRoleSuccess () {
             //update tree
             loadRoleList();
-        }*/
+        }
+
+        function getCreateRolePopupData () {
+            var temp = {
+                headingText: 'Create Role',
+                confirmText: 'Create',
+                cancelText: 'Cancel',
+                description: '',
+                successResult: '',
+                cancelResult: 'cancel',
+                currentPermissions: [],
+                item: null,
+                translation: null
+            };
+
+            return temp;
+        }
     }
 })();
