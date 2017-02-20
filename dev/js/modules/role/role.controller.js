@@ -21,7 +21,7 @@
         vm.onDeleteRoleInitiate = onDeleteRoleInitiate;
         vm.onUpdateRoleInitiate = onUpdateRoleInitiate;
         vm.onCreateRoleInitiate = onCreateRoleInitiate;
-        vm.onPageChangeInitiate = onPageChangeInitiate;
+        vm.loadRoleData = loadRoleData;
 
         init();
 
@@ -45,6 +45,7 @@
         function onLoadRoleListSuccess (response) {
             //console.log(response);
             vm.roleList = response.items;
+            vm.searchOptions.totalItems = response.totalNumPages;
         }
 
         function onLoadRoleListError (error) {
@@ -205,7 +206,7 @@
             return temp;
         }
         
-        function onPageChangeInitiate () {
+        function loadRoleData () {
             loadRoleList();
         }
 

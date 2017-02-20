@@ -13,10 +13,10 @@
                     <button type="button" class="btn btn-primary" data-ng-click="role.onCreateRoleInitiate()">Create Roles</button>
                 </li>
                 <li class="tools-item">
-                    <form action="#">
+                    <form data-ng-submit="role.loadRoleData()">
                         <div class="form-group-button">
-                            <input type="text" class="form-control headerSearch" id="headerSearch" placeholder="Role Search">
-                            <button type="button" class="btn btn-primary">
+                            <input type="text" class="form-control headerSearch" id="headerSearch" placeholder="Role Search" data-ng-model="role.searchOptions.searchText">
+                            <button type="submit" class="btn btn-primary">
                                 <span class="sr-only">Search</span>
                                 <span class="glyphicon glyphicon-search"></span>
                             </button>
@@ -90,7 +90,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <ul uib-pagination total-items="role.searchOptions.totalItems" ng-model="role.searchOptions.page" ng-change="role.onPageChangeInitiate()"></ul>
+                <ul uib-pagination total-items="role.searchOptions.totalItems" data-ng-model="role.searchOptions.page" data-ng-change="role.loadRoleData()"></ul>
             </div>
         </div>
     </main>

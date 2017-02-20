@@ -1,5 +1,5 @@
 <div class="modal-header">
-    <h1 class="modal-title" id="modal-title" ng-bind="roleDialog.data.headingText">Heading</h1>
+    <h1 class="modal-title" id="modal-title" data-ng-bind="roleDialog.data.headingText">Heading</h1>
 </div>
 <div class="modal-body" id="modal-body">
     <uib-tabset active="roleDialog.activeTab">
@@ -18,10 +18,10 @@
                         <div class="submit-group">
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <button type="button" class="btn btn-primary btn-lg btn-block" data-ng-click="roleDialog.nextTab()" ng-bind="roleDialog.data.confirmText" data-ng-disabled="!roleDialog.validateRoleDetail()">OK</button>
+                                    <button type="button" class="btn btn-primary btn-lg btn-block" data-ng-click="roleDialog.nextTab()" data-ng-bind="roleDialog.data.confirmText" data-ng-disabled="!roleDialog.validateRoleDetail()">OK</button>
                                 </div>
                                 <div class="col-sm-6">
-                                    <button type="button" class="btn btn-default btn-lg btn-block" data-ng-click="roleDialog.cancel()" ng-bind="roleDialog.data.cancelText">Cancel</button>
+                                    <button type="button" class="btn btn-default btn-lg btn-block" data-ng-click="roleDialog.cancel()" data-ng-bind="roleDialog.data.cancelText">Cancel</button>
                                 </div>
                             </div>
                         </div>
@@ -48,10 +48,10 @@
                                 </fieldset>
                             </div>
                             <div class="col-xs-2">
-                                <button type="button" class="btn btn-primary btn-sm btn-block" ng-click="roleDialog.movePermissions(roleDialog.unselectedPermissions, roleDialog.selectedPermissions)">&rarr;</button>
-                                <button type="button" class="btn btn-primary btn-sm btn-block" ng-click="roleDialog.movePermissions(roleDialog.unselectedPermissions, roleDialog.selectedPermissions, true)">&rArr;</button>
-                                <button type="button" class="btn btn-primary btn-sm btn-block" ng-click="roleDialog.movePermissions(roleDialog.selectedPermissions, roleDialog.unselectedPermissions)">&larr;</button>
-                                <button type="button" class="btn btn-primary btn-sm btn-block" ng-click="roleDialog.movePermissions(roleDialog.selectedPermissions, roleDialog.unselectedPermissions, true)">&lArr;</button>
+                                <button type="button" class="btn btn-primary btn-sm btn-block" data-ng-click="roleDialog.movePermissions(roleDialog.unselectedPermissions, roleDialog.selectedPermissions)">&rarr;</button>
+                                <button type="button" class="btn btn-primary btn-sm btn-block" data-ng-click="roleDialog.movePermissions(roleDialog.unselectedPermissions, roleDialog.selectedPermissions, true)">&rArr;</button>
+                                <button type="button" class="btn btn-primary btn-sm btn-block" data-ng-click="roleDialog.movePermissions(roleDialog.selectedPermissions, roleDialog.unselectedPermissions)">&larr;</button>
+                                <button type="button" class="btn btn-primary btn-sm btn-block" data-ng-click="roleDialog.movePermissions(roleDialog.selectedPermissions, roleDialog.unselectedPermissions, true)">&lArr;</button>
                             </div>
                             <div class="col-xs-5">
                                 <fieldset>
@@ -70,10 +70,10 @@
                         <div class="submit-group">
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <button type="button" class="btn btn-primary btn-lg btn-block" data-ng-click="roleDialog.createUpdateRole()" ng-bind="roleDialog.data.confirmText" data-ng-disabled="!roleDialog.validateRoleDetail()">OK</button>
+                                    <button type="button" class="btn btn-primary btn-lg btn-block" data-ng-click="roleDialog.createUpdateRole()" data-ng-bind="roleDialog.data.confirmText" data-ng-disabled="!roleDialog.validateRoleDetail()">OK</button>
                                 </div>
                                 <div class="col-sm-6">
-                                    <button type="button" class="btn btn-default btn-lg btn-block" data-ng-click="roleDialog.cancel()" ng-bind="roleDialog.data.cancelText">Cancel</button>
+                                    <button type="button" class="btn btn-default btn-lg btn-block" data-ng-click="roleDialog.cancel()" data-ng-bind="roleDialog.data.cancelText">Cancel</button>
                                 </div>
                             </div>
                         </div>
