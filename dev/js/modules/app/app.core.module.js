@@ -66,7 +66,7 @@
             if(response.config.url.startsWith(webServiceURL.apiBase + 'api/')){
                 //response.data.header.responseCode is FD200 for success
                 if(response.data.header && response.data.header.responseCode !== 'FD200'){
-                    returnValue = $q.reject(response);
+                    returnValue = $q.reject(response.data);
                 }
                 else{
                     returnValue = response.data.body? response.data.body : {};
@@ -76,7 +76,14 @@
         }
 
         function interceptResponseError (response) {
-            return $q.reject(response);
+            var errObj = {
+                header: {
+                    responseCode: response.status,
+                    message: response.statusText,
+                    requestUrl: response.config.url
+                }
+            };
+            return $q.reject(errObj);
         }
     }
 
