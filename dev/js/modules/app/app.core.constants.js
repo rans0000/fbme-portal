@@ -13,7 +13,7 @@
             apiBase: 'http://localhost:8090/',
             login: 'api/auth/login.json',
             roleList: 'api/role/list.json',
-            roleDetail: 'api/role/details.json',
+            roleDetails: 'api/role/details.json',
             roleUpdate: 'api/role/update.json',
             roledelete: 'api/role/delete.json'
         };

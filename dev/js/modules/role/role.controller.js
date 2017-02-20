@@ -103,6 +103,16 @@
         }
 
         function onUpdateRoleInitiate (item) {
+            var requestObj = {
+                id: item.id
+            };
+            roleService.loadRoleDetails(requestObj)
+                .then(onLoadRoleDetailsSuccess)
+                .catch(onLoadRoleDetailsError);
+        }
+
+        function onLoadRoleDetailsSuccess (response) {
+            vm.updateRolePopupData.item = response.items[0];
             var modalInstance = $uibModal.open({
                 ariaLabelledBy: 'modal-title',
                 ariaDescribedBy: 'modal-body',
@@ -117,11 +127,14 @@
                 }
             });
 
-            modalInstance.result.then(updateRole);
+            modalInstance.result.then(onUpdateRoleSuccess);
         }
-        
 
-        function updateRole () {
+        function onLoadRoleDetailsError (error) {
+            console.log(error);
+        }
+
+        function onUpdateRoleSuccess () {
             //update tree
             loadRoleList();
         }

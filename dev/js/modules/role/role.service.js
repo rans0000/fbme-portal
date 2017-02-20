@@ -11,8 +11,9 @@
     function roleService ($http, webServiceURL) {
         var roleObject = {};
         roleObject.loadRoleList = loadRoleList;
-        roleObject.deleteRole = deleteRole;
+        roleObject.loadRoleDetails = loadRoleDetails;
         roleObject.updateRole = updateRole;
+        roleObject.deleteRole = deleteRole;
 
         return roleObject;
 
@@ -45,6 +46,11 @@
         function updateRole (requestObj) {
             var url = webServiceURL.apiBase + webServiceURL.roleUpdate;
             return $http.post(url, requestObj);
+        }
+        
+        function loadRoleDetails (requestObj) {
+            var url = webServiceURL.apiBase + webServiceURL.roleDetails;
+            return $http.get(url, requestObj);
         }
     }
 })();
