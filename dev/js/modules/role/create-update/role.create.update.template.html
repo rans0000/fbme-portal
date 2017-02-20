@@ -18,7 +18,7 @@
                         <div class="submit-group">
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <button type="button" class="btn btn-primary btn-lg btn-block" data-ng-click="roleDialog.ok()" ng-bind="roleDialog.data.confirmText" data-ng-disabled="!roleDialog.validateRoleDetail()">OK</button>
+                                    <button type="button" class="btn btn-primary btn-lg btn-block" data-ng-click="roleDialog.nextTab()" ng-bind="roleDialog.data.confirmText" data-ng-disabled="!roleDialog.validateRoleDetail()">OK</button>
                                 </div>
                                 <div class="col-sm-6">
                                     <button type="button" class="btn btn-default btn-lg btn-block" data-ng-click="roleDialog.cancel()" ng-bind="roleDialog.data.cancelText">Cancel</button>
@@ -38,7 +38,10 @@
                                 <fieldset>
                                     <ul class="list-unstyled">
                                         <li data-ng-repeat="(item, enabled) in roleDialog.unselectedPermissions">
-                                            <input type="checkbox" id="{{inputUnselectedRoles}}{{$index}}" name="inputUnselectedRoles" data-ng-model="roleDialog.unselectedPermissions[item]">
+                                            <div class="checkbox-primary">
+                                                <input type="checkbox" id="{{inputUnselectedRoles}}{{$index}}" name="inputUnselectedRoles" data-ng-model="roleDialog.unselectedPermissions[item]">
+                                                <label for="{{inputUnselectedRoles}}{{$index}}">{{item}}</label>
+                                            </div>
                                             <label for="{{inputUnselectedRoles}}{{$index}}">{{item}}</label>
                                         </li>
                                     </ul>
@@ -54,7 +57,10 @@
                                 <fieldset>
                                     <ul class="list-unstyled">
                                         <li data-ng-repeat="(item, enabled) in roleDialog.selectedPermissions">
-                                            <input type="checkbox" id="{{inputSelectedRoles}}{{$index}}" name="inputSelectedRoles" data-ng-model="roleDialog.selectedPermissions[item]">
+                                            <div class="checkbox-primary">
+                                                <input type="checkbox" id="{{inputSelectedRoles}}{{$index}}" name="inputSelectedRoles" data-ng-model="roleDialog.selectedPermissions[item]">
+                                                <label for="{{inputSelectedRoles}}{{$index}}">{{item}}</label>
+                                            </div>
                                             <label for="{{inputSelectedRoles}}{{$index}}">{{item}}</label>
                                         </li>
                                     </ul>
@@ -64,7 +70,7 @@
                         <div class="submit-group">
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <button type="button" class="btn btn-primary btn-lg btn-block" data-ng-click="roleDialog.ok()" ng-bind="roleDialog.data.confirmText" data-ng-disabled="!roleDialog.validateRoleDetail()">OK</button>
+                                    <button type="button" class="btn btn-primary btn-lg btn-block" data-ng-click="roleDialog.updateRole()" ng-bind="roleDialog.data.confirmText" data-ng-disabled="!roleDialog.validateRoleDetail()">OK</button>
                                 </div>
                                 <div class="col-sm-6">
                                     <button type="button" class="btn btn-default btn-lg btn-block" data-ng-click="roleDialog.cancel()" ng-bind="roleDialog.data.cancelText">Cancel</button>

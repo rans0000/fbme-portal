@@ -78,7 +78,7 @@
                             <td data-ng-bind="item.name"></td>
                             <td class="text-right" data-ng-bind="item.createdDate | date"></td>
                             <td class="text-right">
-                                <button type="button" class="btn btn-iconed" title="Edit">
+                                <button type="button" class="btn btn-iconed" title="Edit" data-ng-click="role.onUpdateRoleInitiate(item)">
                                     <span class="glyphicon glyphicon-edit"></span>
                                     <span class="sr-only">Edit</span>
                                 </button>

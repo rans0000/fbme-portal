@@ -6,9 +6,9 @@
     angular.module('app.core.module')
         .controller('RoleUpdateController', RoleUpdateController);
 
-    RoleUpdateController.$inject = ['$uibModalInstance', 'dialogData', 'permissions'];
+    RoleUpdateController.$inject = ['$uibModalInstance', 'dialogData', 'permissions', 'roleService'];
 
-    function RoleUpdateController ($uibModalInstance, dialogData, permissions) {
+    function RoleUpdateController ($uibModalInstance, dialogData, permissions, roleService) {
         var vm = this;
         vm.activeTab = 0;
         vm.data = dialogData;
@@ -22,7 +22,8 @@
 
         vm.validateRoleDetail = validateRoleDetail;
         vm.movePermissions = movePermissions;
-        vm.ok = ok;
+        vm.updateRole = updateRole;
+        vm.nextTab = nextTab;
         vm.cancel = cancel;
 
         //--------------------------------------
@@ -50,11 +51,42 @@
             }
         }
 
-        function ok () {
-            $uibModalInstance.close(vm.data.successResult);
+        function nextTab () {
+            vm.activeTab = 1;
         }
         function cancel () {
             $uibModalInstance.dismiss(vm.data.cancelResult);
+        }
+
+        function updateRole () {
+            var privileges = '';
+            var temp = [];
+            for(var key in vm.selectedPermissions){
+                if(vm.selectedPermissions.hasOwnProperty(key)){
+                    temp.push(key);
+                }
+            }
+            if(temp.length){
+                privileges = temp.join(',');
+            }
+            var requestObj = {
+                id: vm.data.item.id,
+                name: vm.data.item.createdByUserName,
+                description: vm.data.item.description,
+                privileges: privileges
+            };
+            console.log(requestObj);
+            roleService.updateRole(requestObj)
+                .then(onUpdateRoleSuccess)
+                .catch(onUpdateRoleError);
+        }
+
+        function onUpdateRoleSuccess () {
+            $uibModalInstance.close();
+        }
+
+        function onUpdateRoleError (error) {
+            console.log(error);
         }
     }
 })();

@@ -39,7 +39,7 @@
         }
 
         function onLoadRoleListSuccess (response) {
-            console.log(response);
+            //console.log(response);
             vm.roleList = response.items;
         }
 
@@ -102,7 +102,7 @@
             console.log(error);
         }
 
-        function onUpdateRoleInitiate () {
+        function onUpdateRoleInitiate (item) {
             var modalInstance = $uibModal.open({
                 ariaLabelledBy: 'modal-title',
                 ariaDescribedBy: 'modal-body',
@@ -119,9 +119,11 @@
 
             modalInstance.result.then(updateRole);
         }
+        
 
-        function updateRole (roleObject) {
-            console.log(roleObject);
+        function updateRole () {
+            //update tree
+            loadRoleList();
         }
 
         function getUpdateRolePopupData () {
@@ -133,6 +135,7 @@
                 successResult: '',
                 cancelResult: 'cancel',
                 currentPermissions: [],
+                item: null,
                 translation: null
             };
 

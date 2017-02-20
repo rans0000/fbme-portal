@@ -1,0 +1,31 @@
+{
+    "header": {
+        "responseCode": "FD200",
+        "message": "Success",
+        "requestUrl": "/FDocs/api/role/details.json"
+    },
+    "body": {
+        "items": [
+            {
+                "itemType": "Role",
+                "id": "4",
+                "name": "TestRole34",
+                "description": "Test Description",
+                "privileges": "PERSONAL_DOCS,ADMIN,COLLABORATION_ADMIN",
+                "value": "7",
+                "createdById": "1",
+                "createdByUserName": "admin",
+                "createdByFirstName": "Administrator",
+                "createdByMiddleName": "M",
+                "createdByLastName": "L",
+                "createdDate": "2017-01-15-20-33-52",
+                "modifiedById": "1",
+                "modifiedByUserName": "admin",
+                "modifiedByFirstName": "Administrator",
+                "modifiedByMiddleName": "M",
+                "modifiedByLastName": "L",
+                "modifiedDate": "2017-01-15-20-37-12"
+            }
+        ]
+    }
+}
