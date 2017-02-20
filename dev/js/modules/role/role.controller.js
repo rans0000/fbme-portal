@@ -16,10 +16,12 @@
         vm.deletePopupData = {};
         vm.updateRolePopupData = getUpdateRolePopupData();
         vm.createRolePopupData = getCreateRolePopupData();
+        vm.searchOptions = getSearchOptions();
 
         vm.onDeleteRoleInitiate = onDeleteRoleInitiate;
         vm.onUpdateRoleInitiate = onUpdateRoleInitiate;
         vm.onCreateRoleInitiate = onCreateRoleInitiate;
+        vm.onPageChangeInitiate = onPageChangeInitiate;
 
         init();
 
@@ -35,7 +37,7 @@
         }
 
         function loadRoleList () {
-            roleService.loadRoleList()
+            roleService.loadRoleList(vm.searchOptions)
                 .then(onLoadRoleListSuccess)
                 .catch(onLoadRoleListError);
         }
@@ -200,6 +202,23 @@
                 translation: null
             };
 
+            return temp;
+        }
+        
+        function onPageChangeInitiate () {
+            loadRoleList();
+        }
+
+        function getSearchOptions () {
+            var temp ={
+                totalItems: 90,
+                page : 1,
+                pageSize: 30,
+                sortBy: 'name',
+                sortOrder: 'A',
+                searchText: '',
+                createdByUserIds: []
+            };
             return temp;
         }
     }
