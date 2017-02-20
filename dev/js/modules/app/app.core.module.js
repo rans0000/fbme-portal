@@ -63,7 +63,7 @@
 
         function interceptResponseSuccess (response) {
             var returnValue = response;
-            if(response.config.url.startsWith(webServiceURL.apiBase + 'api/')){
+            if(response.config.url.startsWith(webServiceURL.apiBase)){
                 //response.data.header.responseCode is FD200 for success
                 if(response.data.header && response.data.header.responseCode !== 'FD200'){
                     returnValue = $q.reject(response.data);
