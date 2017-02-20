@@ -2,22 +2,59 @@
     <h1 class="modal-title" id="modal-title" ng-bind="roleDialog.data.headingText">Heading</h1>
 </div>
 <div class="modal-body" id="modal-body">
-    <uib-tabset active="active">
-        <uib-tab index="0" heading="Static title">
+    <uib-tabset active="roleDialog.activeTab">
+        <uib-tab index="0" heading="Role Details">
             <div class="row">
                 <div class="col-md-12">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, quis. Eum illo veritatis nemo dolor sunt totam rem amet harum quasi laborum optio quam soluta pariatur, placeat tempora, nihil? Aut.</p>
-                    <button class="btn btn-primary" type="button" data-ng-click="roleDialog.ok()" ng-bind="roleDialog.data.confirmText">OK</button>
-                    <button class="btn btn-warning" type="button" data-ng-click="roleDialog.cancel()" ng-bind="roleDialog.data.cancelText">Cancel</button>
+                    <form class="form-lg">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" class="form-control" data-ng-model="roleDialog.role.name">
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea class="form-control" rows="4" cols="50" data-ng-model="roleDialog.role.description"></textarea>
+                        </div>
+                        <div class="submit-group">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <button type="button" class="btn btn-primary btn-lg btn-block" data-ng-click="roleDialog.ok()" ng-bind="roleDialog.data.confirmText" data-ng-disabled="!roleDialog.validateRoleDetail()">OK</button>
+                                </div>
+                                <div class="col-sm-6">
+                                    <button type="button" class="btn btn-default btn-lg btn-block" data-ng-click="roleDialog.cancel()" ng-bind="roleDialog.data.cancelText">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </uib-tab>
-        <uib-tab index="1" heading="Static2 title">
+        <uib-tab index="1" heading="Permission &amp; Priviliges" disable="!roleDialog.validateRoleDetail()">
             <div class="row">
                 <div class="col-md-12">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae eligendi fugiat expedita cupiditate neque rem aspernatur, corrupti, veritatis iusto vel eum quas minima blanditiis laboriosam voluptatum consequatur. Vero, soluta, unde!</p>
-                    <button class="btn btn-primary" type="button" data-ng-click="roleDialog.ok()" ng-bind="roleDialog.data.confirmText">OK</button>
-                    <button class="btn btn-warning" type="button" data-ng-click="roleDialog.cancel()" ng-bind="roleDialog.data.cancelText">Cancel</button>
+                    <form>
+                        <div class="row">
+                            <div class="col-xs-5">
+                                <fieldset>
+                                    <ul>
+                                        <li>
+                                            <input type="checkbox" id="id1"><label for="id1">text1</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="id2"><label for="id2">text1</label>
+                                        </li>
+                                    </ul>
+                                </fieldset>
+                            </div>
+                            <div class="col-xs-2">
+                                <button type="button" class="btn btn-primary btn-sm btn-block">&rarr;</button>
+                                <button type="button" class="btn btn-primary btn-sm btn-block">&rArr;</button>
+                                <button type="button" class="btn btn-primary btn-sm btn-block">&larr;</button>
+                                <button type="button" class="btn btn-primary btn-sm btn-block">&lArr;</button>
+                            </div>
+                            <div class="col-xs-5"></div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </uib-tab>

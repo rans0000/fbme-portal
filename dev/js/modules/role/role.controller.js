@@ -14,12 +14,13 @@
         var vm = this;
         vm.roleList = [];
         vm.deletePopupData = {};
+        vm.updateRolePopupData = getUpdateRolePopupData();
 
         vm.onDeleteRoleInitiate = onDeleteRoleInitiate;
         vm.onUpdateRoleInitiate = onUpdateRoleInitiate;
 
         init();
-        
+
         //--------------------------------------
         //function declarations
 
@@ -100,26 +101,42 @@
             //@TODO: display error notification
             console.log(error);
         }
-        
+
         function onUpdateRoleInitiate () {
             var modalInstance = $uibModal.open({
                 ariaLabelledBy: 'modal-title',
                 ariaDescribedBy: 'modal-body',
                 templateUrl: 'js/modules/role/create-update/role.create.update.template.html',
-                controller: 'RoleCreateUpdateController',
+                controller: 'RoleUpdateController',
                 controllerAs: 'roleDialog',
+                size: 'sm',
                 resolve: {
                     dialogData: function () {
-                        return vm.deletePopupData;
+                        return vm.updateRolePopupData;
                     }
                 }
             });
-            
+
             modalInstance.result.then(updateRole);
         }
-        
+
         function updateRole (roleObject) {
             console.log(roleObject);
+        }
+
+        function getUpdateRolePopupData () {
+            var temp = {
+                headingText: 'Update Role',
+                confirmText: 'Update',
+                cancelText: 'Cancel',
+                description: '',
+                successResult: '',
+                cancelResult: 'cancel',
+                currentPermissions: [],
+                translation: null
+            };
+
+            return temp;
         }
     }
 })();

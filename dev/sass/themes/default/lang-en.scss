@@ -45,6 +45,9 @@ label{
 .form-control{
     height: ($lineheight * 1.5);padding: 0 1rem;line-height: ($lineheight * 1.5);font-size: $fsize-sm;
 }
+textarea.form-control{
+    height: auto;padding-top: ($lineheight / 2);padding-bottom: ($lineheight / 2);
+}
 
 .form-lg{
     .form-group{
@@ -55,6 +58,9 @@ label{
     }
     .form-control{
         height: ($lineheight * 2);line-height: ($lineheight * 2);
+    }
+    textarea.form-control{
+        height: auto;line-height: $lineheight;
     }
     .submit-group{
         margin: ($lineheight * 2) 0 $lineheight;

@@ -246,3 +246,11 @@ label{
 .wrapper-footer{
     text-align: center;
 }
+
+
+//----------------------------------------------------
+@media (min-width: 768px){
+    .modal-sm {
+        width: 41rem;max-width: 100%;
+    }
+}
