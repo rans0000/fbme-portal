@@ -11,9 +11,9 @@
     function getWebServiceURL () {
         var temp = {
             apiBase: 'http://localhost:8090/',
-            login: 'api/auth/login',
-            roleList: 'api/role/list',
-            roledelete: 'api/role/delete'
+            login: 'api/auth/login.json',
+            roleList: 'api/role/list.json',
+            roledelete: 'api/role/delete.json'
         };
         return temp;
     }

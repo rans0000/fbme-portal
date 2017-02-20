@@ -1,0 +1,7 @@
+{
+    "header": {
+        "responseCode": "FD406",
+        "message": "Invalid credentials",
+        "requestUrl": "/FDocs/api/auth/login.json"
+    }
+}
