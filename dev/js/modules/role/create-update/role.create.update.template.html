@@ -36,7 +36,7 @@
                         <div class="row">
                             <div class="col-xs-5">
                                 <fieldset>
-                                    <ul class="list-unstyled">
+                                    <ul class="switchbox list-unstyled">
                                         <li data-ng-repeat="(item, enabled) in roleDialog.unselectedPermissions">
                                             <div class="checkbox-primary">
                                                 <input type="checkbox" id="inputUnselectedRoles{{$index}}" name="inputUnselectedRoles" data-ng-model="roleDialog.unselectedPermissions[item]">
@@ -55,7 +55,7 @@
                             </div>
                             <div class="col-xs-5">
                                 <fieldset>
-                                    <ul class="list-unstyled">
+                                    <ul class="switchbox list-unstyled">
                                         <li data-ng-repeat="(item, enabled) in roleDialog.selectedPermissions">
                                             <div class="checkbox-primary">
                                                 <input type="checkbox" id="inputSelectedRoles{{$index}}" name="inputSelectedRoles" data-ng-model="roleDialog.selectedPermissions[item]">

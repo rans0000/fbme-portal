@@ -8,6 +8,7 @@
     angular.module('app.core.module', [
         'ui.router',
         'ui.bootstrap',
+        'toastr',
         'headerArea.module',
         'ui.bootstrap.contextMenu',
         'login.module',

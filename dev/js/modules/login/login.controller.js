@@ -7,9 +7,9 @@
     angular.module('login.module')
         .controller('LoginController', LoginController);
 
-    LoginController.$inject = ['$state', 'loginService'];
+    LoginController.$inject = ['$state', 'loginService', 'toastr'];
 
-    function LoginController ($state, loginService) {
+    function LoginController ($state, loginService, toastr) {
 
         var vm = this;
         vm.user ={
@@ -35,6 +35,9 @@
                     .then(onLoginSuccess)
                     .catch(onLoginError);
             }
+            else{
+                toastr.error('Please enter Username & password.', 'Login Error');
+            }
         }
 
         function onLoginSuccess (response) {
@@ -45,6 +48,7 @@
 
         function onLoginError (error) {
             console.log(error);
+            toastr.error('Error logging in.', 'Login Error');
         }
     }
 })();

@@ -210,9 +210,33 @@ th{
 }
 
 //----------------------------------------------------
+//tabs
+.nav-tabs{
+    
+    > li{
+        > a{
+            line-height: $lineheight;padding: ($lineheight / 2) 1.5rem (($lineheight * 1) - 0.5rem);font-weight: $fw-bold;text-decoration: none;
+        }
+        &.active{
+            > a{
+                padding: ($lineheight / 2) 1.5rem (($lineheight * 1) - 0.5rem);
+            }
+        }
+    }
+}
+.tab-content{
+    padding-top: $lineheight;
+}
+
+//----------------------------------------------------
 .wrapper-header{
     padding: ($lineheight / 2) 0;
 }
 .logo{
     float: $text-direction;
+}
+
+//----------------------------------------------------
+.boxes{
+    height: ($lineheight * 5);padding-top: $lineheight;
 }

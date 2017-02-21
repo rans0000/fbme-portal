@@ -13,6 +13,7 @@
 
         var vm = this;
         vm.roleList = [];
+        vm.isExpandedState = true;
         vm.deletePopupData = {};
         vm.updateRolePopupData = getUpdateRolePopupData();
         vm.createRolePopupData = getCreateRolePopupData();

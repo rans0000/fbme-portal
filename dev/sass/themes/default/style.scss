@@ -263,7 +263,10 @@ label{
 
 //----------------------------------------------------
 .wrapper-sidenav{
-    flex-basis: $sidenav-width;background-color: $color-alt;color: $color-neutral;
+    flex-basis: $sidenav-width;background-color: $color-alt;color: $color-neutral;overflow: hidden;transition: .3s;
+    &.collapsed{
+        flex-basis: 0;
+    }
 }
 
 //----------------------------------------------------
@@ -289,6 +292,18 @@ label{
 }
 
 //----------------------------------------------------
+.switchbox{
+    > li{
+        > .checkbox-primary{
+            display: none;
+        }
+        > label{
+            word-break: break-all;display: inline;
+        }
+    }
+}
+
+//----------------------------------------------------
 .wrapper-footer{
     text-align: center;
 }
@@ -297,6 +312,6 @@ label{
 //----------------------------------------------------
 @media (min-width: 768px){
     .modal-sm {
-        width: 41rem;max-width: 100%;
+        width: 63rem;max-width: 100%;
     }
 }
