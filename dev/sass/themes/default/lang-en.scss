@@ -221,7 +221,7 @@ th{
     
     > li{
         > a{
-            line-height: $lineheight;border-bottom: .5rem;padding: ($lineheight / 2) 1.5rem (($lineheight * 1) - 0.5rem);font-weight: $fw-bold;text-decoration: none;
+            line-height: $lineheight;padding: ($lineheight / 2) 1.5rem (($lineheight * 1) - 0.5rem);font-weight: $fw-bold;text-decoration: none;
         }
         &.active{
             > a{
