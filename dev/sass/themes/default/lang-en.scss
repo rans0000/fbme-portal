@@ -204,6 +204,37 @@ th{
 }
 
 //----------------------------------------------------
+//modal
+.modal-header{
+    padding: ($lineheight) 1.5rem ($lineheight - .1rem);text-align: center;
+}
+.modal-title{
+    line-height: $lineheight;font-size: $fsize-h1;font-weight: normal;
+}
+.modal-body{
+    padding: ($lineheight * 1.5) 3rem;
+}
+
+//----------------------------------------------------
+//tabs
+.nav-tabs{
+    
+    > li{
+        > a{
+            line-height: $lineheight;border-bottom: .5rem;padding: ($lineheight / 2) 1.5rem (($lineheight * 1) - 0.5rem);font-weight: $fw-bold;text-decoration: none;
+        }
+        &.active{
+            > a{
+                padding: ($lineheight / 2) 1.5rem (($lineheight * 1) - 0.5rem);
+            }
+        }
+    }
+}
+.tab-content{
+    padding-top: $lineheight;
+}
+
+//----------------------------------------------------
 .wrapper-header{
     padding: ($lineheight / 2) 0;
 }
@@ -214,4 +245,8 @@ th{
 //----------------------------------------------------
 .wrapper-main{
     padding: $lineheight 3rem 0;
+}
+//----------------------------------------------------
+.boxes{
+    height: ($lineheight * 5);
 }

@@ -63,34 +63,36 @@
     <!--sidenav ends here-->
     <!--main starts here-->
     <main class="wrapper-main">
-        <div class="row">
-            <div class="col-md-12">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>Role Name</th>
-                            <th class="text-right">Created Date</th>
-                            <th class="text-right">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr data-ng-repeat="item in role.roleList">
-                            <td data-ng-bind="item.name"></td>
-                            <td class="text-right" data-ng-bind="item.createdDate | date"></td>
-                            <td class="text-right">
-                                <button type="button" class="btn btn-iconed" title="Edit" data-ng-click="role.onUpdateRoleInitiate(item)">
-                                    <span class="glyphicon glyphicon-edit"></span>
-                                    <span class="sr-only">Edit</span>
-                                </button>
-                                <button type="button" class="btn btn-iconed" title="Delete" data-ng-click="role.onDeleteRoleInitiate(item)">
-                                    <span class="glyphicon glyphicon-trash"></span>
-                                    <span class="sr-only">Delete</span>
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <ul uib-pagination total-items="role.searchOptions.totalItems" data-ng-model="role.searchOptions.page" data-ng-change="role.loadRoleData()"></ul>
+        <div class="wrapper-main-inner">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Role Name</th>
+                                <th class="text-right">Created Date</th>
+                                <th class="text-right">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-ng-repeat="item in role.roleList">
+                                <td data-ng-bind="item.name"></td>
+                                <td class="text-right" data-ng-bind="item.createdDate | date"></td>
+                                <td class="text-right">
+                                    <button type="button" class="btn btn-iconed" title="Edit" data-ng-click="role.onUpdateRoleInitiate(item)">
+                                        <span class="glyphicon glyphicon-edit"></span>
+                                        <span class="sr-only">Edit</span>
+                                    </button>
+                                    <button type="button" class="btn btn-iconed" title="Delete" data-ng-click="role.onDeleteRoleInitiate(item)">
+                                        <span class="glyphicon glyphicon-trash"></span>
+                                        <span class="sr-only">Delete</span>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <ul uib-pagination total-items="role.searchOptions.totalItems" data-ng-model="role.searchOptions.page" data-ng-change="role.loadRoleData()"></ul>
+                </div>
             </div>
         </div>
     </main>

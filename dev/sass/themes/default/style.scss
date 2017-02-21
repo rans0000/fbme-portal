@@ -152,6 +152,29 @@ label{
 }
 
 //----------------------------------------------------
+//modal
+.modal-header{
+    border-bottom: .1rem solid $color-border;color: $color-copy2;
+}
+
+//----------------------------------------------------
+//tabs
+.nav-tabs{
+    border-bottom: .1rem solid $color-border;
+    > li{
+        > a{
+            border-bottom: .5rem solid transparent;border-radius: 0;
+        }
+        
+        &.active{
+            > a{
+                border-bottom: .5rem solid $color-primary;
+            }
+        }
+    }
+}
+
+//----------------------------------------------------
 .wrapper-header{
     margin: 0 -15px;background: $color-neutral;border-bottom: .1rem solid $color-border;
 }
@@ -233,6 +256,9 @@ label{
     flex-grow: 1;
     flex-basis: 100%;
 }
+.wrapper-main-inner{
+    background: $color-neutral;padding: 0 1.5rem;
+}
 
 //----------------------------------------------------
 .login-container{
@@ -240,6 +266,11 @@ label{
 }
 .logo-container{
     text-align: center;
+}
+
+//----------------------------------------------------
+.boxes{
+    position: relative;width: 100%;height: 100%;display: block;text-align: center;color: $color-neutral;background-color: $color-primary;
 }
 
 //----------------------------------------------------

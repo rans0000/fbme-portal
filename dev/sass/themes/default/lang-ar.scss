@@ -198,6 +198,18 @@ th{
 }
 
 //----------------------------------------------------
+//modal
+.modal-header{
+    padding: ($lineheight) 1.5rem ($lineheight - .1rem);text-align: center;
+}
+.modal-title{
+    line-height: $lineheight;font-size: $fsize-h1;font-weight: normal;
+}
+.modal-body{
+    padding: ($lineheight * 1.5) 3rem;
+}
+
+//----------------------------------------------------
 .wrapper-header{
     padding: ($lineheight / 2) 0;
 }
