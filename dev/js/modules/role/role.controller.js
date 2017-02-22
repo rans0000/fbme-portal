@@ -18,6 +18,8 @@
         vm.updateRolePopupData = getUpdateRolePopupData();
         vm.createRolePopupData = getCreateRolePopupData();
         vm.searchOptions = getSearchOptions();
+        vm.itemTree = roleService.getSidenavItems();
+        vm.selectedFolder = vm.itemTree[0];
 
         vm.onDeleteRoleInitiate = onDeleteRoleInitiate;
         vm.onUpdateRoleInitiate = onUpdateRoleInitiate;

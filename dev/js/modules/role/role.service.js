@@ -16,6 +16,7 @@
         roleObject.updateRole = updateRole;
         roleObject.deleteRole = deleteRole;
         roleObject.getPermissionArray = getPermissionArray;
+        roleObject.getSidenavItems = getSidenavItems;
 
         return roleObject;
 
@@ -31,7 +32,7 @@
             var url = webServiceURL.apiBase + webServiceURL.roledelete;
             return $http.post(url, requestObj);
         }
-        
+
         function createRole (requestObj) {
             var url = webServiceURL.apiBase + webServiceURL.roleCreate;
             return $http.post(url, requestObj);
@@ -62,6 +63,44 @@
                 }
             }
             return returObj;
+        }
+
+        function getSidenavItems () {
+            var temp = [
+                {
+                    title: 'Company Management',
+                    type: 'Folder',
+                    children: [
+                        {
+                            title: 'Role Management',
+                            type: 'Folder'
+                        },
+                        {
+                            title: 'Branch Management',
+                            type: 'Folder'
+                        },
+                        {
+                            title: 'Department Management',
+                            type: 'Folder'
+                        },
+                        {
+                            title: 'Settings',
+                            type: 'Folder'
+                        }
+                    ]
+                },
+                {
+                    title: 'User Management',
+                    type: 'Folder',
+                    children: [
+                        {
+                            title: 'Public User Group Management',
+                            type: 'Folder'
+                        }
+                    ]
+                }
+            ];
+            return temp;
         }
     }
 })();
