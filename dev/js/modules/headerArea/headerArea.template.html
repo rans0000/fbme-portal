@@ -8,15 +8,15 @@
             </button>
         </li>
         <li class="tools-item">
-            <div class="avatar-holder">
-                <img src="images/tmp-avatar.png" class="img-responsive" alt="Username">
-            </div>
+            <!--<div class="avatar-holder">
+<img src="images/tmp-avatar.png" class="img-responsive" alt="Username">
+</div>-->
             <div class="btn-group" uib-dropdown is-open="status.isopen">
                 <button id="single-button" type="button" class="btn btn-default" uib-dropdown-toggle>
                     <spn data-ng-bind="header.currentUser.userName"></spn>
                     <span class="caret"></span>
                 </button>
-                <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                <ul class="dropdown-menu dropdown-menu-right text-right" uib-dropdown-menu role="menu" aria-labelledby="single-button">
                     <li role="menuitem"><a href="#">Profile</a></li>
                     <li role="menuitem"><a href="#">Settings</a></li>
                     <li class="divider"></li>

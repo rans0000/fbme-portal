@@ -284,7 +284,7 @@ label{
         padding: 0;margin: 0;
     }
     .item-name{
-        padding-bottom: 2px;/*display: inline-block;*/font-weight: bold;color: lighten(#1e4867, 55%);/*cursor: pointer;*/
+        padding-bottom: 2px;/*display: inline-block;*/color: lighten(#1e4867, 55%);/*cursor: pointer;*/
         &.active{
             color: #fff;
             > .btn{

@@ -4,7 +4,7 @@
     <div class="toolsarea-level1">
         <div class="wrapper-inner">
             <ol class="breadcrumb">
-                <li><a href="#">Home</a></li>
+                <li><a ui-sref="dashboard">Home</a></li>
                 <li><a href="#">Administration</a></li>
                 <li>Role Management</li>
             </ol>
@@ -54,11 +54,10 @@
     </div>
     <!--toolsarea-level2 ends here-->
 </div>
+<!--toolsarea ends here-->
 <div class="app-area">
-    <!--toolsarea ends here-->
     <!--sidenav starts here-->
     <div class="wrapper-sidenav" data-ng-class="{'collapsed': !role.isExpandedState}">
-        sidenav here...
         <tree collection="role.itemTree" selected-folder="role.selectedFolder"></tree>
     </div>
     <!--sidenav ends here-->
