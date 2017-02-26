@@ -35,9 +35,6 @@
                     .then(onLoginSuccess)
                     .catch(onLoginError);
             }
-            else{
-                toastr.error('Please enter Username & password.', 'Login Error');
-            }
         }
 
         function onLoginSuccess (response) {
