@@ -43,7 +43,7 @@
                 'headerArea@root': {
                     templateUrl: 'js/modules/headerArea/headerArea.template.html',
                     controller: 'HeaderAreaController',
-                    controllerAs: 'headerAreaVM'
+                    controllerAs: 'header'
                 }
             }
         })

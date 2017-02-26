@@ -24,6 +24,7 @@
         function saveCurrentUserProfile (userProfile) {
             currentUserProfile = angular.copy(userProfile);
             currentUserProfile.privilegeArray = currentUserProfile.privileges.split(',');
+            userProfile = null;
         }
         
         function getAllCurrentUserProfile () {

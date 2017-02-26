@@ -7,14 +7,20 @@
     angular.module('headerArea.module')
         .controller('HeaderAreaController', HeaderAreaController);
 
-    HeaderAreaController.$inject = [];
+    HeaderAreaController.$inject = ['headerAreaService'];
 
-    function HeaderAreaController () {
+    function HeaderAreaController (headerAreaService) {
 
         var vm = this;
-        vm.status = true;
+        vm.currentUser = {};
+        
+        init();
 
         //--------------------------------------
         //function declarations
+        
+        function init () {
+            vm.currentUser = headerAreaService.populateCurrentUserObj();
+        }
     }
 })();

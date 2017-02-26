@@ -6,10 +6,19 @@
     angular.module('headerArea.module')
         .factory('headerAreaService', headerAreaService);
 
-    headerAreaService.$inject = [];
+    headerAreaService.$inject = ['userService'];
 
-    function headerAreaService () {
+    function headerAreaService (userService) {
         var headerObj = {};
+        headerObj.populateCurrentUserObj = populateCurrentUserObj;
         return headerObj;
+        
+        //--------------------------------------
+        //function declarations
+        
+        function populateCurrentUserObj () {
+            return userService.getAllCurrentUserProfile();
+        }
+        
     }
 })();
