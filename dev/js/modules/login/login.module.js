@@ -4,5 +4,5 @@
 (function(){
     'use strict';
 
-    angular.module('login.module', ['utils.module']);
+    angular.module('login.module', []);
 })();

@@ -4,7 +4,7 @@
 (function(){
     'use strict';
 
-    angular.module('utils.module', [])
+    angular.module('app.core.module')
         .factory('utils', utilsFactory);
 
     function utilsFactory () {
