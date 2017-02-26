@@ -44,8 +44,9 @@
         }
 
         function onLoginError (error) {
-            console.log(error);
-            toastr.error('Error logging in.', 'Login Error');
+            console.log(error.header.responseCode);
+            var errorTranslation = loginService.getErrorTranslationValue(error.header.responseCode);
+            toastr.error(errorTranslation, 'Login Error');
         }
     }
 })();

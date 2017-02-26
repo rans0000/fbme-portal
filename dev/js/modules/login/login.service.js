@@ -6,21 +6,22 @@
     angular.module('login.module')
         .factory('loginService', loginService);
 
-    loginService.$inject = ['$http', 'webServiceURL', 'userService'];
+    loginService.$inject = ['$http', 'webServiceURL', 'utils', 'userService'];
 
-    function loginService ($http, webServiceURL, userService) {
+    function loginService ($http, webServiceURL, utils, userService) {
         var loginObj = {};
         loginObj.validateLoginForm = validateLoginForm;
         loginObj.requestLogin = requestLogin;
         loginObj.saveCurrentUserProfile = saveCurrentUserProfile;
-        
+        loginObj.getErrorTranslationValue = getErrorTranslationValue;
+
         return loginObj;
-        
+
         function validateLoginForm (requestObj) {
             var isValid = (requestObj.name.trim() && requestObj.password.trim())? true : false;
             return isValid;
         }
-        
+
         function requestLogin (requestObj) {
             var obj = {
                 userName: requestObj.name,
@@ -29,9 +30,13 @@
             var url = webServiceURL.apiBase + webServiceURL.login;
             return $http.post(url, obj);
         }
-        
+
         function saveCurrentUserProfile (userProfile) {
             userService.saveCurrentUserProfile(userProfile);
+        }
+
+        function getErrorTranslationValue (errorcode) {
+            return utils.errorHandler(errorcode);
         }
 
     }
