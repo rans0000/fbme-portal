@@ -38,13 +38,11 @@
         }
 
         function onLoginSuccess (response) {
-            console.log(response);
             loginService.saveCurrentUserProfile(response.items[0]);
             $state.go('dashboard');
         }
 
         function onLoginError (error) {
-            console.log(error.header.responseCode);
             var errorTranslation = loginService.getErrorTranslationValue(error.header.responseCode);
             toastr.error(errorTranslation, 'Login Error');
         }

@@ -4,7 +4,7 @@
 (function(){
     'use strict';
 
-    angular.module('role.module', [])
+    angular.module('role.module', ['utils.module'])
         .config(routerConfiguration);
 
     routerConfiguration.$inject = ['$stateProvider'];

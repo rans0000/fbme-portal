@@ -38,17 +38,17 @@
                     </button>
                 </li>
                 <!--<li class="tools-item">
-                    <button type="button" class="btn btn-link">
-                        <span class="glyphicon glyphicon-check"></span>
-                        <span class="btn-text">Select All</span>
-                    </button>
-                </li>
-                <li class="tools-item">
-                    <button type="button" class="btn btn-link">
-                        <span class="glyphicon glyphicon-trash"></span>
-                        <span class="btn-text">Delete</span>
-                    </button>
-                </li>-->
+<button type="button" class="btn btn-link">
+<span class="glyphicon glyphicon-check"></span>
+<span class="btn-text">Select All</span>
+</button>
+</li>
+<li class="tools-item">
+<button type="button" class="btn btn-link">
+<span class="glyphicon glyphicon-trash"></span>
+<span class="btn-text">Delete</span>
+</button>
+</li>-->
             </ul>
         </div>
     </div>
@@ -89,6 +89,9 @@
                                         <span class="sr-only">Delete</span>
                                     </button>
                                 </td>
+                            </tr>
+                            <tr ng-if="!role.roleList.length">
+                                <td colspan="3"><div class="text-center">There are no Roles to show!!</div></td>
                             </tr>
                         </tbody>
                     </table>

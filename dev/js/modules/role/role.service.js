@@ -6,9 +6,9 @@
     angular.module('role.module')
         .factory('roleService', roleService);
 
-    roleService.$inject = ['$http', 'webServiceURL', 'permissions'];
+    roleService.$inject = ['$http', 'webServiceURL', 'utils', 'permissions'];
 
-    function roleService ($http, webServiceURL, permissions) {
+    function roleService ($http, webServiceURL, utils, permissions) {
         var roleObject = {};
         roleObject.loadRoleList = loadRoleList;
         roleObject.loadRoleDetails = loadRoleDetails;
@@ -17,6 +17,7 @@
         roleObject.deleteRole = deleteRole;
         roleObject.getPermissionArray = getPermissionArray;
         roleObject.getSidenavItems = getSidenavItems;
+        roleObject.getErrorTranslationValue = getErrorTranslationValue;
 
         return roleObject;
 
@@ -101,6 +102,10 @@
                 }
             ];
             return temp;
+        }
+        
+        function getErrorTranslationValue (errorcode) {
+            return utils.errorHandler(errorcode);
         }
     }
 })();

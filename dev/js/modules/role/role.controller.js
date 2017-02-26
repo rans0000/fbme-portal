@@ -7,9 +7,9 @@
     angular.module('role.module')
         .controller('RoleController', RoleController);
 
-    RoleController.$inject = ['roleService', '$uibModal'];
+    RoleController.$inject = ['roleService', '$uibModal', 'toastr'];
 
-    function RoleController (roleService, $uibModal) {
+    function RoleController (roleService, $uibModal, toastr) {
 
         var vm = this;
         vm.roleList = [];
@@ -52,7 +52,9 @@
         }
 
         function onLoadRoleListError (error) {
-            console.log(error);
+            //console.log(error);
+            var errorTranslation = roleService.getErrorTranslationValue(error.header.responseCode);
+            toastr.error(errorTranslation, 'Error at listing Role');
         }
 
         function onDeleteRoleInitiate (roleItem) {
@@ -99,15 +101,15 @@
         }
 
         function onDeleteRoleSuccess (response) {
-            //@TODO: display success notification
             console.log(response);
+            toastr.success('Deleted the role', 'Delete Role');
             //reload role table
             loadRoleList();
         }
 
         function onDeleteRoleError (error) {
-            //@TODO: display error notification
-            console.log(error);
+            var errorTranslation = roleService.getErrorTranslationValue(error.header.responseCode);
+            toastr.error(errorTranslation, 'Error at listing Role');
         }
 
         function onUpdateRoleInitiate (item) {
@@ -140,6 +142,8 @@
 
         function onLoadRoleDetailsError (error) {
             console.log(error);
+            var errorTranslation = roleService.getErrorTranslationValue(error.header.responseCode);
+            toastr.error(errorTranslation, 'Error at loading Role details');
         }
 
         function onUpdateRoleSuccess () {
@@ -215,7 +219,7 @@
 
         function getSearchOptions () {
             var temp ={
-                totalItems: 90,
+                totalItems: 0,
                 page : 1,
                 pageSize: 30,
                 sortBy: 'name',
