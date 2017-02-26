@@ -6,9 +6,9 @@
     angular.module('app.core.module')
         .controller('RoleUpdateController', RoleUpdateController);
 
-    RoleUpdateController.$inject = ['$uibModalInstance', 'dialogData', 'roleService'];
+    RoleUpdateController.$inject = ['$uibModalInstance', 'dialogData', 'toastr', 'utils', 'roleService'];
 
-    function RoleUpdateController ($uibModalInstance, dialogData, roleService) {
+    function RoleUpdateController ($uibModalInstance, dialogData, toastr, utils, roleService) {
         var vm = this;
         vm.activeTab = 0;
         vm.data = dialogData;
@@ -81,10 +81,13 @@
 
         function onCreateRoleSuccess () {
             $uibModalInstance.close();
+            toastr.success('Success', 'Creating Role');
         }
 
         function onCreateRoleError (error) {
             console.log(error);
+            var errorTranslation = roleService.getErrorTranslationValue(error.header.responseCode);
+            toastr.error(errorTranslation, 'Error in creating Role');
         }
 
         function updateRole () {
@@ -103,10 +106,13 @@
 
         function onUpdateRoleSuccess () {
             $uibModalInstance.close();
+            toastr.success('Success', 'Updating Role');
         }
 
         function onUpdateRoleError (error) {
             console.log(error);
+            var errorTranslation = roleService.getErrorTranslationValue(error.header.responseCode);
+            toastr.error(errorTranslation, 'Error in updating Role');
         }
 
         function createPermissionString (Obj) {
