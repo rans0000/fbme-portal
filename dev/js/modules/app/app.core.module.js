@@ -11,6 +11,7 @@
         'toastr',
         'headerArea.module',
         'ui.bootstrap.contextMenu',
+        'utils.module',
         'login.module',
         'dashboard.module',
         'role.module'
