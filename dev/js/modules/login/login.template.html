@@ -8,32 +8,32 @@
                 </div>
                 <article class="panel panel-secondary">
                     <header class="panel-heading">
-                        <h1 class="panel-title">Login</h1>
+                        <h1 class="panel-title" data-ng-bind="login.translation.aclg_Login">Login</h1>
                     </header>
                     <div class="panel-body">
                         <form class="form-lg" name="login.formLogin" data-ng-submit="login.onLoginSubmit()" novalidate>
                             <div class="form-group">
-                                <label for="inputUsername">Username</label>
+                                <label for="inputUsername" data-ng-bind="login.translation.aclg_Username">Username</label>
                                 <input type="text" class="form-control" name="inputUsername" id="inputUsername" data-ng-model="login.user.name" required>
                                 <div class="errinfo-wrapper">
-                                    <span class="errinfo" data-ng-show="login.formLogin.inputUsername.$error.required && login.formLogin.inputUsername.$touched">Please fill in the Usernaame.</span>
+                                    <span class="errinfo" data-ng-show="login.formLogin.inputUsername.$error.required && login.formLogin.inputUsername.$touched" data-ng-bind="login.translation.aclg_UsernameRequired">Please fill in the Usernaame.</span>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="inputPassword">Password</label>
+                                <label for="inputPassword" data-ng-bind="login.translation.aclg_Password">Password</label>
                                 <input type="password" class="form-control" name="inputPassword" id="inputPassword" data-ng-model="login.user.password" required>
                                 <div class="errinfo-wrapper">
-                                    <span class="errinfo" data-ng-show="login.formLogin.inputPassword.$error.required && login.formLogin.inputPassword.$touched">Please fill in the Password.</span>
+                                    <span class="errinfo" data-ng-show="login.formLogin.inputPassword.$error.required && login.formLogin.inputPassword.$touched" data-ng-bind="login.translation.aclg_PasswordRequired">Please fill in the Password.</span>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label>Language</label>
+                                <label data-ng-bind="login.translation.aclg_Language">Language</label>
                                 <select class="form-control" data-ng-options="option.name for option in login.languagesAvailable" data-ng-model="login.selectedLanguage" data-ng-change="login.onLanguageChange()"></select>
                             </div>
                             <div class="submit-group">
-                                <button type="submit" class="btn btn-primary btn-lg btn-block" data-ng-disabled="login.formLogin.inputUsername.$error.required || login.formLogin.inputPassword.$error.required">Login</button>
+                                <button type="submit" class="btn btn-primary btn-lg btn-block" data-ng-disabled="login.formLogin.inputUsername.$error.required || login.formLogin.inputPassword.$error.required" data-ng-bind="login.translation.aclg_Login">Login</button>
                             </div>
-                            <a href="#">Forgot Password?</a>
+                            <a href="#" data-ng-bind="login.translation.aclg_ForgotPassword">Forgot Password?</a>
                         </form>
                     </div>
                 </article>

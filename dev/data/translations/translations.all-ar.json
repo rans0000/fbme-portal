@@ -5,8 +5,9 @@
         "aclg_UsernameRequired": "يرجى ملء اسم المستخدم.",
         "aclg_Password": "كلمه السر",
         "aclg_PasswordRequired": "يرجى ملء كلمة المرور.",
-        "aclg_LoginHeading": "تسجيل الدخول",
+        "aclg_Login": "تسجيل الدخول",
         "aclg_ForgotPassword": "هل نسيت كلمة المرور؟",
+        "aclg_Language": "لغة",
         
         
         "cmcm_Success": "Success",

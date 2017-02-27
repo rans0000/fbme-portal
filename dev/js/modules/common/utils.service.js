@@ -13,6 +13,8 @@
         var allTranslations;
         utilsObj.getLanguage = getLanguage;
         utilsObj.setLanguage = setLanguage;
+        utilsObj.getDirection = getDirection;
+        utilsObj.setDirection = setDirection;
         utilsObj.getTranslation = getTranslation;
         utilsObj.getLanguagesAvailable = getLanguagesAvailable;
         utilsObj.errorHandler = errorHandler;
@@ -28,6 +30,15 @@
 
         function setLanguage (lang) {
             $localStorage.lang = lang;
+        }
+        
+        function getDirection () {
+            $localStorage.lang = $localStorage.lang || 'ltr';
+            return $localStorage.direction;
+        }
+        
+        function setDirection (direction) {
+            $localStorage.direction = direction;
         }
 
         function getTranslation (lang) {

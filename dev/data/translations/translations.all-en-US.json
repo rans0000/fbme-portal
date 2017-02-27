@@ -5,8 +5,9 @@
         "aclg_UsernameRequired": "Please fill in the Usernaame.",
         "aclg_Password": "Password",
         "aclg_PasswordRequired": "Please fill in the Password.",
-        "aclg_LoginHeading": "Login",
+        "aclg_Login": "Login",
         "aclg_ForgotPassword": "Forgot Password?",
+        "aclg_Language": "Language",
         
         
         "cmcm_Success": "Success",
