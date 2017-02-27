@@ -9,6 +9,7 @@
         'ui.router',
         'ui.bootstrap',
         'toastr',
+        'ngStorage',
         'headerArea.module',
         'ui.bootstrap.contextMenu',
         'login.module',
