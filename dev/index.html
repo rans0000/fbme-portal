@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="app.core.module" ng-strict-di ng-controller="app as AppController">
+<html lang="en" data-ng-app="app.core.module" data-ng-strict-di data-ng-controller="AppController as app">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="css/libs/bootstrap.min.css">
         <link rel="stylesheet" href="css/libs/angular-toastr.min.css">
         <link rel="stylesheet" href="css/themes/default/style.css">
-        <link rel="stylesheet" href="css/themes/default/lang-en.css">
+        <link rel="stylesheet" data-ng-href="css/themes/default/{{app.css}}.css">
         <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -34,6 +34,7 @@
         <script src="js/modules/common/confirmDialog/confirm.dialog.controller.js"></script>
         <script src="js/modules/common/tree/branch.directive.js"></script>
         <script src="js/modules/common/tree/tree.directive.js"></script>
+        <script src="js/modules/app/app.controller.js"></script>
         <!--login-->
         <script src="js/modules/login/login.module.js"></script>
         <script src="js/modules/login/login.service.js"></script>

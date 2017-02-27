@@ -7,9 +7,9 @@
     angular.module('login.module')
         .controller('LoginController', LoginController);
 
-    LoginController.$inject = ['$state', 'loginService', 'toastr', 'utils'];
+    LoginController.$inject = ['$state', 'loginService', 'toastr', 'utils', '$scope'];
 
-    function LoginController ($state, loginService, toastr, utils) {
+    function LoginController ($state, loginService, toastr, utils, $scope) {
 
         var vm = this;
         vm.user ={
@@ -74,6 +74,8 @@
             var langCode = vm.selectedLanguage.langCode;
             utils.setLanguage(langCode);
             loadTranslation(langCode);
+            $scope.$parent.app.css = vm.selectedLanguage.css;
+            utils.setCss(vm.selectedLanguage.css);
         }
     }
 })();

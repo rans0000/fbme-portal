@@ -13,8 +13,8 @@
         var allTranslations;
         utilsObj.getLanguage = getLanguage;
         utilsObj.setLanguage = setLanguage;
-        utilsObj.getDirection = getDirection;
-        utilsObj.setDirection = setDirection;
+        utilsObj.getCss = getCss;
+        utilsObj.setCss = setCss;
         utilsObj.getTranslation = getTranslation;
         utilsObj.getLanguagesAvailable = getLanguagesAvailable;
         utilsObj.errorHandler = errorHandler;
@@ -32,13 +32,13 @@
             $localStorage.lang = lang;
         }
         
-        function getDirection () {
-            $localStorage.lang = $localStorage.lang || 'ltr';
-            return $localStorage.direction;
+        function getCss () {
+            $localStorage.css = $localStorage.css || 'lang-en';
+            return $localStorage.css;
         }
         
-        function setDirection (direction) {
-            $localStorage.direction = direction;
+        function setCss (css) {
+            $localStorage.css = css;
         }
 
         function getTranslation (lang) {
@@ -58,8 +58,8 @@
 
         function getLanguagesAvailable () {
             return [
-                {name: 'English', langCode: 'en-US', direction: 'ltr'},
-                {name: 'العَرَبِيَّة', langCode: 'ar', direction: 'rtl'}
+                {name: 'English', langCode: 'en-US', css: 'lang-en', direction: 'ltr'},
+                {name: 'العَرَبِيَّة', langCode: 'ar', css: 'lang-ar', direction: 'rtl'}
             ];
         }
 
