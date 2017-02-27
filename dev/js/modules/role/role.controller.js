@@ -17,9 +17,11 @@
         vm.deletePopupData = {};
         vm.updateRolePopupData = getUpdateRolePopupData();
         vm.createRolePopupData = getCreateRolePopupData();
-        vm.searchOptions = getSearchOptions();
         vm.itemTree = roleService.getSidenavItems();
         vm.selectedFolder = vm.itemTree[0];
+        vm.searchOptions = getSearchOptions();
+        vm.advSearch = getAdvSearchOptions();
+        vm.idList = '';
 
         vm.onDeleteRoleInitiate = onDeleteRoleInitiate;
         vm.onUpdateRoleInitiate = onUpdateRoleInitiate;
@@ -212,20 +214,35 @@
 
             return temp;
         }
-        
+
         function loadRoleData () {
             loadRoleList();
         }
 
         function getSearchOptions () {
-            var temp ={
+            var nowDate = new Date();
+            var fromDate = new Date(nowDate);
+            fromDate.setFullYear(fromDate.getFullYear() - 1);
+
+            var temp = {
                 totalItems: 0,
                 page : 1,
                 pageSize: 30,
                 sortBy: 'name',
                 sortOrder: 'A',
                 searchText: '',
+                dateCreatedFrom: fromDate,
+                dateCreatedTo: nowDate,
                 createdByUserIds: []
+            };
+            return temp;
+        }
+
+        function getAdvSearchOptions () {
+            var temp = {
+                isOpen: false,
+                dateCreatedFromIsOpen: false,
+                dateCreatedToIsOpen: false
             };
             return temp;
         }

@@ -55,6 +55,14 @@ label{
         border-radius: 0;
     }
 }
+.checkbox,.radio{
+    label{
+        
+    }
+    input[type="checkbox"],input[type="radio"]{
+        
+    }
+}
 .checkbox-primary{
     display: inline-block;vertical-align: bottom;
     input[type="checkbox"]{
@@ -84,7 +92,7 @@ label{
     color: #e69b9b;
 }
 .errinfo{
-    
+
 }
 
 //----------------------------------------------------
@@ -163,6 +171,19 @@ label{
 .modal-header{
     border-bottom: .1rem solid $color-border;color: $color-copy2;
 }
+
+//----------------------------------------------------
+//dropdown-menu overrides
+.dropdown-menu{
+    min-width: 40rem;
+}
+
+//----------------------------------------------------
+//datepicker
+.uib-datepicker-popup.dropdown-menu{
+    min-width: 0;
+}
+
 
 //----------------------------------------------------
 //tabs
@@ -324,14 +345,14 @@ label{
 
 //----------------------------------------------------
 /*.switchbox{
-    > li{
-        > .checkbox-primary{
-            display: none;
-        }
-        > label{
-            word-break: break-all;display: inline;
-        }
-    }
+> li{
+> .checkbox-primary{
+display: none;
+}
+> label{
+word-break: break-all;display: inline;
+}
+}
 }*/
 
 //----------------------------------------------------

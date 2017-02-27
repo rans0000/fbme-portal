@@ -60,6 +60,14 @@ textarea.form-control{
         margin: ($lineheight * 2) 0 $lineheight;
     }
 }
+.checkbox,.radio{
+    label{
+        padding-#{$text-direction}: 2rem;padding-#{$text-reverse}: 0;position: relative;
+    }
+    input[type="checkbox"],input[type="radio"]{
+        margin-#{$text-direction}: 0;margin-#{$text-reverse}: 0;#{$text-direction}: 0;
+    }
+}
 .checkbox-primary{
     margin-#{$text-reverse}: .5rem;
     input[type="checkbox"]{
@@ -69,7 +77,10 @@ textarea.form-control{
     }
 }
 .submit-group{
-    margin: $lineheight 0;
+    margin: $lineheight 0 ($lineheight / 2);
+    .btn{
+        margin-bottom: ($lineheight / 2);
+    }
 }
 .form-group-button{
     position: relative;padding-#{$text-reverse}: ($lineheight * 1.5);
@@ -77,7 +88,7 @@ textarea.form-control{
         position: absolute;top: 0;#{$text-reverse}: 0;
     }
     .form-control{
-        text-align: $text-reverse;
+        /*text-align: $text-reverse;*/
     }
 }
 
@@ -210,9 +221,15 @@ th{
 }
 
 //----------------------------------------------------
+//dropdown-menu overrides
+.dropdown-menu{
+    text-align: $text-direction;
+}
+
+//----------------------------------------------------
 //tabs
 .nav-tabs{
-    
+
     > li{
         > a{
             line-height: $lineheight;padding: ($lineheight / 2) 1.5rem (($lineheight * 1) - 0.5rem);font-weight: $fw-bold;text-decoration: none;
