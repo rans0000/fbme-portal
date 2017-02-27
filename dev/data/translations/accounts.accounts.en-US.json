@@ -1,0 +1,11 @@
+{
+    "pageId": "accounts.accounts",
+    "translation": {
+        "aclg_Username": "Username",
+        "aclg_UsernameRequired": "Please fill in the Usernaame.",
+        "aclg_Password": "Password",
+        "aclg_PasswordRequired": "Please fill in the Password.",
+        "aclg_LoginHeading": "Login",
+        "aclg_ForgotPassword": "Forgot Password?"
+    }
+}
