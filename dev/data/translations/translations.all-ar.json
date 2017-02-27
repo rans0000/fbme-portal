@@ -10,6 +10,33 @@
         "aclg_Language": "لغة",
         
         
+        "apcm_Home": "Home",
+        "apcm_Name": "Name",
+        "apcm_Description": "Description",
+        "apcm_Update": "Update",
+        "apcm_Cancel": "Cancel",
+        "apcm_Yes": "Yes",
+        "apcm_No": "No",
+        "apcm_Previous": "Previous",
+        "apcm_Next": "Next",
+        
+        
+        "rlcm_Administration": "Administration",
+        "rlcm_RoleManagement": "Role Management",
+        "rlcm_RoleManagement": "Role Management",
+        "rlcm_CreateRoles": "Create Roles",
+        "rlcm_RoleSearch": "Role Search",
+        "rlcm_RoleName": "Role Name",
+        "rlcm_CreatedDate": "Created Date",
+        "rlcm_Actions": "Actions",
+        "rlcm_DeleteRole": "Delete Role",
+        "rlcm_DeleteConfirmation": "Do you want to delete this role (TestRole)?",
+        "rlcm_UpdateRole": "Update Role",
+        "rlcm_RoleDetails": "Role Details",
+        "rlcm_PermissionAndPriviliges": "Permission & Priviliges",
+        "rlcm_CreateRole": "Create Role",
+        
+        
         "cmcm_Success": "Success",
         "cmcm_MultipleStatusCodes": "Multiple status codes",
         "cmcm_BadRequest": "Bad Request",
@@ -49,6 +76,7 @@
         "cmcm_UserNameNotAvailable": "User Name not available",
         "cmcm_EmailIdNotAvailable": "Email Id not available",
         "cmcm_UserNotFound": "User Not Found",
-        "cmcm_UnknownError": "Unknown Error"
+        "cmcm_UnknownError": "Unknown Error",
+        "cmcm_TranslationLoadError": "Loading translation failed"
     }
 }

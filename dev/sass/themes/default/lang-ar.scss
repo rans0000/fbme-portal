@@ -237,6 +237,20 @@ th{
 }
 
 //----------------------------------------------------
+.wrapper-main{
+    padding: $lineheight 3rem 0;
+}
+
+//----------------------------------------------------
 .boxes{
     height: ($lineheight * 5);padding-top: $lineheight;
+}
+
+//----------------------------------------------------
+.switchbox{
+    > li{
+        > label{
+            font-size: $fsize-normal;
+        }
+    }
 }

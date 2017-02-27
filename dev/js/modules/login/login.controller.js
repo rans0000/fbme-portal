@@ -49,6 +49,7 @@
 
         function onGetTranslationError (error) {
             console.log(error);
+            toastr.error(vm.translation.cmcm_TranslationLoadError);
         }
 
         function onLoginSubmit () {
