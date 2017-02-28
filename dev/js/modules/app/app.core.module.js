@@ -16,11 +16,17 @@
         'dashboard.module',
         'role.module'
     ])
+        .config(httpProviderConfiguration)
         .config(routerConfiguration)
         .config(debugConfiguration)
         .factory('httpRequestInterceptor', httpRequestInterceptor)
         .factory('jQuery', jQueryService);
 
+    httpProviderConfiguration.$inject = ['$httpProvider'];
+    function httpProviderConfiguration ($httpProvider) {
+        $httpProvider.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
+        $httpProvider.defaults.paramSerializer = '$httpParamSerializerJQLike';
+    }
 
     routerConfiguration.$inject = ['$stateProvider', '$urlRouterProvider', '$httpProvider'];
     function routerConfiguration ($stateProvider, $urlRouterProvider, $httpProvider) {
