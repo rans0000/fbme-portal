@@ -229,7 +229,7 @@ th{
 //----------------------------------------------------
 //dropdown-menu overrides
 .dropdown-menu{
-    text-align: $text-direction;
+    text-align: $text-direction;#{$text-reverse}: 0; #{$text-direction}: auto;
 }
 
 //----------------------------------------------------

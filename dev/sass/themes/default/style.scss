@@ -57,10 +57,10 @@ label{
 }
 .checkbox,.radio{
     label{
-        
+
     }
     input[type="checkbox"],input[type="radio"]{
-        
+
     }
 }
 .checkbox-primary{
@@ -366,4 +366,10 @@ word-break: break-all;display: inline;
     .modal-sm {
         width: 63rem;max-width: 100%;
     }
+}
+
+@media (max-width: 768px){
+    /*.toolsarea-level1 .breadcrumb>li{
+        width: 4rem;overflow: hidden;text-overflow: ellipsis;
+    }*/
 }
