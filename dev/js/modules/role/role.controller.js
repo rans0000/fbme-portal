@@ -216,6 +216,16 @@
         }
 
         function loadRoleData () {
+            var temp = vm.idList
+            .split(/\s*,\s*/)
+            .map(function (item) {
+                return parseInt(item.trim(), 10);
+            })
+            .filter(function (item) {
+                return !isNaN(item);
+            })
+            .join(',');
+            vm.searchOptions.createdByUserIds = temp || undefined;
             loadRoleList();
         }
 
@@ -231,8 +241,8 @@
                 sortBy: 'name',
                 sortOrder: 'A',
                 searchText: '',
-                dateCreatedFrom: fromDate,
-                dateCreatedTo: nowDate,
+                createdDateFrom: fromDate,
+                createdDateTo: nowDate,
                 createdByUserIds: []
             };
             return temp;

@@ -26,13 +26,13 @@
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label for="inputSearchText">Search Text</label>
-                                                <input type="text" class="form-control" name="inputSearchText" id="inputSearchText">
+                                                <input type="text" class="form-control" name="inputSearchText" id="inputSearchText" data-ng-model="role.searchOptions.searchText">
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label for="inputSearchSortby">Sort by</label>
-                                                <select class="form-control" name="inputSearchSortby" id="inputSearchSortby">
+                                                <select class="form-control" name="inputSearchSortby" id="inputSearchSortby" data-ng-model="role.searchOptions.sortBy">
                                                     <option value="name">name</option>
                                                     <option value="createdDate">created Date</option>
                                                 </select>
@@ -44,7 +44,7 @@
                                             <div class="form-group">
                                                 <label for="inputSearchdateCreatedFrom">From Date</label>
                                                 <div class="input-group">
-                                                    <input type="text" class="form-control" name="inputSearchdateCreatedFrom" id="inputSearchdateCreatedFrom" data-ng-model="role.searchOptions.dateCreatedFrom" is-open="role.advSearch.dateCreatedFromIsOpen" close-on-date-selection="false" uib-datepicker-popup>
+                                                    <input type="text" class="form-control" name="inputSearchdateCreatedFrom" id="inputSearchdateCreatedFrom" data-ng-model="role.searchOptions.createdDateFrom" is-open="role.advSearch.dateCreatedFromIsOpen" close-on-date-selection="false" uib-datepicker-popup>
                                                     <span class="input-group-btn">
                                                         <button type="button" class="btn btn-default" data-ng-click="dateCreatedFromIsOpen"><i class="glyphicon glyphicon-calendar" data-ng-click="role.advSearch.dateCreatedFromIsOpen = !role.advSearch.dateCreatedFromIsOpen"></i></button>
                                                     </span>
@@ -55,7 +55,7 @@
                                             <div class="form-group">
                                                 <label for="inputSearchdateCreatedTo">To Date</label>
                                                 <div class="input-group">
-                                                    <input type="text" name="inputSearchdateCreatedTo" id="inputSearchdateCreatedTo" class="form-control" data-ng-model="role.searchOptions.dateCreatedTo" is-open="role.advSearch.dateCreatedToIsOpen" close-on-date-selection="false" uib-datepicker-popup>
+                                                    <input type="text" name="inputSearchdateCreatedTo" id="inputSearchdateCreatedTo" class="form-control" data-ng-model="role.searchOptions.createdDateTo" is-open="role.advSearch.dateCreatedToIsOpen" close-on-date-selection="false" uib-datepicker-popup>
                                                     <span class="input-group-btn">
                                                         <button type="button" class="btn btn-default" data-ng-click="dateCreatedToIsOpen"><i class="glyphicon glyphicon-calendar" data-ng-click="role.advSearch.dateCreatedToIsOpen = !role.advSearch.dateCreatedToIsOpen"></i></button>
                                                     </span>
@@ -81,7 +81,7 @@
                                     <div class="submit-group">
                                         <div class="row">
                                             <div class="col-sm-6">
-                                                <button type="button" class="btn btn-primary btn-block">Search</button>
+                                                <button type="submit" class="btn btn-primary btn-block">Search</button>
                                             </div>
                                             <div class="col-sm-6">
                                                 <button type="button" class="btn btn-default btn-block" data-ng-click="role.advSearch.isOpen = false">Cancel</button>
