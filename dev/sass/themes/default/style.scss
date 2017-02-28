@@ -175,7 +175,9 @@ label{
 //----------------------------------------------------
 //dropdown-menu overrides
 .dropdown-menu{
-    min-width: 40rem;
+    &.dropdown-md{
+        min-width: 40rem;
+    }
 }
 
 //----------------------------------------------------
@@ -370,6 +372,6 @@ word-break: break-all;display: inline;
 
 @media (max-width: 768px){
     /*.toolsarea-level1 .breadcrumb>li{
-        width: 4rem;overflow: hidden;text-overflow: ellipsis;
-    }*/
+    width: 4rem;overflow: hidden;text-overflow: ellipsis;
+}*/
 }
