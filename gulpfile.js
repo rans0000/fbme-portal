@@ -42,4 +42,5 @@ gulp.task('js-app', function () {
 gulp.task('watch', function () {
     //gulp.watch('images/sprites/**/*.png', ['sprite']);
     gulp.watch(mode + 'sass/**/*.scss', ['sass']);
+    gulp.watch('dev/js/modules/**/*.js', ['js-app']);
 });

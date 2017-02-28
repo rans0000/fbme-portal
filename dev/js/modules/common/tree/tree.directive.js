@@ -24,12 +24,13 @@
         
         return directiveObject;
 
-        function treeLink (scope, element, attributes, ctrl) {
+        //function treeLink (scope, element, attributes, ctrl) {
+        function treeLink () {
             //console.log(ctrl.collection);
         }
         
         function TreeController () {
-            var vm = this;
+            //var vm = this;
         }
     }
 })();

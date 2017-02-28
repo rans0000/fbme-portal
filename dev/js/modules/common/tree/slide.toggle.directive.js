@@ -4,7 +4,7 @@
 (function(){
     'use strict';
 
-    angular.module('app.core')
+    angular.module('app.core.module')
         .directive('slideToggle', slideToggleDirective);
 
     slideToggleDirective.$inject = ['jQuery'];
@@ -16,7 +16,7 @@
 
         return directiveObject;
 
-        function slideToggleLink (scope, element, attributes, ctrl) {
+        function slideToggleLink (scope, element) {
             var $element = $(element);
             element.on('click', function () {
                 if($element.hasClass('active')){

@@ -1081,7 +1081,7 @@
 (function(){
     'use strict';
 
-    angular.module('app.core')
+    angular.module('app.core.module')
         .directive('slideToggle', slideToggleDirective);
 
     slideToggleDirective.$inject = ['jQuery'];
@@ -1093,7 +1093,7 @@
 
         return directiveObject;
 
-        function slideToggleLink (scope, element, attributes, ctrl) {
+        function slideToggleLink (scope, element) {
             var $element = $(element);
             element.on('click', function () {
                 if($element.hasClass('active')){
@@ -1112,7 +1112,7 @@
 (function(){
     'use strict';
 
-    angular.module('app.core')
+    angular.module('app.core.module')
         .directive('stopPropagation', stopPropagationDirective);
 
     function stopPropagationDirective () {
@@ -1130,14 +1130,14 @@
 
         return directiveObject;
 
-        function stopPropagationLink (scope, element, attributes, ctrl) {
+        function stopPropagationLink (scope, element) {
             element.on('click', function (event) {
                 event.stopPropagation();
             });
         }
 
         function TreeController () {
-            var vm = this;
+            //var vm = this;
         }
     }
 })();
@@ -1167,12 +1167,13 @@
         
         return directiveObject;
 
-        function treeLink (scope, element, attributes, ctrl) {
+        //function treeLink (scope, element, attributes, ctrl) {
+        function treeLink () {
             //console.log(ctrl.collection);
         }
         
         function TreeController () {
-            var vm = this;
+            //var vm = this;
         }
     }
 })();

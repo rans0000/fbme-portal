@@ -4,7 +4,7 @@
 (function(){
     'use strict';
 
-    angular.module('app.core')
+    angular.module('app.core.module')
         .directive('stopPropagation', stopPropagationDirective);
 
     function stopPropagationDirective () {
@@ -22,14 +22,14 @@
 
         return directiveObject;
 
-        function stopPropagationLink (scope, element, attributes, ctrl) {
+        function stopPropagationLink (scope, element) {
             element.on('click', function (event) {
                 event.stopPropagation();
             });
         }
 
         function TreeController () {
-            var vm = this;
+            //var vm = this;
         }
     }
 })();
