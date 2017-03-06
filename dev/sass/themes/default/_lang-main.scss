@@ -242,8 +242,20 @@ th{
 }
 
 //----------------------------------------------------
+.box-wrapper{
+    margin: ($lineheight * 2) auto $lineheight;
+}
 .boxes{
-    height: ($lineheight * 5);padding-top: $lineheight;
+    padding: $lineheight 1rem 0;
+    > .glyphicon{
+    font-size: ($lineheight * 2);line-height: ($lineheight * 2);margin: ($lineheight) auto ($lineheight * 2);
+        &:after{
+            width: ($lineheight * 4);height: ($lineheight * 4);left: -($lineheight);top: -($lineheight);
+        }
+    }
+    > .title{
+        margin: ($lineheight) auto;font-size: $fsize-lg;
+    }
 }
 
 //----------------------------------------------------
