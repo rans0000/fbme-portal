@@ -70,7 +70,7 @@
                 templateUrl: 'js/modules/common/confirmDialog/confirm.dialog.template.html',
                 controller: 'ModalInstanceCtrl',
                 controllerAs: '$ctrl',
-                size: 'md',
+                size: 'sm',
                 resolve: {
                     dialogData: function () {
                         return vm.deletePopupData;

@@ -1,5 +1,11 @@
 <div class="modal-header">
     <h1 class="modal-title" id="modal-title" data-ng-bind="roleDialog.data.headingText">Heading</h1>
+    <div class="toolsarea">
+        <button type="button" class="btn btn-round btn-risky" data-ng-click="roleDialog.cancel()">
+            <span class="sr-only">Close dialog box</span>
+            <span class="glyphicon glyphicon-remove"></span>
+        </button>
+    </div>
 </div>
 <div class="modal-body" id="modal-body">
     <uib-tabset active="roleDialog.activeTab">

@@ -201,7 +201,10 @@ label{
 //----------------------------------------------------
 //modal
 .modal-header{
-    border-bottom: .1rem solid $color-border;color: $color-copy2;
+    border-bottom: .1rem solid $color-border;color: $color-copy2;position: relative;
+    .toolsarea{
+        position: absolute;
+    }
 }
 
 //----------------------------------------------------
@@ -492,7 +495,7 @@ word-break: break-all;display: inline;
 
 @media (min-width: 768px){
     .modal-sm {
-        width: 63rem;max-width: 100%;
+        width: 40rem;max-width: 100%;
     }
 }
 

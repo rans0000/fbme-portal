@@ -200,6 +200,9 @@ th{
 //modal
 .modal-header{
     padding: ($lineheight) 1.5rem ($lineheight - .1rem);text-align: center;
+    .toolsarea{
+        #{$text-reverse}: 1rem;top: ($lineheight * 2 / 3);
+    }
 }
 .modal-title{
     line-height: $lineheight;font-size: $fsize-h1;font-weight: normal;
