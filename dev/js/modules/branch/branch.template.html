@@ -1,0 +1,175 @@
+<!--toolsarea starts here-->
+<div class="wrapper-toolsarea">
+    <!--toolsarea-level1 starts here-->
+    <div class="toolsarea-level1">
+        <div class="wrapper-inner">
+            <ol class="breadcrumb">
+                <li><a ui-sref="root.dashboard">Home</a></li>
+                <li><a href="#">Administration</a></li>
+                <li>Role Management</li>
+            </ol>
+            <ul class="tools-level1">
+                <li class="tools-item">
+                    <button type="button" class="btn btn-primary" data-ng-click="branch.onCreateRoleInitiate()">Create Roles</button>
+                </li>
+                <li class="tools-item">
+                    <form data-ng-submit="branch.loadRoleData()">
+                        <div class="form-group-button" uib-dropdown is-open="branch.advSearch.isOpen" auto-close="outsideClick">
+                            <input type="text" class="form-control headerSearch" id="headerSearch" placeholder="Role Search" data-ng-model="branch.searchOptions.searchText" data-ng-change="branch.loadRoleData()" data-ng-model-options="{debounce: 500}">
+                            <button type="button" class="btn btn-primary" uib-dropdown-toggle>
+                                <span class="sr-only">Search</span>
+                                <span class="glyphicon glyphicon-triangle-bottom"></span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-sm" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label for="inputSearchText">Search Text</label>
+                                                <input type="text" class="form-control" name="inputSearchText" id="inputSearchText" data-ng-model="branch.searchOptions.searchText">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label for="inputSearchSortby">Sort by</label>
+                                                <select class="form-control" name="inputSearchSortby" id="inputSearchSortby" data-ng-model="branch.searchOptions.sortBy">
+                                                    <option value="name">name</option>
+                                                    <option value="createdDate">created Date</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label for="inputSearchdateCreatedFrom">From Date</label>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" name="inputSearchdateCreatedFrom" id="inputSearchdateCreatedFrom" data-ng-model="branch.searchOptions.createdDateFrom" is-open="branch.advSearch.dateCreatedFromIsOpen" close-on-date-selection="false" uib-datepicker-popup>
+                                                    <span class="input-group-btn">
+                                                        <button type="button" class="btn btn-default" data-ng-click="dateCreatedFromIsOpen"><i class="glyphicon glyphicon-calendar" data-ng-click="branch.advSearch.dateCreatedFromIsOpen = !branch.advSearch.dateCreatedFromIsOpen"></i></button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label for="inputSearchdateCreatedTo">To Date</label>
+                                                <div class="input-group">
+                                                    <input type="text" name="inputSearchdateCreatedTo" id="inputSearchdateCreatedTo" class="form-control" data-ng-model="branch.searchOptions.createdDateTo" is-open="branch.advSearch.dateCreatedToIsOpen" close-on-date-selection="false" uib-datepicker-popup>
+                                                    <span class="input-group-btn">
+                                                        <button type="button" class="btn btn-default" data-ng-click="dateCreatedToIsOpen"><i class="glyphicon glyphicon-calendar" data-ng-click="branch.advSearch.dateCreatedToIsOpen = !branch.advSearch.dateCreatedToIsOpen"></i></button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="radio">
+                                                <p>Sorft Order</p>
+                                                <label><input type="radio" name="inputSearchSort" id="inputSearchSortAscend" data-ng-model="branch.searchOptions.sortOrder" value="A">Ascending</label>
+                                                <label><input type="radio" name="inputSearchSort" id="inputSearchSortDescend" data-ng-model="branch.searchOptions.sortOrder" value="D">Descending</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label for="inputSearchUserIds">Created by (Comma separated UserIds)</label>
+                                                <input type="text" name="inputSearchUserIds" id="inputSearchUserIds" class="form-control" data-ng-model="branch.idList">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr class="no-margin">
+                                    <div class="submit-group">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <button type="submit" class="btn btn-primary btn-block">Search</button>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <button type="button" class="btn btn-default btn-risky btn-block" data-ng-click="branch.advSearch.isOpen = false">Cancel</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--toolsarea-level1 ends here-->
+    <!--toolsarea-level2 starts here-->
+    <div class="toolsarea-level2">
+        <div class="wrapper-inner">
+            <ul class="tools-level2">
+                <li class="tools-item">
+                    <button type="button" class="btn btn-primary" data-ng-click="branch.isExpandedState = !branch.isExpandedState">
+                        <span class="glyphicon glyphicon-menu-hamburger"></span>
+                        <span class="sr-only">Toggle Sidenav</span>
+                    </button>
+                </li>
+                <!--<li class="tools-item">
+<button type="button" class="btn btn-link">
+<span class="glyphicon glyphicon-check"></span>
+<span class="btn-text">Select All</span>
+</button>
+</li>
+<li class="tools-item">
+<button type="button" class="btn btn-link">
+<span class="glyphicon glyphicon-trash"></span>
+<span class="btn-text">Delete</span>
+</button>
+</li>-->
+            </ul>
+        </div>
+    </div>
+    <!--toolsarea-level2 ends here-->
+</div>
+<!--toolsarea ends here-->
+<div class="app-area" data-ng-class="{'collapsed': !branch.isExpandedState}">
+    <!--sidenav starts here-->
+    <div class="sidenav-overlay" data-ng-click="branch.isExpandedState = !branch.isExpandedState"></div>
+    <div class="wrapper-sidenav">
+        <tree collection="branch.itemTree" selected-folder="branch.selectedFolder"></tree>
+    </div>
+    <!--sidenav ends here-->
+    <!--main starts here-->
+    <main class="wrapper-main">
+        <div class="wrapper-main-inner">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Role Name</th>
+                                <th class="text-right">Created Date</th>
+                                <th class="text-right">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-ng-repeat="item in branch.roleList">
+                                <td data-ng-bind="item.name"></td>
+                                <td class="text-right" data-ng-bind="item.createdDate | date"></td>
+                                <td class="text-right">
+                                    <button type="button" class="btn btn-iconed" title="Edit" data-ng-click="branch.onUpdateRoleInitiate(item)">
+                                        <span class="glyphicon glyphicon-edit"></span>
+                                        <span class="sr-only">Edit</span>
+                                    </button>
+                                    <button type="button" class="btn btn-iconed btn-risky" title="Delete" data-ng-click="branch.onDeleteRoleInitiate(item)">
+                                        <span class="glyphicon glyphicon-trash"></span>
+                                        <span class="sr-only">Delete</span>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr ng-if="!branch.roleList.length">
+                                <td colspan="3"><div class="text-center">There are no Roles to show!!</div></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <ul uib-pagination total-items="branch.searchOptions.totalItems" data-ng-model="branch.searchOptions.page" data-ng-change="branch.loadRoleData()"></ul>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!--main ends here-->
+</div>

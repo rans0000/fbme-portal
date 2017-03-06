@@ -12,7 +12,7 @@
                 {
                     "title": "Branch Management",
                     "type": "Folder",
-                    "sref": "root.dashboard"
+                    "sref": "root.branch"
                 },
                 {
                     "title": "Department Management",

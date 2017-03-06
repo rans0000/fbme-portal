@@ -14,7 +14,8 @@
         'ui.bootstrap.contextMenu',
         'login.module',
         'dashboard.module',
-        'role.module'
+        'role.module',
+        'branch.module'
     ])
         .config(httpProviderConfiguration)
         .config(routerConfiguration)
