@@ -26,7 +26,7 @@
     httpProviderConfiguration.$inject = ['$httpProvider'];
     function httpProviderConfiguration ($httpProvider) {
         $httpProvider.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
-        //$httpProvider.defaults.paramSerializer = '$httpParamSerializerJQLike';
+        $httpProvider.defaults.paramSerializer = '$httpParamSerializerJQLike';
 
         $httpProvider.defaults.transformRequest = [function(data) {
             return angular.isObject(data) && String(data) !== '[object File]' ? param(data) : data;

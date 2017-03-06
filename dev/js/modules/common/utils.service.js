@@ -19,6 +19,7 @@
         utilsObj.getLanguagesAvailable = getLanguagesAvailable;
         utilsObj.errorHandler = errorHandler;
         utilsObj.loadSideMenu = loadSideMenu;
+        utilsObj.getDateString = getDateString;
         return utilsObj;
 
         //--------------------------------------
@@ -120,6 +121,12 @@
                 .catch(function (error) {
                 return error;
             });
+        }
+        
+        function getDateString (date) {
+            var temp = date.toISOString();
+            temp = temp.substring(0, 19) + 'Z';
+            return temp;
         }
     }
 })();
