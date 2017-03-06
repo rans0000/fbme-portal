@@ -18,6 +18,7 @@
         utilsObj.getTranslation = getTranslation;
         utilsObj.getLanguagesAvailable = getLanguagesAvailable;
         utilsObj.errorHandler = errorHandler;
+        utilsObj.loadSideMenu = loadSideMenu;
         return utilsObj;
 
         //--------------------------------------
@@ -31,12 +32,12 @@
         function setLanguage (lang) {
             $localStorage.lang = lang;
         }
-        
+
         function getCss () {
             $localStorage.css = $localStorage.css || 'lang-en';
             return $localStorage.css;
         }
-        
+
         function setCss (css) {
             $localStorage.css = css;
         }
@@ -108,6 +109,17 @@
                 default: errStr = 'cmcm_UnknownError';break;
             }
             return errStr;
+        }
+
+        function loadSideMenu (module) {
+            return $http.get('data/menu-data.json')
+                .then(function (response) {
+                var temp = module? response.data[module] : response.data;
+                return temp;
+            })
+                .catch(function (error) {
+                return error;
+            });
         }
     }
 })();

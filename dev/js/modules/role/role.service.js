@@ -67,41 +67,7 @@
         }
 
         function getSidenavItems () {
-            var temp = [
-                {
-                    title: 'Company Management',
-                    type: 'Folder',
-                    children: [
-                        {
-                            title: 'Role Management',
-                            type: 'Folder'
-                        },
-                        {
-                            title: 'Branch Management',
-                            type: 'Folder'
-                        },
-                        {
-                            title: 'Department Management',
-                            type: 'Folder'
-                        },
-                        {
-                            title: 'Settings',
-                            type: 'Folder'
-                        }
-                    ]
-                },
-                {
-                    title: 'User Management',
-                    type: 'Folder',
-                    children: [
-                        {
-                            title: 'Public User Group Management',
-                            type: 'Folder'
-                        }
-                    ]
-                }
-            ];
-            return temp;
+            return utils.loadSideMenu('administration');
         }
         
         function getErrorTranslationValue (errorcode) {

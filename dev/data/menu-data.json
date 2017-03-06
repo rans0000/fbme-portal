@@ -1,0 +1,41 @@
+{
+    "administration": [
+        {
+            "title": "Company Management",
+            "type": "Folder",
+            "children": [
+                {
+                    "title": "Role Management",
+                    "type": "Folder",
+                    "sref": "root.role"
+                },
+                {
+                    "title": "Branch Management",
+                    "type": "Folder",
+                    "sref": "root.dashboard"
+                },
+                {
+                    "title": "Department Management",
+                    "type": "Folder",
+                    "sref": "root.dashboard"
+                },
+                {
+                    "title": "Settings",
+                    "type": "Folder",
+                    "sref": "root.dashboard"
+                }
+            ]
+        },
+        {
+            "title": "User Management",
+            "type": "Folder",
+            "children": [
+                {
+                    "title": "Public User Group Management",
+                    "type": "Folder",
+                    "sref": "root.dashboard"
+                }
+            ]
+        }
+    ]
+}

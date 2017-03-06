@@ -43,12 +43,12 @@
         }
 
         function onGetTranslationSuccess (response) {
-            console.log(response);
+            //console.log(response);
             vm.translation = response;
         }
 
         function onGetTranslationError (error) {
-            console.log(error);
+            //console.log(error);
             toastr.error(vm.translation.cmcm_TranslationLoadError);
         }
 

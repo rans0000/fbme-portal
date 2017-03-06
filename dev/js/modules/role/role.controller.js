@@ -17,8 +17,8 @@
         vm.deletePopupData = {};
         vm.updateRolePopupData = getUpdateRolePopupData();
         vm.createRolePopupData = getCreateRolePopupData();
-        vm.itemTree = roleService.getSidenavItems();
-        vm.selectedFolder = vm.itemTree[0];
+        //vm.itemTree = roleService.getSidenavItems();
+        //vm.selectedFolder = vm.itemTree[0];
         vm.searchOptions = getSearchOptions();
         vm.advSearch = getAdvSearchOptions();
         vm.idList = '';
@@ -35,6 +35,8 @@
 
         function init () {
             onAllAPISuccess();
+            roleService.getSidenavItems()
+                .then(populateSidenav);
         }
 
         function onAllAPISuccess () {
@@ -256,6 +258,11 @@
                 dateCreatedToIsOpen: false
             };
             return temp;
+        }
+
+        function populateSidenav (response) {
+            vm.itemTree = response;
+            vm.selectedFolder = vm.itemTree[0];
         }
     }
 })();

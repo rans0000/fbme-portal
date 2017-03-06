@@ -291,6 +291,7 @@
         utilsObj.getTranslation = getTranslation;
         utilsObj.getLanguagesAvailable = getLanguagesAvailable;
         utilsObj.errorHandler = errorHandler;
+        utilsObj.loadSideMenu = loadSideMenu;
         return utilsObj;
 
         //--------------------------------------
@@ -304,12 +305,12 @@
         function setLanguage (lang) {
             $localStorage.lang = lang;
         }
-        
+
         function getCss () {
             $localStorage.css = $localStorage.css || 'lang-en';
             return $localStorage.css;
         }
-        
+
         function setCss (css) {
             $localStorage.css = css;
         }
@@ -381,6 +382,17 @@
                 default: errStr = 'cmcm_UnknownError';break;
             }
             return errStr;
+        }
+
+        function loadSideMenu (module) {
+            return $http.get('data/menu-data.json')
+                .then(function (response) {
+                var temp = module? response.data[module] : response.data;
+                return temp;
+            })
+                .catch(function (error) {
+                return error;
+            });
         }
     }
 })();
@@ -516,12 +528,12 @@
         }
 
         function onGetTranslationSuccess (response) {
-            console.log(response);
+            //console.log(response);
             vm.translation = response;
         }
 
         function onGetTranslationError (error) {
-            console.log(error);
+            //console.log(error);
             toastr.error(vm.translation.cmcm_TranslationLoadError);
         }
 
@@ -616,8 +628,8 @@
         vm.deletePopupData = {};
         vm.updateRolePopupData = getUpdateRolePopupData();
         vm.createRolePopupData = getCreateRolePopupData();
-        vm.itemTree = roleService.getSidenavItems();
-        vm.selectedFolder = vm.itemTree[0];
+        //vm.itemTree = roleService.getSidenavItems();
+        //vm.selectedFolder = vm.itemTree[0];
         vm.searchOptions = getSearchOptions();
         vm.advSearch = getAdvSearchOptions();
         vm.idList = '';
@@ -634,6 +646,8 @@
 
         function init () {
             onAllAPISuccess();
+            roleService.getSidenavItems()
+                .then(populateSidenav);
         }
 
         function onAllAPISuccess () {
@@ -856,6 +870,11 @@
             };
             return temp;
         }
+
+        function populateSidenav (response) {
+            vm.itemTree = response;
+            vm.selectedFolder = vm.itemTree[0];
+        }
     }
 })();
 
@@ -928,41 +947,7 @@
         }
 
         function getSidenavItems () {
-            var temp = [
-                {
-                    title: 'Company Management',
-                    type: 'Folder',
-                    children: [
-                        {
-                            title: 'Role Management',
-                            type: 'Folder'
-                        },
-                        {
-                            title: 'Branch Management',
-                            type: 'Folder'
-                        },
-                        {
-                            title: 'Department Management',
-                            type: 'Folder'
-                        },
-                        {
-                            title: 'Settings',
-                            type: 'Folder'
-                        }
-                    ]
-                },
-                {
-                    title: 'User Management',
-                    type: 'Folder',
-                    children: [
-                        {
-                            title: 'Public User Group Management',
-                            type: 'Folder'
-                        }
-                    ]
-                }
-            ];
-            return temp;
+            return utils.loadSideMenu('administration');
         }
         
         function getErrorTranslationValue (errorcode) {
@@ -1002,8 +987,8 @@
     angular.module('app.core.module')
         .directive('branch', branchDirective);
 
-    branchDirective.$inject = ['$compile', 'jQuery'];
-    function branchDirective ($compile, $) {
+    branchDirective.$inject = ['$compile', 'jQuery', '$state'];
+    function branchDirective ($compile, $, $state) {
         var directiveObject = {
             replace: true,
             restrict: 'E',
@@ -1024,15 +1009,15 @@
 
         function branchLink (scope, element, attributes, ctrl) {
             var $element = $(element);
-            
+
             ctrl.toggleOpenState = toggleOpenState;
-            
+
             if(angular.isArray(scope.branch.item.children)){
                 $compile('<tree collection="branch.item.children" selected-folder="tree.selectedFolder"></tree>')(scope, function (cloned) {
                     element.append(cloned);
                 });
             }
-            
+
             function toggleOpenState (event) {
                 event.stopPropagation();
                 ctrl.isOpen = !ctrl.isOpen;
@@ -1058,7 +1043,12 @@
             $scope.$on('folderOpened', folderOpenedLitener);
 
             function onItemClick (item) {
-                $scope.$emit('folderSelectFromTree', item);
+                if(item.hasOwnProperty('sref')){
+                    $state.go(item.sref);
+                }
+                else{
+                    $scope.$emit('folderSelectFromTree', item);
+                }
             }
 
             function onFolderSelect (event, item) {
@@ -1071,11 +1061,11 @@
                     vm.isActive = false;
                 }
             }
-            
+
             function folderOpenedLitener () {
                 //console.log(vm.item.title);
             }
-            
+
             function checkForInnerFolder () {
                 var hasFolder = false;
                 angular.forEach(vm.item.children, function (item) {
