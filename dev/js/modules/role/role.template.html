@@ -125,9 +125,10 @@
     <!--toolsarea-level2 ends here-->
 </div>
 <!--toolsarea ends here-->
-<div class="app-area">
+<div class="app-area" data-ng-class="{'collapsed': !role.isExpandedState}">
     <!--sidenav starts here-->
-    <div class="wrapper-sidenav" data-ng-class="{'collapsed': !role.isExpandedState}">
+    <div class="sidenav-overlay" data-ng-click="role.isExpandedState = !role.isExpandedState"></div>
+    <div class="wrapper-sidenav">
         <tree collection="role.itemTree" selected-folder="role.selectedFolder"></tree>
     </div>
     <!--sidenav ends here-->
