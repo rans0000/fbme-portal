@@ -20,7 +20,7 @@
                                 <span class="sr-only">Search</span>
                                 <span class="glyphicon glyphicon-triangle-bottom"></span>
                             </button>
-                            <div class="dropdown-menu dropdown-menu-right dropdown-md" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                            <div class="dropdown-menu dropdown-menu-right dropdown-sm" uib-dropdown-menu role="menu" aria-labelledby="single-button">
                                 <div class="container-fluid">
                                     <div class="row">
                                         <div class="col-sm-6">
@@ -78,13 +78,14 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <hr class="no-margin">
                                     <div class="submit-group">
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <button type="submit" class="btn btn-primary btn-block">Search</button>
                                             </div>
                                             <div class="col-sm-6">
-                                                <button type="button" class="btn btn-default btn-block" data-ng-click="role.advSearch.isOpen = false">Cancel</button>
+                                                <button type="button" class="btn btn-default btn-risky btn-block" data-ng-click="role.advSearch.isOpen = false">Cancel</button>
                                             </div>
                                         </div>
                                     </div>
@@ -154,7 +155,7 @@
                                         <span class="glyphicon glyphicon-edit"></span>
                                         <span class="sr-only">Edit</span>
                                     </button>
-                                    <button type="button" class="btn btn-iconed" title="Delete" data-ng-click="role.onDeleteRoleInitiate(item)">
+                                    <button type="button" class="btn btn-iconed btn-risky" title="Delete" data-ng-click="role.onDeleteRoleInitiate(item)">
                                         <span class="glyphicon glyphicon-trash"></span>
                                         <span class="sr-only">Delete</span>
                                     </button>

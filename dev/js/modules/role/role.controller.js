@@ -70,6 +70,7 @@
                 templateUrl: 'js/modules/common/confirmDialog/confirm.dialog.template.html',
                 controller: 'ModalInstanceCtrl',
                 controllerAs: '$ctrl',
+                size: 'md',
                 resolve: {
                     dialogData: function () {
                         return vm.deletePopupData;
@@ -131,7 +132,7 @@
                 templateUrl: 'js/modules/role/create-update/role.create.update.template.html',
                 controller: 'RoleUpdateController',
                 controllerAs: 'roleDialog',
-                size: 'sm',
+                size: 'md',
                 resolve: {
                     dialogData: function () {
                         return vm.updateRolePopupData;
@@ -182,7 +183,7 @@
                 templateUrl: 'js/modules/role/create-update/role.create.update.template.html',
                 controller: 'RoleUpdateController',
                 controllerAs: 'roleDialog',
-                size: 'sm',
+                size: 'md',
                 resolve: {
                     dialogData: function () {
                         return vm.createRolePopupData;

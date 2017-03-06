@@ -9,6 +9,15 @@ body{
 }
 
 //----------------------------------------------------
+//misc
+.text-left.text-left{
+    text-align: $text-direction;
+}
+.text-right.text-right{
+    text-align: $text-reverse;
+}
+
+//----------------------------------------------------
 //ovverrides: forms
 .form-group{
     margin-bottom: ($lineheight / 2);
@@ -25,7 +34,7 @@ textarea.form-control{
 
 .form-lg{
     .form-group{
-        margin-bottom: ($lineheight);
+        margin-bottom: ($lineheight * 1.5);
     }
     label{
         font-size: $fsize-md;
@@ -38,6 +47,9 @@ textarea.form-control{
     }
     .submit-group{
         margin: ($lineheight * 2) 0 $lineheight;
+    }
+    .errinfo:last-child{
+        margin-bottom: -($lineheight * 1.5);
     }
 }
 .checkbox,.radio{
@@ -57,7 +69,7 @@ textarea.form-control{
     }
 }
 .submit-group{
-    margin: $lineheight 0 ($lineheight / 2);
+    margin: $lineheight 0 0;
     .btn{
         margin-bottom: ($lineheight / 2);
     }
@@ -69,6 +81,12 @@ textarea.form-control{
     }
     .form-control{
         /*text-align: $text-reverse;*/
+    }
+}
+.errinfo{
+    font-size: $fsize-sm;
+    &:before{
+        #{$text-direction}: 0;
     }
 }
 
@@ -119,16 +137,6 @@ th{
         }
     }
 }
-
-//----------------------------------------------------
-//misc
-.text-left.text-left{
-    text-align: $text-direction;
-}
-.text-right.text-right{
-    text-align: $text-reverse;
-}
-
 
 //----------------------------------------------------
 .avatar-holder{
@@ -203,9 +211,14 @@ th{
 //----------------------------------------------------
 //dropdown-menu overrides
 .dropdown-menu{
-    text-align: $text-direction;
+    text-align: $text-direction;font-size: $fsize-sm;
     &.dropdown-menu-right{
         #{$text-reverse}: 0; #{$text-direction}: auto;
+    }
+    > li{
+        > a{
+            border-width: 0;border-#{$text-direction}-width: .5rem;
+        }
     }
 }
 
@@ -248,7 +261,7 @@ th{
 .boxes{
     padding: $lineheight 1rem 0;
     > .glyphicon{
-    font-size: ($lineheight * 2);line-height: ($lineheight * 2);margin: ($lineheight) auto ($lineheight * 2);
+        font-size: ($lineheight * 2);line-height: ($lineheight * 2);margin: ($lineheight) auto ($lineheight * 2);
         &:after{
             width: ($lineheight * 4);height: ($lineheight * 4);left: -($lineheight);top: -($lineheight);
         }

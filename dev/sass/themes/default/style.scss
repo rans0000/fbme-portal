@@ -33,6 +33,17 @@ body{
     padding: 0 30px;
 }
 
+//----------------------------------------------------
+//misc
+hr{
+    border-top: .1rem solid $color-border;margin: ($lineheight) -1.5rem (($lineheight) - .1rem);
+    &.no-margin{
+        margin-top: 0;margin-bottom: (($lineheight) - .1rem);
+    }
+    &.separator-dotted{
+        border-style: dashed;
+    }
+}
 
 //----------------------------------------------------
 //links
@@ -49,6 +60,9 @@ label{
 }
 .form-control{
     box-shadow: none;color: $color-copy2;border-radius: .2rem;
+    &.ng-invalid.ng-touched{
+        border-color: $color-danger;
+    }
 }
 .form-lg{
     .form-control{
@@ -89,10 +103,19 @@ label{
 }
 
 .errinfo-wrapper{
-    color: #e69b9b;
+    color: $color-neutral;
 }
 .errinfo{
-
+    display: block;background-color: $color-danger;padding: 0 1rem 0 1.5rem;position: relative;
+    &:before{
+        content: '';position: absolute;width: .5rem;height: 100%;top: 0;background-color: darken($color-danger, 12%);
+    }
+    &:first-child{
+        padding-top: ($lineheight / 4);
+    }
+    &:last-child{
+        padding-bottom: ($lineheight / 4);
+    }
 }
 
 //----------------------------------------------------
@@ -102,8 +125,17 @@ label{
     &:hover, &:focus{
         color: $color-neutral;border-color: $color-secondary;background-color: $color-secondary;
     }
+    &.btn-risky:hover, &.btn-risky:focus{
+        border-color: $color-danger;background-color: $color-danger;color: $color-neutral;
+    }
     &.btn-lg{
         border-radius: 0;
+    }
+    &[disabled="disabled"]{
+        background-color: $color-muted;border-color: $color-border;color: $color-copy1;
+        &:hover, &:focus{
+            background-color: $color-muted;border-color: $color-border;
+        }
     }
 }
 .btn-primary{
@@ -175,15 +207,35 @@ label{
 //----------------------------------------------------
 //dropdown-menu overrides
 .dropdown-menu{
-    &.dropdown-md{
+    padding: ($lineheight) 0 ($lineheight / 2);margin-top: 0;border-radius: .2rem;
+    &.dropdown-menu-nopad{
+        padding: 0;
+    }
+    &.dropdown-sm{
         min-width: 40rem;
+    }
+    > li{
+        > a{
+            padding: ($lineheight / 2) 1rem;text-decoration: none;position: relative;border-style: solid;border-color: transparent;
+            &:hover, &:focus{
+                border-color: $color-secondary;color: $color-secondary;
+            }
+        }
+    }
+    .divider{
+        margin: 0;border-bottom: .1rem solid $color-border;
     }
 }
 
 //----------------------------------------------------
 //datepicker
 .uib-datepicker-popup.dropdown-menu{
-    min-width: 0;
+    min-width: 0;padding-top: 0;
+    .uib-weeks{
+        .btn{
+            border-radius: 0;
+        }
+    }
 }
 
 
@@ -212,7 +264,7 @@ label{
             > a{
                 color: $color-muted;
                 &:hover,&:focus{
-                    border-bottom-color: $color-border;
+                    border-bottom-color: $color-border;color: $color-muted;
                 }
             }
         }
