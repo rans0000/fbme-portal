@@ -25,7 +25,7 @@
         function requestLogin (requestObj) {
             var obj = {
                 userName: requestObj.name,
-                Password: requestObj.password
+                password: requestObj.password
             };
             var url = webServiceURL.apiBase + webServiceURL.login;
             return $http.post(url, obj);

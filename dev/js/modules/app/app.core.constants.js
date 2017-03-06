@@ -10,7 +10,7 @@
 
     function getWebServiceURL () {
         var temp = {
-            apiBase: 'http://localhost:8090/FDocs/api/',
+            apiBase: 'http://localhost:8080/FDocs/api/',
             login: 'auth/login.json',
             roleList: 'role/list.json',
             roleDetails: 'role/details.json',
