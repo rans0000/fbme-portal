@@ -6,11 +6,12 @@
     angular.module('headerArea.module')
         .factory('headerAreaService', headerAreaService);
 
-    headerAreaService.$inject = ['userService'];
+    headerAreaService.$inject = ['$http', 'webServiceURL', 'userService'];
 
-    function headerAreaService (userService) {
+    function headerAreaService ($http, webServiceURL, userService) {
         var headerObj = {};
         headerObj.populateCurrentUserObj = populateCurrentUserObj;
+        headerObj.logout = logout;
         return headerObj;
         
         //--------------------------------------
@@ -18,6 +19,11 @@
         
         function populateCurrentUserObj () {
             return userService.getAllCurrentUserProfile();
+        }
+        
+        function logout () {
+            var url = webServiceURL.apiBase + webServiceURL.logout;
+            return $http.get(url);
         }
         
     }

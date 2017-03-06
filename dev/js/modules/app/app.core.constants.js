@@ -12,6 +12,7 @@
         var temp = {
             apiBase: 'http://localhost:8080/FDocs/api/',
             login: 'auth/login.json',
+            logout: 'auth/logout.json',
             roleList: 'role/list.json',
             roleDetails: 'role/details.json',
             roleCreate: 'role/create.json',
