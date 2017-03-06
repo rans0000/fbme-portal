@@ -63,7 +63,7 @@
 
         function onLoginSuccess (response) {
             loginService.saveCurrentUserProfile(response.items[0]);
-            $state.go('dashboard');
+            $state.go('root.dashboard');
         }
 
         function onLoginError (error) {

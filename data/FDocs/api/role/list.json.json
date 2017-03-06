@@ -6,41 +6,74 @@
     },
     "body": {
         "currentPage": 1,
-        "totalNumItems": 2,
+        "totalNumItems": 5,
         "totalNumPages": 1,
         "pageSize": 30,
         "items": [
             {
                 "itemType": "Role",
-                "id": "3",
-                "name": "TestRole",
-                "description": "Test Description",
-                "value": "7",
+                "id": "1",
+                "name": "Super Admin",
+                "description": "Super Admin",
+                "value": "511",
                 "createdById": "1",
                 "createdByUserName": "admin",
                 "createdByFirstName": "Administrator",
                 "createdByMiddleName": "M",
                 "createdByLastName": "L",
-                "createdDate": "2017-01-15T09:30:52Z"
+                "createdDate": "2017-03-02T22:13:18+0530"
+            },
+            {
+                "itemType": "Role",
+                "id": "2",
+                "name": "TestRole1",
+                "description": "Test Des",
+                "value": "2",
+                "createdById": "1",
+                "createdByUserName": "admin",
+                "createdByFirstName": "Administrator",
+                "createdByMiddleName": "M",
+                "createdByLastName": "L",
+                "createdDate": "2017-03-02T22:47:52+0530"
+            },
+            {
+                "itemType": "Role",
+                "id": "3",
+                "name": "TestRole2",
+                "description": "Test Des",
+                "value": "2",
+                "createdById": "1",
+                "createdByUserName": "admin",
+                "createdByFirstName": "Administrator",
+                "createdByMiddleName": "M",
+                "createdByLastName": "L",
+                "createdDate": "2017-03-07T04:23:32+0530"
             },
             {
                 "itemType": "Role",
                 "id": "4",
-                "name": "TestRole34",
-                "description": "Test Description",
-                "value": "7",
+                "name": "TestRole3",
+                "description": "Test Des",
+                "value": "2",
                 "createdById": "1",
                 "createdByUserName": "admin",
                 "createdByFirstName": "Administrator",
                 "createdByMiddleName": "M",
                 "createdByLastName": "L",
-                "createdDate": "2017-01-15T20:33:52Z",
-                "modifiedById": "1",
-                "modifiedByUserName": "admin",
-                "modifiedByFirstName": "Administrator",
-                "modifiedByMiddleName": "M",
-                "modifiedByLastName": "L",
-                "modifiedDate": "2017-01-15T20:37:12Z"
+                "createdDate": "2017-03-07T04:23:40+0530"
+            },
+            {
+                "itemType": "Role",
+                "id": "5",
+                "name": "TestRole4",
+                "description": "Test Des",
+                "value": "2",
+                "createdById": "1",
+                "createdByUserName": "admin",
+                "createdByFirstName": "Administrator",
+                "createdByMiddleName": "M",
+                "createdByLastName": "L",
+                "createdDate": "2017-03-07T04:23:44+0530"
             }
         ]
     }

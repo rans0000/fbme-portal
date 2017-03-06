@@ -52,13 +52,13 @@
                     controllerAs: 'header'
                 }
             }
-        })
+        })/*
             .state('dashboard', {
             url: '/dashboard',
             templateUrl: 'js/modules/dashboard/dashboard.template.html',
             controller: 'DashboardController',
             controllerAs: 'vm'
-        });
+        })*/;
     }
 
     httpRequestInterceptor.$inject = ['$q', 'webServiceURL'];
@@ -166,7 +166,19 @@
 (function(){
     'use strict';
 
-    angular.module('dashboard.module', []);
+    angular.module('dashboard.module', [])
+        .config(routerConfiguration);
+
+    routerConfiguration.$inject = ['$stateProvider'];
+    function routerConfiguration ($stateProvider) {
+        $stateProvider
+            .state('root.dashboard', {
+            url: '/dashboard',
+            templateUrl: 'js/modules/dashboard/dashboard.template.html',
+            controller: 'DashboardController',
+            controllerAs: 'dash'
+        });
+    }
 })();
 
 /*jshint browser: true*/
@@ -524,7 +536,7 @@
 
         function onLoginSuccess (response) {
             loginService.saveCurrentUserProfile(response.items[0]);
-            $state.go('dashboard');
+            $state.go('root.dashboard');
         }
 
         function onLoginError (error) {
