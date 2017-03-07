@@ -1,0 +1,78 @@
+<div class="form-group-button" uib-dropdown is-open="role.advSearch.isOpen" auto-close="outsideClick">
+    <input type="text" class="form-control headerSearch text-right" id="headerSearch" placeholder="Role Search" data-ng-model="role.searchOptions.searchText" data-ng-change="role.loadRoleData()" data-ng-model-options="{debounce: 500}">
+    <button type="button" class="btn btn-primary" uib-dropdown-toggle>
+        <span class="sr-only">Search</span>
+        <span class="glyphicon glyphicon-triangle-bottom"></span>
+    </button>
+    <div class="dropdown-menu dropdown-menu-right dropdown-sm" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputSearchText">Search Text</label>
+                        <input type="text" class="form-control" name="inputSearchText" id="inputSearchText" data-ng-model="role.searchOptions.searchText">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputSearchSortby">Sort by</label>
+                        <select class="form-control" name="inputSearchSortby" id="inputSearchSortby" data-ng-model="role.searchOptions.sortBy">
+                            <option value="name">name</option>
+                            <option value="createdDate">created Date</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputSearchdateCreatedFrom">From Date</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="inputSearchdateCreatedFrom" id="inputSearchdateCreatedFrom" data-ng-model="role.searchOptions.createdDateFrom" is-open="role.advSearch.dateCreatedFromIsOpen" close-on-date-selection="false" uib-datepicker-popup>
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" data-ng-click="dateCreatedFromIsOpen"><i class="glyphicon glyphicon-calendar" data-ng-click="role.advSearch.dateCreatedFromIsOpen = !role.advSearch.dateCreatedFromIsOpen"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputSearchdateCreatedTo">To Date</label>
+                        <div class="input-group">
+                            <input type="text" name="inputSearchdateCreatedTo" id="inputSearchdateCreatedTo" class="form-control" data-ng-model="role.searchOptions.createdDateTo" is-open="role.advSearch.dateCreatedToIsOpen" close-on-date-selection="false" uib-datepicker-popup>
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" data-ng-click="dateCreatedToIsOpen"><i class="glyphicon glyphicon-calendar" data-ng-click="role.advSearch.dateCreatedToIsOpen = !role.advSearch.dateCreatedToIsOpen"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="radio">
+                        <p>Sorft Order</p>
+                        <label><input type="radio" name="inputSearchSort" id="inputSearchSortAscend" data-ng-model="role.searchOptions.sortOrder" value="A">Ascending</label>
+                        <label><input type="radio" name="inputSearchSort" id="inputSearchSortDescend" data-ng-model="role.searchOptions.sortOrder" value="D">Descending</label>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputSearchUserIds">Created by (Comma separated UserIds)</label>
+                        <input type="text" name="inputSearchUserIds" id="inputSearchUserIds" class="form-control" data-ng-model="role.idList">
+                    </div>
+                </div>
+            </div>
+            <hr class="no-margin">
+            <div class="submit-group">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <button type="submit" class="btn btn-primary btn-block">Search</button>
+                    </div>
+                    <div class="col-sm-6">
+                        <button type="button" class="btn btn-default btn-risky btn-block" data-ng-click="role.advSearch.isOpen = false">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
