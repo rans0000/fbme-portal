@@ -13,7 +13,12 @@
         vm.data = dialogData;
         vm.branch = {
             name: dialogData.item.name,
-            description: dialogData.item.description
+            code: dialogData.item.code,
+            address1: dialogData.item.address1,
+            address2: dialogData.item.address2,
+            address3: dialogData.item.address3,
+            address4: dialogData.item.address4,
+            zip: dialogData.item.zip
         };
         var mode = dialogData.mode;
 
@@ -26,6 +31,9 @@
 
         function validateBranchDetail () {
             var isValid =  false;
+            if(vm.branch.name !== ''){
+                isValid = true;
+            }
             return isValid;
         }
 
@@ -43,10 +51,7 @@
         }
 
         function createBranch () {
-            var requestObj = {
-                name: vm.branch.name,
-                description: vm.branch.description,
-            };
+            var requestObj = angular.copy(vm.branch);
             console.log(requestObj);
             branchService.createBranch(requestObj)
                 .then(onCreateBranchSuccess)

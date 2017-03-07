@@ -132,7 +132,7 @@
                 templateUrl: 'js/modules/branch/create-update/branch.create.update.template.html',
                 controller: 'BranchUpdateController',
                 controllerAs: 'branchDialog',
-                size: 'md',
+                size: 'sm',
                 resolve: {
                     dialogData: function () {
                         return vm.updateBranchPopupData;
@@ -162,7 +162,6 @@
                 description: '',
                 successResult: '',
                 cancelResult: 'cancel',
-                currentPermissions: [],
                 item: null,
                 mode: 'update',
                 translation: null
@@ -174,8 +173,12 @@
         function onCreateBranchInitiate () {
             vm.createBranchPopupData.item = {
                 name: '',
-                description: '',
-                privileges: ''
+                code: undefined,
+                address1: undefined,
+                address2: undefined,
+                address3: undefined,
+                address4: undefined,
+                zip: undefined
             };
             var modalInstance = $uibModal.open({
                 ariaLabelledBy: 'modal-title',
@@ -183,7 +186,7 @@
                 templateUrl: 'js/modules/branch/create-update/branch.create.update.template.html',
                 controller: 'BranchUpdateController',
                 controllerAs: 'branchDialog',
-                size: 'md',
+                size: 'sm',
                 resolve: {
                     dialogData: function () {
                         return vm.createBranchPopupData;
@@ -207,7 +210,6 @@
                 description: '',
                 successResult: '',
                 cancelResult: 'cancel',
-                currentPermissions: [],
                 item: null,
                 mode: 'create',
                 translation: null
