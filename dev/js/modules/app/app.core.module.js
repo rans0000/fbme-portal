@@ -59,7 +59,8 @@
                     subValue = value[i];
                     fullSubName = name + '[' + i + ']';
                     innerObj = {};
-                    innerObj[fullSubName] = subValue;
+                    //innerObj[fullSubName] = subValue;
+                    innerObj[name] = subValue;
                     query += param(innerObj) + '&';
                 }
             }
