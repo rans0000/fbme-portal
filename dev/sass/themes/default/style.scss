@@ -485,7 +485,7 @@ word-break: break-all;display: inline;
         }
     }
     .wrapper-sidenav{
-        position: fixed;width: 90%;height: 100%;top: 0;left: -100%;z-index: 5;transform: translate3d(100%, 0, 0);
+        position: fixed;width: 90%;height: 100%;top: 0;z-index: 5;
 
         .app-area.collapsed &{
             transform: translate3d(0, 0, 0);

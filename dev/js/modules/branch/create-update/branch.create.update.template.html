@@ -8,34 +8,55 @@
     </div>
 </div>
 <div class="modal-body" id="modal-body">
-    <form data-ng-submit="branchDialog.createUpdateBranch()">
+    <form name="branchDialog.formCreateUpdate" data-ng-submit="branchDialog.createUpdateBranch()" novalidate>
         <div class="form-group">
             <label for="inputName">Name</label>
             <input type="text" class="form-control" id="inputName" name="inputName" data-ng-model="branchDialog.branch.name" required>
+            <div class="errinfo-wrapper">
+                <span class="errinfo" data-ng-show="branchDialog.formCreateUpdate.inputName.$error.required && branchDialog.formCreateUpdate.inputName.$touched">Please fill in the branch name.</span>
+            </div>
         </div>
         <div class="form-group">
             <label for="inputCode">Code</label>
-            <input type="text" class="form-control" id="inputCode" name="inputCode" data-ng-model="branchDialog.branch.code">
+            <input type="text" class="form-control" id="inputCode" name="inputCode" data-ng-model="branchDialog.branch.code" maxlength="50">
+            <div class="errinfo-wrapper">
+                <span class="errinfo" data-ng-show="branchDialog.formCreateUpdate.inputCode.$error.maxlength && branchDialog.formCreateUpdate.inputCode.$touched">Maximum 50 characters allowed.</span>
+            </div>
         </div>
         <div class="form-group">
             <label for="inputAddress1">Address 1</label>
-            <input type="text" class="form-control" id="inputAddress1" name="inputAddress1" data-ng-model="branchDialog.branch.address1">
+            <input type="text" class="form-control" id="inputAddress1" name="inputAddress1" data-ng-model="branchDialog.branch.address1"  maxlength="100">
+            <div class="errinfo-wrapper">
+                <span class="errinfo" data-ng-show="branchDialog.formCreateUpdate.inputAddress1.$error.maxlength && branchDialog.formCreateUpdate.inputAddress1.$touched">Maximum 100 characters allowed.</span>
+            </div>
         </div>
         <div class="form-group">
             <label for="inputAddress2">Address 2</label>
-            <input type="text" class="form-control" id="inputAddress2" name="inputAddress2" data-ng-model="branchDialog.branch.address2">
+            <input type="text" class="form-control" id="inputAddress2" name="inputAddress2" data-ng-model="branchDialog.branch.address2"  maxlength="100">
+            <div class="errinfo-wrapper">
+                <span class="errinfo" data-ng-show="branchDialog.formCreateUpdate.inputAddress2.$error.maxlength && branchDialog.formCreateUpdate.inputAddress2.$touched">Maximum 100 characters allowed.</span>
+            </div>
         </div>
         <div class="form-group">
             <label for="inputAddress3">Address 3</label>
-            <input type="text" class="form-control" id="inputAddress3" name="inputAddress3" data-ng-model="branchDialog.branch.address3">
+            <input type="text" class="form-control" id="inputAddress3" name="inputAddress3" data-ng-model="branchDialog.branch.address3"  maxlength="100">
+            <div class="errinfo-wrapper">
+                <span class="errinfo" data-ng-show="branchDialog.formCreateUpdate.inputAddress3.$error.maxlength && branchDialog.formCreateUpdate.inputAddress3.$touched">Maximum 100 characters allowed.</span>
+            </div>
         </div>
         <div class="form-group">
             <label for="inputAddress4">Address 4</label>
-            <input type="text" class="form-control" id="inputAddress4" name="inputAddress4" data-ng-model="branchDialog.branch.address4">
+            <input type="text" class="form-control" id="inputAddress4" name="inputAddress4" data-ng-model="branchDialog.branch.address4"  maxlength="100">
+            <div class="errinfo-wrapper">
+                <span class="errinfo" data-ng-show="branchDialog.formCreateUpdate.inputAddress4.$error.maxlength && branchDialog.formCreateUpdate.inputAddress4.$touched">Maximum 100 characters allowed.</span>
+            </div>
         </div>
         <div class="form-group">
             <label for="inputZip">Zip</label>
-            <input type="text" class="form-control" id="inputZip" name="inputZip" data-ng-model="branchDialog.branch.zip">
+            <input type="text" class="form-control" id="inputZip" name="inputZip" data-ng-model="branchDialog.branch.zip"  maxlength="50">
+            <div class="errinfo-wrapper">
+                <span class="errinfo" data-ng-show="branchDialog.formCreateUpdate.inputZip.$error.maxlength && branchDialog.formCreateUpdate.inputZip.$touched">Maximum 50 characters allowed.</span>
+            </div>
         </div>
         <div class="submit-group">
             <div class="row">

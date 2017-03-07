@@ -221,8 +221,8 @@ th{
     > li{
         > a{
             border-width: 0;border-#{$text-direction}-width: .5rem;
-        }
     }
+}
 }
 
 //----------------------------------------------------
@@ -279,6 +279,18 @@ th{
     > li{
         > label{
             font-size: $fsize-normal;
+        }
+    }
+}
+
+//----------------------------------------------------
+@media (max-width: 1200px){
+    .wrapper-sidenav{
+        #{$text-reverse}: 100%;
+        @if $text-reverse == left{
+            transform: translate3d(-100%, 0, 0);
+        } @else{
+            transform: translate3d(100%, 0, 0);
         }
     }
 }
