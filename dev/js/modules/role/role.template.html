@@ -15,7 +15,7 @@
                 <li class="tools-item">
                     <form data-ng-submit="role.loadRoleData()">
                         <div class="form-group-button" uib-dropdown is-open="role.advSearch.isOpen" auto-close="outsideClick">
-                            <input type="text" class="form-control headerSearch" id="headerSearch" placeholder="Role Search" data-ng-model="role.searchOptions.searchText" data-ng-change="role.loadRoleData()" data-ng-model-options="{debounce: 500}">
+                            <input type="text" class="form-control headerSearch text-right" id="headerSearch" placeholder="Role Search" data-ng-model="role.searchOptions.searchText" data-ng-change="role.loadRoleData()" data-ng-model-options="{debounce: 500}">
                             <button type="button" class="btn btn-primary" uib-dropdown-toggle>
                                 <span class="sr-only">Search</span>
                                 <span class="glyphicon glyphicon-triangle-bottom"></span>
@@ -147,7 +147,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr data-ng-repeat="item in role.roleList">
+                            <tr data-ng-repeat="item in role.roleList track by item.id">
                                 <td data-ng-bind="item.name"></td>
                                 <td class="text-right" data-ng-bind="item.createdDate | date"></td>
                                 <td class="text-right">
