@@ -17,7 +17,13 @@
             roleDetails: 'role/details.json',
             roleCreate: 'role/create.json',
             roleUpdate: 'role/update.json',
-            roledelete: 'role/delete.json'
+            roleDelete: 'role/delete.json',
+            
+            branchList: 'branch/list.json',
+            branchDetails: 'branch/details.json',
+            branchCreate: 'branch/create.json',
+            branchUpdate: 'branch/update.json',
+            branchDelete: 'branch/delete.json'
         };
         return temp;
     }

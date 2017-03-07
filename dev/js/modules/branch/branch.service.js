@@ -26,11 +26,15 @@
 
         function loadBranchList (requestObj) {
             var url = webServiceURL.apiBase + webServiceURL.branchList;
-            return $http.get(url, {params: requestObj});
+            var tempObj = angular.copy(requestObj);
+            tempObj.createdDateFrom = utils.getDateString(requestObj.createdDateFrom);
+            tempObj.createdDateTo = utils.getDateString(requestObj.createdDateTo);
+            //return $http.get(url, {params: tempObj});
+            return $http.get(url);
         }
 
         function deleteBranch (requestObj) {
-            var url = webServiceURL.apiBase + webServiceURL.branchdelete;
+            var url = webServiceURL.apiBase + webServiceURL.branchDelete;
             return $http.post(url, requestObj);
         }
 

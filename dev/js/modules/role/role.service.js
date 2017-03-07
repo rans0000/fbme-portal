@@ -34,7 +34,7 @@
         }
 
         function deleteRole (requestObj) {
-            var url = webServiceURL.apiBase + webServiceURL.roledelete;
+            var url = webServiceURL.apiBase + webServiceURL.roleDelete;
             return $http.post(url, requestObj);
         }
 
