@@ -1,103 +1,44 @@
 <div class="modal-header">
-    <h1 class="modal-title" id="modal-title" data-ng-bind="roleDialog.data.headingText">Heading</h1>
+    <h1 class="modal-title" id="modal-title" data-ng-bind="deptDialog.data.headingText">Heading</h1>
     <div class="toolsarea">
-        <button type="button" class="btn btn-round btn-risky" data-ng-click="roleDialog.cancel()">
+        <button type="button" class="btn btn-round btn-risky" data-ng-click="deptDialog.cancel()">
             <span class="sr-only">Close dialog box</span>
             <span class="glyphicon glyphicon-remove"></span>
         </button>
     </div>
 </div>
 <div class="modal-body" id="modal-body">
-    <uib-tabset active="roleDialog.activeTab">
-        <uib-tab index="0" heading="Role Details">
+    <form name="deptDialog.formCreateUpdate" data-ng-submit="deptDialog.createUpdateDepartment()" novalidate>
+        <div class="form-group">
+            <label for="inputName">Name</label>
+            <input type="text" class="form-control" id="inputName" name="inputName" data-ng-model="deptDialog.department.name" required>
+            <div class="errinfo-wrapper">
+                <span class="errinfo" data-ng-show="deptDialog.formCreateUpdate.inputName.$error.required && deptDialog.formCreateUpdate.inputName.$touched">Please fill in the branch name.</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputCode">Code</label>
+            <input type="text" class="form-control" id="inputCode" name="inputCode" data-ng-model="deptDialog.department.code" maxlength="50">
+            <div class="errinfo-wrapper">
+                <span class="errinfo" data-ng-show="deptDialog.formCreateUpdate.inputCode.$error.maxlength && deptDialog.formCreateUpdate.inputCode.$touched">Maximum 50 characters allowed.</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputAddress1">Description</label>
+            <textarea class="form-control" id="inputDescription" name="inputDescription" data-ng-model="deptDialog.department.description"  maxlength="100" cols="30" rows="4"></textarea>
+            <div class="errinfo-wrapper">
+                <span class="errinfo" data-ng-show="deptDialog.formCreateUpdate.inputAddress1.$error.maxlength && deptDialog.formCreateUpdate.inputAddress1.$touched">Maximum 100 characters allowed.</span>
+            </div>
+        </div>
+        <div class="submit-group">
             <div class="row">
-                <div class="col-md-12">
-                    <form class="form-lg">
-                        <div class="form-group">
-                            <label>Name</label>
-                            <input type="text" class="form-control" data-ng-model="roleDialog.role.name">
-                        </div>
-                        <div class="form-group">
-                            <label>Description</label>
-                            <textarea class="form-control" rows="4" cols="50" data-ng-model="roleDialog.role.description"></textarea>
-                        </div>
-                        <div class="submit-group">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <button type="button" class="btn btn-primary btn-lg btn-block" data-ng-click="roleDialog.nextTab()" data-ng-bind="roleDialog.data.confirmText" data-ng-disabled="!roleDialog.validateRoleDetail()">OK</button>
-                                </div>
-                                <div class="col-sm-6">
-                                    <button type="button" class="btn btn-default btn-risky btn-lg btn-block" data-ng-click="roleDialog.cancel()" data-ng-bind="roleDialog.data.cancelText">Cancel</button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
+                <div class="col-sm-6">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block" data-ng-click="deptDialog.nextTab()" data-ng-bind="deptDialog.data.confirmText" data-ng-disabled="!deptDialog.validateDepartmentDetail()">OK</button>
+                </div>
+                <div class="col-sm-6">
+                    <button type="button" class="btn btn-default btn-risky btn-lg btn-block" data-ng-click="deptDialog.cancel()" data-ng-bind="deptDialog.data.cancelText">Cancel</button>
                 </div>
             </div>
-        </uib-tab>
-        <uib-tab index="1" heading="Permission &amp; Priviliges" disable="!roleDialog.validateRoleDetail()">
-            <div class="row">
-                <div class="col-md-12">
-                    <form class="form-lg">
-                        <div class="row">
-                            <div class="col-xs-5">
-                                <fieldset>
-                                    <ul class="switchbox list-unstyled">
-                                        <li data-ng-repeat="(item, enabled) in roleDialog.unselectedPermissions">
-                                            <div class="checkbox-primary">
-                                                <input type="checkbox" id="inputUnselectedRoles{{$index}}" name="inputUnselectedRoles" data-ng-model="roleDialog.unselectedPermissions[item]">
-                                                <label for="inputUnselectedRoles{{$index}}">{{item}}</label>
-                                            </div>
-                                            <label for="inputUnselectedRoles{{$index}}">{{item}}</label>
-                                        </li>
-                                    </ul>
-                                </fieldset>
-                            </div>
-                            <div class="col-xs-2">
-                                <button type="button" class="btn btn-primary btn-sm btn-block" data-ng-click="roleDialog.movePermissions(roleDialog.unselectedPermissions, roleDialog.selectedPermissions)">
-                                    <span class="sr-only">Select</span>
-                                    <span class="glyphicon glyphicon-triangle-right"></span>
-                                </button>
-                                <button type="button" class="btn btn-primary btn-sm btn-block" data-ng-click="roleDialog.movePermissions(roleDialog.unselectedPermissions, roleDialog.selectedPermissions, true)">
-                                    <span class="sr-only">Select</span>
-                                    <span class="glyphicon glyphicon-forward"></span>
-                                </button>
-                                <button type="button" class="btn btn-primary btn-sm btn-block" data-ng-click="roleDialog.movePermissions(roleDialog.selectedPermissions, roleDialog.unselectedPermissions)">
-                                    <span class="sr-only">Select</span>
-                                    <span class="glyphicon glyphicon-triangle-left"></span>
-                                </button>
-                                <button type="button" class="btn btn-primary btn-sm btn-block" data-ng-click="roleDialog.movePermissions(roleDialog.selectedPermissions, roleDialog.unselectedPermissions, true)">
-                                    <span class="sr-only">Select</span>
-                                    <span class="glyphicon glyphicon-backward"></span>
-                                </button>
-                            </div>
-                            <div class="col-xs-5">
-                                <fieldset>
-                                    <ul class="switchbox list-unstyled">
-                                        <li data-ng-repeat="(item, enabled) in roleDialog.selectedPermissions">
-                                            <div class="checkbox-primary">
-                                                <input type="checkbox" id="inputSelectedRoles{{$index}}" name="inputSelectedRoles" data-ng-model="roleDialog.selectedPermissions[item]">
-                                                <label for="inputSelectedRoles{{$index}}">{{item}}</label>
-                                            </div>
-                                            <label for="inputSelectedRoles{{$index}}">{{item}}</label>
-                                        </li>
-                                    </ul>
-                                </fieldset>
-                            </div>
-                        </div>
-                        <div class="submit-group">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <button type="button" class="btn btn-primary btn-lg btn-block" data-ng-click="roleDialog.createUpdateRole()" data-ng-bind="roleDialog.data.confirmText" data-ng-disabled="!roleDialog.validateRoleDetail()">OK</button>
-                                </div>
-                                <div class="col-sm-6">
-                                    <button type="button" class="btn btn-default btn-risky btn-lg btn-block" data-ng-click="roleDialog.cancel()" data-ng-bind="roleDialog.data.cancelText">Cancel</button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </uib-tab>
-    </uib-tabset>
+        </div>
+    </form>
 </div>

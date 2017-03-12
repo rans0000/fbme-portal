@@ -4,130 +4,90 @@
 (function(){
     'use strict';
     angular.module('app.core.module')
-        .controller('RoleUpdateController', RoleUpdateController);
+        .controller('DepartmentUpdateController', DepartmentUpdateController);
 
-    RoleUpdateController.$inject = ['$uibModalInstance', 'dialogData', 'toastr', 'utils', 'roleService'];
+    DepartmentUpdateController.$inject = ['$uibModalInstance', 'dialogData', 'toastr', 'utils', 'departmentService'];
 
-    function RoleUpdateController ($uibModalInstance, dialogData, toastr, utils, roleService) {
+    function DepartmentUpdateController ($uibModalInstance, dialogData, toastr, utils, departmentService) {
         var vm = this;
-        vm.activeTab = 0;
         vm.data = dialogData;
-        vm.role = {
+        vm.department = {
             name: dialogData.item.name,
+            code: dialogData.item.code,
             description: dialogData.item.description
         };
-        var permissionList = roleService.getPermissionArray(dialogData.item.privileges);
         var mode = dialogData.mode;
 
-        vm.unselectedPermissions = permissionList.selected;
-        vm.selectedPermissions = permissionList.unselected;
-
-        vm.validateRoleDetail = validateRoleDetail;
-        vm.movePermissions = movePermissions;
-        vm.createUpdateRole = createUpdateRole;
-        vm.nextTab = nextTab;
+        vm.validateDepartmentDetail = validateDepartmentDetail;
+        vm.createUpdateDepartment = createUpdateDepartment;
         vm.cancel = cancel;
 
         //--------------------------------------
         //function declarations
 
-        function validateRoleDetail () {
-            var isValid =  ((vm.role.name) && (vm.role.description))? true : false;
+        function validateDepartmentDetail () {
+            var isValid =  ((vm.department.name) && (vm.department.name.length <= 50))? true : false;
             return isValid;
         }
-
-        function movePermissions (item1, item2, forceMove) {
-            if(!Object.keys(item1).length){
-                return;
-            }
-            for(var key in item1){
-                if(item1.hasOwnProperty(key)){
-                    if(item1[key] || forceMove){
-                        item2[key] = false;
-                        delete item1[key];
-                    }
-                }
-            }
-        }
-
-        function nextTab () {
-            vm.activeTab = 1;
-        }
+        
         function cancel () {
             $uibModalInstance.dismiss(vm.data.cancelResult);
         }
 
-        function createUpdateRole () {
+        function createUpdateDepartment () {
             if(mode === 'create'){
-                createRole();
+                createDepartment();
             }
             else{
-                updateRole();
+                updateDepartment();
             }
         }
 
-        function createRole () {
-            var privileges = createPermissionString(vm.selectedPermissions);
+        function createDepartment () {
             var requestObj = {
-                name: vm.role.name,
-                description: vm.role.description,
-                privileges: privileges
+                name: vm.department.name,
+                description: vm.department.description,
+                code: vm.department.code
             };
             console.log(requestObj);
-            roleService.createRole(requestObj)
-                .then(onCreateRoleSuccess)
-                .catch(onCreateRoleError);
+            departmentService.createDepartment(requestObj)
+                .then(onCreateDepartmentSuccess)
+                .catch(onCreateDepartmentError);
         }
 
-        function onCreateRoleSuccess () {
+        function onCreateDepartmentSuccess () {
             $uibModalInstance.close();
-            toastr.success('Success', 'Creating Role');
+            toastr.success('Success', 'Creating Department');
         }
 
-        function onCreateRoleError (error) {
+        function onCreateDepartmentError (error) {
             console.log(error);
-            var errorTranslation = roleService.getErrorTranslationValue(error.header.responseCode);
-            toastr.error(errorTranslation, 'Error in creating Role');
+            var errorTranslation = departmentService.getErrorTranslationValue(error.header.responseCode);
+            toastr.error(errorTranslation, 'Error in creating Department');
         }
 
-        function updateRole () {
-            var privileges = createPermissionString(vm.selectedPermissions);
+        function updateDepartment () {
             var requestObj = {
                 id: vm.data.item.id,
-                name: vm.role.name,
-                description: vm.role.description,
-                privileges: privileges
+                name: vm.department.name,
+                description: vm.department.description,
+                code: vm.department.code
             };
             console.log(requestObj);
-            roleService.updateRole(requestObj)
-                .then(onUpdateRoleSuccess)
-                .catch(onUpdateRoleError);
+            departmentService.updateDepartment(requestObj)
+                .then(onUpdateDepartmentSuccess)
+                .catch(onUpdateDepartmentError);
         }
 
-        function onUpdateRoleSuccess () {
+        function onUpdateDepartmentSuccess () {
             $uibModalInstance.close();
-            toastr.success('Success', 'Updating Role');
+            toastr.success('Success', 'Updating Department');
         }
 
-        function onUpdateRoleError (error) {
+        function onUpdateDepartmentError (error) {
             console.log(error);
-            var errorTranslation = roleService.getErrorTranslationValue(error.header.responseCode);
-            toastr.error(errorTranslation, 'Error in updating Role');
-        }
-
-        function createPermissionString (Obj) {
-            var privileges = '';
-            var temp = [];
-            for(var key in Obj){
-                if(Obj.hasOwnProperty(key)){
-                    temp.push(key);
-                }
-            }
-            if(temp.length){
-                privileges = temp.join(',');
-            }
-            
-            return privileges;
+            var errorTranslation = departmentService.getErrorTranslationValue(error.header.responseCode);
+            toastr.error(errorTranslation, 'Error in updating Department');
         }
     }
 })();

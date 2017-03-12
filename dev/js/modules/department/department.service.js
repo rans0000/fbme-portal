@@ -6,16 +6,15 @@
     angular.module('department.module')
         .factory('departmentService', departmentService);
 
-    departmentService.$inject = ['$http', 'webServiceURL', 'utils', 'permissions'];
+    departmentService.$inject = ['$http', 'webServiceURL', 'utils'];
 
-    function departmentService ($http, webServiceURL, utils, permissions) {
+    function departmentService ($http, webServiceURL, utils) {
         var departmentObject = {};
         departmentObject.loadDepartmentList = loadDepartmentList;
         departmentObject.loadDepartmentDetails = loadDepartmentDetails;
         departmentObject.createDepartment = createDepartment;
         departmentObject.updateDepartment = updateDepartment;
         departmentObject.deleteDepartment = deleteDepartment;
-        departmentObject.getPermissionArray = getPermissionArray;
         departmentObject.getSidenavItems = getSidenavItems;
         departmentObject.getErrorTranslationValue = getErrorTranslationValue;
 
@@ -51,23 +50,6 @@
         function loadDepartmentDetails (requestObj) {
             var url = webServiceURL.apiBase + webServiceURL.departmentDetails;
             return $http.get(url, requestObj);
-        }
-
-        function getPermissionArray (privileges) {
-            var temp = privileges.split(',');
-            var returObj = {
-                unselected: {},
-                selected: {}
-            };
-            for(var key in permissions){
-                if(temp.indexOf(key) < 0){
-                    returObj.selected[key] = false;
-                }
-                else{
-                    returObj.unselected[key] = false;
-                }
-            }
-            return returObj;
         }
 
         function getSidenavItems () {

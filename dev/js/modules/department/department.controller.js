@@ -133,7 +133,7 @@
                 ariaDescribedBy: 'modal-body',
                 templateUrl: 'js/modules/department/create-update/department.create.update.template.html',
                 controller: 'DepartmentUpdateController',
-                controllerAs: 'departmentDialog',
+                controllerAs: 'deptDialog',
                 size: 'md',
                 resolve: {
                     dialogData: function () {
@@ -176,15 +176,15 @@
         function onCreateDepartmentInitiate () {
             vm.createDepartmentPopupData.item = {
                 name: '',
-                description: '',
-                privileges: ''
+                code: '',
+                description: ''
             };
             var modalInstance = $uibModal.open({
                 ariaLabelledBy: 'modal-title',
                 ariaDescribedBy: 'modal-body',
                 templateUrl: 'js/modules/department/create-update/department.create.update.template.html',
                 controller: 'DepartmentUpdateController',
-                controllerAs: 'departmentDialog',
+                controllerAs: 'deptDialog',
                 size: 'md',
                 resolve: {
                     dialogData: function () {

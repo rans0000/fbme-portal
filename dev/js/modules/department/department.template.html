@@ -51,6 +51,7 @@
                         <thead>
                             <tr>
                                 <th>Department Name</th>
+                                <th>Code</th>
                                 <th class="text-right">Created Date</th>
                                 <th class="text-right">Actions</th>
                             </tr>
@@ -58,6 +59,7 @@
                         <tbody>
                             <tr data-ng-repeat="item in dept.departmentList track by item.id">
                                 <td data-ng-bind="item.name"></td>
+                                <td data-ng-bind="item.code"></td>
                                 <td class="text-right" data-ng-bind="item.createdDate | date"></td>
                                 <td class="text-right">
                                     <button type="button" class="btn btn-iconed" title="Edit" data-ng-click="dept.onUpdateDepartmentInitiate(item)">
