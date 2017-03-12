@@ -29,6 +29,7 @@
         {
             "title": "User Management",
             "type": "Folder",
+            "sref": "root.user",
             "children": [
                 {
                     "title": "Public User Group Management",

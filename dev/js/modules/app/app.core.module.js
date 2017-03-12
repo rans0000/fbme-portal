@@ -16,7 +16,8 @@
         'dashboard.module',
         'role.module',
         'branch.module',
-        'department.module'
+        'department.module',
+        'user.module'
     ])
         .config(httpProviderConfiguration)
         .config(routerConfiguration)

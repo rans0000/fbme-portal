@@ -1,0 +1,86 @@
+<!--toolsarea starts here-->
+<div class="wrapper-toolsarea">
+    <!--toolsarea-level1 starts here-->
+    <div class="toolsarea-level1">
+        <div class="wrapper-inner">
+            <ol class="breadcrumb">
+                <li><a ui-sref="root.dashboard">Home</a></li>
+                <li><a href="#">Administration</a></li>
+                <li>User Management</li>
+            </ol>
+            <ul class="tools-level1">
+                <li class="tools-item">
+                    <button type="button" class="btn btn-primary" data-ng-click="user.onCreateUserInitiate()">Create Users</button>
+                </li>
+                <li class="tools-item">
+                    <form data-ng-submit="user.loadUserData()" data-ng-include="'js/modules/user/search.template.html'"></form>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--toolsarea-level1 ends here-->
+    <!--toolsarea-level2 starts here-->
+    <div class="toolsarea-level2">
+        <div class="wrapper-inner">
+            <ul class="tools-level2">
+                <li class="tools-item">
+                    <button type="button" class="btn btn-primary" data-ng-click="user.isExpandedState = !user.isExpandedState">
+                        <span class="glyphicon glyphicon-menu-hamburger"></span>
+                        <span class="sr-only">Toggle Sidenav</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--toolsarea-level2 ends here-->
+</div>
+<!--toolsarea ends here-->
+<div class="app-area" data-ng-class="{'collapsed': !user.isExpandedState}">
+    <!--sidenav starts here-->
+    <div class="sidenav-overlay" data-ng-click="user.isExpandedState = !user.isExpandedState"></div>
+    <div class="wrapper-sidenav">
+        <tree collection="user.itemTree" selected-folder="user.selectedFolder"></tree>
+    </div>
+    <!--sidenav ends here-->
+    <!--main starts here-->
+    <main class="wrapper-main">
+        <div class="wrapper-main-inner">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Login Name</th>
+                                <th class="text-center">Status</th>
+                                <th class="text-right">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-ng-repeat="item in user.userList track by item.id">
+                                <td data-ng-bind="item.firstName + ' ' + item.middleName + ' ' + item.lastName"></td>
+                                <td data-ng-bind="item.userName"></td>
+                                <td class="text-center" data-ng-bind="item.status"></td>
+                                <td class="text-right">
+                                    <button type="button" class="btn btn-iconed" title="Edit" data-ng-click="user.onUpdateUserInitiate(item)">
+                                        <span class="glyphicon glyphicon-edit"></span>
+                                        <span class="sr-only">Edit</span>
+                                    </button>
+                                    <button type="button" class="btn btn-iconed btn-risky" title="Delete" data-ng-click="user.onDeleteUserInitiate(item)">
+                                        <span class="glyphicon glyphicon-trash"></span>
+                                        <span class="sr-only">Delete</span>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr ng-if="!user.userList.length">
+                                <td colspan="3"><div class="text-center">There are no Users to show!!</div></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <ul uib-pagination total-items="user.searchOptions.totalItems" data-ng-model="user.searchOptions.page" data-ng-change="user.loadUserData()"></ul>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!--main ends here-->
+</div>

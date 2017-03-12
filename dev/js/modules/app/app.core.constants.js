@@ -30,7 +30,13 @@
             departmentDetails: 'department/details.json',
             departmentCreate: 'department/create.json',
             departmentUpdate: 'department/update.json',
-            departmentDelete: 'department/delete.json'
+            departmentDelete: 'department/delete.json',
+            
+            userList: 'user/list.json',
+            userDetails: 'user/details.json',
+            userCreate: 'user/create.json',
+            userUpdate: 'user/update.json',
+            userDelete: 'user/delete.json'
         };
         return temp;
     }
