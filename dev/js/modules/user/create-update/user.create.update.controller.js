@@ -11,11 +11,7 @@
     function UserUpdateController ($uibModalInstance, dialogData, toastr, utils, userService) {
         var vm = this;
         vm.data = dialogData;
-        vm.user = {
-            name: dialogData.item.name,
-            code: dialogData.item.code,
-            description: dialogData.item.description
-        };
+        vm.user = angular.copy(dialogData.item);
         var mode = dialogData.mode;
 
         vm.validateUserDetail = validateUserDetail;
@@ -26,7 +22,7 @@
         //function declarations
 
         function validateUserDetail () {
-            var isValid =  ((vm.user.name) && (vm.user.name.length <= 50))? true : false;
+            var isValid =  ((vm.user.userName) && (vm.user.userName.length <= 50))? true : false;
             return isValid;
         }
         

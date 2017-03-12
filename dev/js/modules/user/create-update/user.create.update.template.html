@@ -1,42 +1,84 @@
 <div class="modal-header">
-    <h1 class="modal-title" id="modal-title" data-ng-bind="deptDialog.data.headingText">Heading</h1>
+    <h1 class="modal-title" id="modal-title" data-ng-bind="userDialog.data.headingText">Heading</h1>
     <div class="toolsarea">
-        <button type="button" class="btn btn-round btn-risky" data-ng-click="deptDialog.cancel()">
+        <button type="button" class="btn btn-round btn-risky" data-ng-click="userDialog.cancel()">
             <span class="sr-only">Close dialog box</span>
             <span class="glyphicon glyphicon-remove"></span>
         </button>
     </div>
 </div>
 <div class="modal-body" id="modal-body">
-    <form name="deptDialog.formCreateUpdate" data-ng-submit="deptDialog.createUpdateUser()" novalidate>
+    <form name="userDialog.formCreateUpdate" data-ng-submit="userDialog.createUpdateUser()" novalidate>
         <div class="form-group">
-            <label for="inputName">Name</label>
-            <input type="text" class="form-control" id="inputName" name="inputName" data-ng-model="deptDialog.user.name" required>
+            <label for="inputFirstName">First Name</label>
+            <input type="text" class="form-control" id="inputFirstName" name="inputFirstName" data-ng-model="userDialog.user.firstName" maxlength="50">
             <div class="errinfo-wrapper">
-                <span class="errinfo" data-ng-show="deptDialog.formCreateUpdate.inputName.$error.required && deptDialog.formCreateUpdate.inputName.$touched">Please fill in the branch name.</span>
+                <span class="errinfo" data-ng-show="userDialog.formCreateUpdate.inputFirstName.$error.maxlength && userDialog.formCreateUpdate.inputFirstName.$touched">Maximum 50 characters allowed.</span>
             </div>
         </div>
         <div class="form-group">
-            <label for="inputCode">Code</label>
-            <input type="text" class="form-control" id="inputCode" name="inputCode" data-ng-model="deptDialog.user.code" maxlength="50">
+            <label for="inputLastName">Last Name</label>
+            <input type="text" class="form-control" id="inputLastName" name="inputLastName" data-ng-model="userDialog.user.lastName" maxlength="50">
             <div class="errinfo-wrapper">
-                <span class="errinfo" data-ng-show="deptDialog.formCreateUpdate.inputCode.$error.maxlength && deptDialog.formCreateUpdate.inputCode.$touched">Maximum 50 characters allowed.</span>
+                <span class="errinfo" data-ng-show="userDialog.formCreateUpdate.inputLastName.$error.maxlength && userDialog.formCreateUpdate.inputLastName.$touched">Maximum 50 characters allowed.</span>
             </div>
         </div>
         <div class="form-group">
-            <label for="inputAddress1">Description</label>
-            <textarea class="form-control" id="inputDescription" name="inputDescription" data-ng-model="deptDialog.user.description"  maxlength="100" cols="30" rows="4"></textarea>
+            <label for="inputName">User Login</label>
+            <input type="text" class="form-control" id="inputName" name="inputName" data-ng-model="userDialog.user.userName" required>
             <div class="errinfo-wrapper">
-                <span class="errinfo" data-ng-show="deptDialog.formCreateUpdate.inputAddress1.$error.maxlength && deptDialog.formCreateUpdate.inputAddress1.$touched">Maximum 100 characters allowed.</span>
+                <span class="errinfo" data-ng-show="userDialog.formCreateUpdate.inputName.$error.required && userDialog.formCreateUpdate.inputName.$touched">Please fill in the user name.</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputAddress1">Address1</label>
+            <input type="text" class="form-control" id="inputAddress1" name="inputAddress1" data-ng-model="userDialog.user.address1" maxlength="100">
+            <div class="errinfo-wrapper">
+                <span class="errinfo" data-ng-show="userDialog.formCreateUpdate.inputAddress1.$error.email && userDialog.formCreateUpdate.inputAddress1.$touched">Maximum 100 characters allowed.</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputAddress1">Address2</label>
+            <input type="text" class="form-control" id="inputAddress2" name="inputAddress2" data-ng-model="userDialog.user.address2" maxlength="100">
+            <div class="errinfo-wrapper">
+                <span class="errinfo" data-ng-show="userDialog.formCreateUpdate.inputAddress2.$error.email && userDialog.formCreateUpdate.inputAddress2.$touched">Maximum 100 characters allowed.</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputAddress1">Address3</label>
+            <input type="text" class="form-control" id="inputAddress3" name="inputAddress3" data-ng-model="userDialog.user.address3" maxlength="100">
+            <div class="errinfo-wrapper">
+                <span class="errinfo" data-ng-show="userDialog.formCreateUpdate.inputAddress3.$error.email && userDialog.formCreateUpdate.inputAddress3.$touched">Maximum 100 characters allowed.</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputAddress1">Address4</label>
+            <input type="text" class="form-control" id="inputAddress4" name="inputAddress4" data-ng-model="userDialog.user.address4" maxlength="100">
+            <div class="errinfo-wrapper">
+                <span class="errinfo" data-ng-show="userDialog.formCreateUpdate.inputAddress4.$error.email && userDialog.formCreateUpdate.inputAddress4.$touched">Maximum 100 characters allowed.</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputEmail">Email</label>
+            <input type="email" class="form-control" id="inputEmail" name="inputEmail" data-ng-model="userDialog.user.email" maxlength="50">
+            <div class="errinfo-wrapper">
+                <span class="errinfo" data-ng-show="userDialog.formCreateUpdate.inputEmail.$error.email && userDialog.formCreateUpdate.inputEmail.$touched">Maximum 50 characters allowed.</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputTimeZone">Email</label>
+            <select class="form-control" id="inputTimeZone" name="inputTimeZone" data-ng-model="userDialog.user.timeZone"></select>
+            <div class="errinfo-wrapper">
+                <span class="errinfo" data-ng-show="userDialog.formCreateUpdate.inputTimeZone.$error.email && userDialog.formCreateUpdate.inputTimeZone.$touched">Maximum 50 characters allowed.</span>
             </div>
         </div>
         <div class="submit-group">
             <div class="row">
                 <div class="col-sm-6">
-                    <button type="submit" class="btn btn-primary btn-lg btn-block" data-ng-click="deptDialog.nextTab()" data-ng-bind="deptDialog.data.confirmText" data-ng-disabled="!deptDialog.validateUserDetail()">OK</button>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block" data-ng-click="userDialog.nextTab()" data-ng-bind="userDialog.data.confirmText" data-ng-disabled="!userDialog.validateUserDetail()">OK</button>
                 </div>
                 <div class="col-sm-6">
-                    <button type="button" class="btn btn-default btn-risky btn-lg btn-block" data-ng-click="deptDialog.cancel()" data-ng-bind="deptDialog.data.cancelText">Cancel</button>
+                    <button type="button" class="btn btn-default btn-risky btn-lg btn-block" data-ng-click="userDialog.cancel()" data-ng-bind="userDialog.data.cancelText">Cancel</button>
                 </div>
             </div>
         </div>

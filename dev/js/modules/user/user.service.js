@@ -6,16 +6,12 @@
     angular.module('user.module')
         .factory('userService', userService);
 
-    userService.$inject = ['$http', 'webServiceURL', 'utils'];
+    userService.$inject = ['$http', 'webServiceURL', 'utils', 'roleService', 'branchService', 'departmentService'];
 
-    function userService ($http, webServiceURL, utils) {
+    function userService ($http, webServiceURL, utils, roleService,  branchService,  departmentService) {
         var userObj = {};
         var currentUserProfile;
         
-        userObj.saveCurrentUserProfile = saveCurrentUserProfile;
-        userObj.getAllCurrentUserProfile = getAllCurrentUserProfile;
-        userObj.getCurrentUserProfile = getCurrentUserProfile;
-        userObj.hasPermission = hasPermission;
         userObj.loadUserList = loadUserList;
         userObj.loadUserDetails = loadUserDetails;
         userObj.createUser = createUser;
@@ -23,6 +19,10 @@
         userObj.deleteUser = deleteUser;
         userObj.getSidenavItems = getSidenavItems;
         userObj.getErrorTranslationValue = getErrorTranslationValue;
+        userObj.saveCurrentUserProfile = saveCurrentUserProfile;
+        userObj.getAllCurrentUserProfile = getAllCurrentUserProfile;
+        userObj.getCurrentUserProfile = getCurrentUserProfile;
+        userObj.hasPermission = hasPermission;
 
         return userObj;
 

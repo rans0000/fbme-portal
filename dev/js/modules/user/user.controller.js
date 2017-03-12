@@ -119,7 +119,24 @@
 
         function onUpdateUserInitiate (item) {
             var requestObj = {
-                id: item.id
+                id: item.id,
+                userName: item.userName,
+                firstName: item.firstName,
+                lastName: item.lastName,
+                emai: item.emai,
+                password: item.password,
+                roleIds: item.roleIds,
+                branchIds: item.branchIds,
+                departmentIds: item.departmentIds,
+                address1: item.address1,
+                address2: item.address2,
+                address3: item.address3,
+                address4: item.address4,
+                zip: item.zip,
+                activationDate: item.activationDate,
+                timeZone: item.timeZone,
+                dateFormat: item.dateFormat,
+                blocked: item.blocked
             };
             userService.loadUserDetails(requestObj)
                 .then(onLoadUserDetailsSuccess)
@@ -175,9 +192,7 @@
 
         function onCreateUserInitiate () {
             vm.createUserPopupData.item = {
-                name: '',
-                code: '',
-                description: ''
+                userName: ''
             };
             var modalInstance = $uibModal.open({
                 ariaLabelledBy: 'modal-title',
