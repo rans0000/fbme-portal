@@ -20,6 +20,7 @@
         utilsObj.errorHandler = errorHandler;
         utilsObj.loadSideMenu = loadSideMenu;
         utilsObj.getDateString = getDateString;
+        utilsObj.translate = translate;
         return utilsObj;
 
         //--------------------------------------
@@ -127,6 +128,20 @@
             var temp = date.toISOString();
             temp = temp.substring(0, 19) + 'Z';
             return temp;
+        }
+        
+        function translate(string, array) {
+            //@Desc: Method accepts string with placeholders ex: "Change file from {0:label} to {1:label}
+            //and array with values ex: ['Active', 'Inactive']
+            //and returns a string with placeholders replaced with values.
+
+            var pattern = /\{\d[:\w]*\}/gi;
+            var text = string.replace(pattern, function (match) {
+                 var index = match.match(/\{(\d)[:\w]*/)[1];
+                return array[index];
+            });
+            //text = text.replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, "\"");
+            return text;
         }
     }
 })();
