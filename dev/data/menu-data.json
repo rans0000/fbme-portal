@@ -17,7 +17,7 @@
                 {
                     "title": "Department Management",
                     "type": "Folder",
-                    "sref": "root.dashboard"
+                    "sref": "root.department"
                 },
                 {
                     "title": "Settings",

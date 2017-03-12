@@ -24,7 +24,13 @@
             branchDetails: 'branch/details.json',
             branchCreate: 'branch/create.json',
             branchUpdate: 'branch/update.json',
-            branchDelete: 'branch/delete.json'
+            branchDelete: 'branch/delete.json',
+            
+            departmentList: 'department/list.json',
+            departmentDetails: 'department/details.json',
+            departmentCreate: 'department/create.json',
+            departmentUpdate: 'department/update.json',
+            departmentDelete: 'department/delete.json'
         };
         return temp;
     }

@@ -1,0 +1,84 @@
+<!--toolsarea starts here-->
+<div class="wrapper-toolsarea">
+    <!--toolsarea-level1 starts here-->
+    <div class="toolsarea-level1">
+        <div class="wrapper-inner">
+            <ol class="breadcrumb">
+                <li><a ui-sref="root.dashboard">Home</a></li>
+                <li><a href="#">Administration</a></li>
+                <li>Department Management</li>
+            </ol>
+            <ul class="tools-level1">
+                <li class="tools-item">
+                    <button type="button" class="btn btn-primary" data-ng-click="dept.onCreateDepartmentInitiate()">Create Departments</button>
+                </li>
+                <li class="tools-item">
+                    <form data-ng-submit="dept.loadDepartmentData()" data-ng-include="'js/modules/department/search.template.html'"></form>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--toolsarea-level1 ends here-->
+    <!--toolsarea-level2 starts here-->
+    <div class="toolsarea-level2">
+        <div class="wrapper-inner">
+            <ul class="tools-level2">
+                <li class="tools-item">
+                    <button type="button" class="btn btn-primary" data-ng-click="dept.isExpandedState = !dept.isExpandedState">
+                        <span class="glyphicon glyphicon-menu-hamburger"></span>
+                        <span class="sr-only">Toggle Sidenav</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--toolsarea-level2 ends here-->
+</div>
+<!--toolsarea ends here-->
+<div class="app-area" data-ng-class="{'collapsed': !dept.isExpandedState}">
+    <!--sidenav starts here-->
+    <div class="sidenav-overlay" data-ng-click="dept.isExpandedState = !dept.isExpandedState"></div>
+    <div class="wrapper-sidenav">
+        <tree collection="dept.itemTree" selected-folder="dept.selectedFolder"></tree>
+    </div>
+    <!--sidenav ends here-->
+    <!--main starts here-->
+    <main class="wrapper-main">
+        <div class="wrapper-main-inner">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Department Name</th>
+                                <th class="text-right">Created Date</th>
+                                <th class="text-right">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-ng-repeat="item in dept.departmentList track by item.id">
+                                <td data-ng-bind="item.name"></td>
+                                <td class="text-right" data-ng-bind="item.createdDate | date"></td>
+                                <td class="text-right">
+                                    <button type="button" class="btn btn-iconed" title="Edit" data-ng-click="dept.onUpdateDepartmentInitiate(item)">
+                                        <span class="glyphicon glyphicon-edit"></span>
+                                        <span class="sr-only">Edit</span>
+                                    </button>
+                                    <button type="button" class="btn btn-iconed btn-risky" title="Delete" data-ng-click="dept.onDeleteDepartmentInitiate(item)">
+                                        <span class="glyphicon glyphicon-trash"></span>
+                                        <span class="sr-only">Delete</span>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr ng-if="!dept.departmentList.length">
+                                <td colspan="3"><div class="text-center">There are no Departments to show!!</div></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <ul uib-pagination total-items="dept.searchOptions.totalItems" data-ng-model="dept.searchOptions.page" data-ng-change="dept.loadDepartmentData()"></ul>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!--main ends here-->
+</div>

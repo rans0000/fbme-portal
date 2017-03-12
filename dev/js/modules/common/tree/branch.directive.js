@@ -18,12 +18,12 @@
             },
             templateUrl: 'js/modules/common/tree/branch.directive.template.html',
             link: branchLink,
-            controller: BranchController,
+            controller: TreeBranchController,
             controllerAs: 'branch',
             bindToController: true
         };
 
-        BranchController.$inject = ['$scope'];
+        TreeBranchController.$inject = ['$scope'];
 
         return directiveObject;
 
@@ -51,7 +51,7 @@
             }
         }
 
-        function BranchController ($scope) {
+        function TreeBranchController ($scope) {
             var vm = this;
             //vm.isActive = false;
             vm.isActive = vm.item === vm.selectedFolder;
