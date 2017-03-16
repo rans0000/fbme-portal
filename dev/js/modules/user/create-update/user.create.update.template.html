@@ -67,7 +67,7 @@
         </div>
         <div class="form-group">
             <label for="inputBranchIds">Branch</label>
-            <ui-select id="inputBranchIds" multiple ng-model="userDialog.formCreateUpdate.inputBranchIds">
+            <ui-select id="inputBranchIds" multiple ng-model="userDialog.user.branchIds">
                 <ui-select-match allow-clear="true">
                     <span ng-bind="$item.name"></span>
                 </ui-select-match>
@@ -78,7 +78,7 @@
         </div>
         <div class="form-group">
             <label for="inputRoleIds">Roles</label>
-            <ui-select id="inputRoleIds" multiple ng-model="userDialog.formCreateUpdate.inputRoleIds">
+            <ui-select id="inputRoleIds" multiple ng-model="userDialog.user.roleIds">
                 <ui-select-match allow-clear="true">
                     <span ng-bind="$item.name"></span>
                 </ui-select-match>
@@ -89,7 +89,7 @@
         </div>
         <div class="form-group">
             <label for="inputDepartmentIds">Department</label>
-            <ui-select id="inputDepartmentIds" multiple ng-model="userDialog.formCreateUpdate.inputDepartmentIds">
+            <ui-select id="inputDepartmentIds" multiple ng-model="userDialog.user.departmentIds">
                 <ui-select-match allow-clear="true">
                     <span ng-bind="$item.name"></span>
                 </ui-select-match>
@@ -108,7 +108,7 @@
         <div class="submit-group">
             <div class="row">
                 <div class="col-sm-6">
-                    <button type="submit" class="btn btn-primary btn-lg btn-block" data-ng-click="userDialog.nextTab()" data-ng-bind="userDialog.data.confirmText" data-ng-disabled="!userDialog.validateUserDetail()">OK</button>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block" data-ng-bind="userDialog.data.confirmText" data-ng-disabled="!userDialog.validateUserDetail()">OK</button>
                 </div>
                 <div class="col-sm-6">
                     <button type="button" class="btn btn-default btn-risky btn-lg btn-block" data-ng-click="userDialog.cancel()" data-ng-bind="userDialog.data.cancelText">Cancel</button>

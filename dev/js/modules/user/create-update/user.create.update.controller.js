@@ -70,15 +70,11 @@
         }
 
         function createUser () {
-            var requestObj = {
-                name: vm.user.name,
-                description: vm.user.description,
-                code: vm.user.code
-            };
+            var requestObj = createRequestObject(vm.user);
             console.log(requestObj);
-            userService.createUser(requestObj)
+            /*userService.createUser(requestObj)
                 .then(onCreateUserSuccess)
-                .catch(onCreateUserError);
+                .catch(onCreateUserError);*/
         }
 
         function onCreateUserSuccess () {
@@ -114,6 +110,21 @@
             console.log(error);
             var errorTranslation = userService.getErrorTranslationValue(error.header.responseCode);
             toastr.error(errorTranslation, 'Error in updating User');
+        }
+        
+        function createRequestObject (obj) {
+            var requestObj= {};
+            for(var key in obj){
+                if(obj.hasOwnProperty(key)){
+                    if(obj[key] instanceof Array){
+                        requestObj[key] = obj[key];
+                    }
+                    else{
+                        requestObj[key] = obj[key];
+                    }
+                }
+            }
+            return requestObj;
         }
     }
 })();
