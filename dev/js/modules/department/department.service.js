@@ -26,8 +26,12 @@
         function loadDepartmentList (requestObj) {
             var url = webServiceURL.apiBase + webServiceURL.departmentList;
             var tempObj = angular.copy(requestObj);
-            tempObj.createdDateFrom = utils.getDateString(requestObj.createdDateFrom);
-            tempObj.createdDateTo = utils.getDateString(requestObj.createdDateTo);
+            if(tempObj && tempObj.createdDateFrom){
+                tempObj.createdDateFrom = utils.getDateString(requestObj.createdDateFrom);
+            }
+            if(tempObj && tempObj.createdDateTo){
+                tempObj.createdDateTo = utils.getDateString(requestObj.createdDateTo);
+            }
             //return $http.get(url, {params: tempObj});
             return $http.get(url);
         }

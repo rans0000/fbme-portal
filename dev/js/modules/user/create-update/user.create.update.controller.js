@@ -13,19 +13,43 @@
         vm.data = dialogData;
         vm.user = angular.copy(dialogData.item);
         var mode = dialogData.mode;
+        vm.selectedListData = {};
 
         vm.validateUserDetail = validateUserDetail;
         vm.createUpdateUser = createUpdateUser;
         vm.cancel = cancel;
 
+        init();
         //--------------------------------------
         //function declarations
+
+        function init () {
+            userService.getRoleBranchDeptData()
+                .then(onGetRoleBranchDeptDataSuccess)
+                .catch(onGetRoleBranchDeptDataError);
+        }
+
+        function onGetRoleBranchDeptDataSuccess (response) {
+            vm.selectedListData.roleList = response.roleList.items.map(copyObject);
+            vm.selectedListData.branchList = response.branchList.items.map(copyObject);
+            vm.selectedListData.departmentList = response.departmentList.items.map(copyObject);
+            console.log(vm.selectedListData);
+        }
+        function copyObject(item) {
+            return {
+                id: item.id,
+                name: item.name
+            };
+        }
+        function onGetRoleBranchDeptDataError (error) {
+            alert(error);
+        }
 
         function validateUserDetail () {
             var isValid =  ((vm.user.userName) && (vm.user.userName.length <= 50))? true : false;
             return isValid;
         }
-        
+
         function cancel () {
             $uibModalInstance.dismiss(vm.data.cancelResult);
         }

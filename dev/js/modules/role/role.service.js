@@ -27,8 +27,12 @@
         function loadRoleList (requestObj) {
             var url = webServiceURL.apiBase + webServiceURL.roleList;
             var tempObj = angular.copy(requestObj);
-            tempObj.createdDateFrom = utils.getDateString(requestObj.createdDateFrom);
-            tempObj.createdDateTo = utils.getDateString(requestObj.createdDateTo);
+            if(tempObj && tempObj.createdDateFrom){
+                tempObj.createdDateFrom = utils.getDateString(requestObj.createdDateFrom);
+            }
+            if(tempObj && tempObj.createdDateTo){
+                tempObj.createdDateTo = utils.getDateString(requestObj.createdDateTo);
+            }
             //return $http.get(url, {params: tempObj});
             return $http.get(url);
         }
@@ -73,7 +77,7 @@
         function getSidenavItems () {
             return utils.loadSideMenu('administration');
         }
-        
+
         function getErrorTranslationValue (errorcode) {
             return utils.errorHandler(errorcode);
         }

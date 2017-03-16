@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="inputName">User Login</label>
+            <label for="inputName">User Login<sup>*</sup></label>
             <input type="text" class="form-control" id="inputName" name="inputName" data-ng-model="userDialog.user.userName" required>
             <div class="errinfo-wrapper">
                 <span class="errinfo" data-ng-show="userDialog.formCreateUpdate.inputName.$error.required && userDialog.formCreateUpdate.inputName.$touched">Please fill in the user name.</span>
@@ -66,8 +66,43 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="inputTimeZone">Email</label>
-            <select class="form-control" id="inputTimeZone" name="inputTimeZone" data-ng-model="userDialog.user.timeZone"></select>
+            <label for="inputBranchIds">Branch</label>
+            <ui-select id="inputBranchIds" multiple ng-model="userDialog.formCreateUpdate.inputBranchIds">
+                <ui-select-match allow-clear="true">
+                    <span ng-bind="$item.name"></span>
+                </ui-select-match>
+                <ui-select-choices repeat="item in (userDialog.selectedListData.branchList | filter: $select.search) track by item.id">
+                    <span ng-bind="item.name"></span>
+                </ui-select-choices>
+            </ui-select>
+            <div class="errinfo-wrapper">
+                <span class="errinfo" data-ng-show="userDialog.formCreateUpdate.inputTimeZone.$error.email && userDialog.formCreateUpdate.inputTimeZone.$touched">Maximum 50 characters allowed.</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputRoleIds">Roles</label>
+            <ui-select id="inputRoleIds" multiple ng-model="userDialog.formCreateUpdate.inputRoleIds">
+                <ui-select-match allow-clear="true">
+                    <span ng-bind="$item.name"></span>
+                </ui-select-match>
+                <ui-select-choices repeat="item in (userDialog.selectedListData.roleList | filter: $select.search) track by item.id">
+                    <span ng-bind="item.name"></span>
+                </ui-select-choices>
+            </ui-select>
+            <div class="errinfo-wrapper">
+                <span class="errinfo" data-ng-show="userDialog.formCreateUpdate.inputTimeZone.$error.email && userDialog.formCreateUpdate.inputTimeZone.$touched">Maximum 50 characters allowed.</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputDepartmentIds">Department</label>
+            <ui-select id="inputDepartmentIds" multiple ng-model="userDialog.formCreateUpdate.inputDepartmentIds">
+                <ui-select-match allow-clear="true">
+                    <span ng-bind="$item.name"></span>
+                </ui-select-match>
+                <ui-select-choices repeat="item in (userDialog.selectedListData.departmentList | filter: $select.search) track by item.id">
+                    <span ng-bind="item.name"></span>
+                </ui-select-choices>
+            </ui-select>
             <div class="errinfo-wrapper">
                 <span class="errinfo" data-ng-show="userDialog.formCreateUpdate.inputTimeZone.$error.email && userDialog.formCreateUpdate.inputTimeZone.$touched">Maximum 50 characters allowed.</span>
             </div>

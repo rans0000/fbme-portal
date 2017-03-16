@@ -12,6 +12,7 @@
         'ngStorage',
         'headerArea.module',
         'ui.bootstrap.contextMenu',
+        'ui.select',
         'login.module',
         'dashboard.module',
         'role.module',

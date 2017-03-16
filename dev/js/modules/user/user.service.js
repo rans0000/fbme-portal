@@ -6,9 +6,9 @@
     angular.module('user.module')
         .factory('userService', userService);
 
-    userService.$inject = ['$http', 'webServiceURL', 'utils', 'roleService', 'branchService', 'departmentService'];
+    userService.$inject = ['$http', '$q', 'webServiceURL', 'utils', 'roleService', 'branchService', 'departmentService'];
 
-    function userService ($http, webServiceURL, utils, roleService,  branchService,  departmentService) {
+    function userService ($http, $q, webServiceURL, utils, roleService,  branchService,  departmentService) {
         var userObj = {};
         var currentUserProfile;
         
@@ -17,12 +17,14 @@
         userObj.createUser = createUser;
         userObj.updateUser = updateUser;
         userObj.deleteUser = deleteUser;
+        userObj.getRoleBranchDeptData = getRoleBranchDeptData;
         userObj.getSidenavItems = getSidenavItems;
         userObj.getErrorTranslationValue = getErrorTranslationValue;
         userObj.saveCurrentUserProfile = saveCurrentUserProfile;
         userObj.getAllCurrentUserProfile = getAllCurrentUserProfile;
         userObj.getCurrentUserProfile = getCurrentUserProfile;
         userObj.hasPermission = hasPermission;
+        userObj.buildListItems = buildListItems;
 
         return userObj;
 
@@ -90,6 +92,19 @@
         
         function getErrorTranslationValue (errorcode) {
             return utils.errorHandler(errorcode);
+        }
+        
+        function getRoleBranchDeptData () {
+            var reqObj = {
+                roleList: roleService.loadRoleList(),
+                branchList: branchService.loadBranchList(),
+                departmentList: departmentService.loadDepartmentList()
+            };
+            return $q.all(reqObj);
+        }
+        
+        function buildListItems (items) {
+            
         }
     }
 })();
