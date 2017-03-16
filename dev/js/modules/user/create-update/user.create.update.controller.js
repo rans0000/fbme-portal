@@ -46,7 +46,13 @@
         }
 
         function validateUserDetail () {
-            var isValid =  ((vm.user.userName) && (vm.user.userName.length <= 50))? true : false;
+            var isValid =  true;
+            if(!vm.user.userName || (vm.user.userName.length > 50)){
+                isValid =  false;
+            }
+            if(vm.formCreateUpdate.inputTimeZone.$viewValue && vm.formCreateUpdate.inputTimeZone.$error.pattern){
+                isValid =  false;
+            }
             return isValid;
         }
 

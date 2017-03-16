@@ -34,28 +34,28 @@
             <label for="inputAddress1">Address1</label>
             <input type="text" class="form-control" id="inputAddress1" name="inputAddress1" data-ng-model="userDialog.user.address1" maxlength="100">
             <div class="errinfo-wrapper">
-                <span class="errinfo" data-ng-show="userDialog.formCreateUpdate.inputAddress1.$error.email && userDialog.formCreateUpdate.inputAddress1.$touched">Maximum 100 characters allowed.</span>
+                <span class="errinfo" data-ng-show="userDialog.formCreateUpdate.inputAddress1.$error.maxlength && userDialog.formCreateUpdate.inputAddress1.$touched">Maximum 100 characters allowed.</span>
             </div>
         </div>
         <div class="form-group">
             <label for="inputAddress1">Address2</label>
             <input type="text" class="form-control" id="inputAddress2" name="inputAddress2" data-ng-model="userDialog.user.address2" maxlength="100">
             <div class="errinfo-wrapper">
-                <span class="errinfo" data-ng-show="userDialog.formCreateUpdate.inputAddress2.$error.email && userDialog.formCreateUpdate.inputAddress2.$touched">Maximum 100 characters allowed.</span>
+                <span class="errinfo" data-ng-show="userDialog.formCreateUpdate.inputAddress2.$error.maxlength && userDialog.formCreateUpdate.inputAddress2.$touched">Maximum 100 characters allowed.</span>
             </div>
         </div>
         <div class="form-group">
             <label for="inputAddress1">Address3</label>
             <input type="text" class="form-control" id="inputAddress3" name="inputAddress3" data-ng-model="userDialog.user.address3" maxlength="100">
             <div class="errinfo-wrapper">
-                <span class="errinfo" data-ng-show="userDialog.formCreateUpdate.inputAddress3.$error.email && userDialog.formCreateUpdate.inputAddress3.$touched">Maximum 100 characters allowed.</span>
+                <span class="errinfo" data-ng-show="userDialog.formCreateUpdate.inputAddress3.$error.maxlength && userDialog.formCreateUpdate.inputAddress3.$touched">Maximum 100 characters allowed.</span>
             </div>
         </div>
         <div class="form-group">
             <label for="inputAddress1">Address4</label>
             <input type="text" class="form-control" id="inputAddress4" name="inputAddress4" data-ng-model="userDialog.user.address4" maxlength="100">
             <div class="errinfo-wrapper">
-                <span class="errinfo" data-ng-show="userDialog.formCreateUpdate.inputAddress4.$error.email && userDialog.formCreateUpdate.inputAddress4.$touched">Maximum 100 characters allowed.</span>
+                <span class="errinfo" data-ng-show="userDialog.formCreateUpdate.inputAddress4.$error.maxlength && userDialog.formCreateUpdate.inputAddress4.$touched">Maximum 100 characters allowed.</span>
             </div>
         </div>
         <div class="form-group">
@@ -75,9 +75,6 @@
                     <span ng-bind="item.name"></span>
                 </ui-select-choices>
             </ui-select>
-            <div class="errinfo-wrapper">
-                <span class="errinfo" data-ng-show="userDialog.formCreateUpdate.inputTimeZone.$error.email && userDialog.formCreateUpdate.inputTimeZone.$touched">Maximum 50 characters allowed.</span>
-            </div>
         </div>
         <div class="form-group">
             <label for="inputRoleIds">Roles</label>
@@ -89,9 +86,6 @@
                     <span ng-bind="item.name"></span>
                 </ui-select-choices>
             </ui-select>
-            <div class="errinfo-wrapper">
-                <span class="errinfo" data-ng-show="userDialog.formCreateUpdate.inputTimeZone.$error.email && userDialog.formCreateUpdate.inputTimeZone.$touched">Maximum 50 characters allowed.</span>
-            </div>
         </div>
         <div class="form-group">
             <label for="inputDepartmentIds">Department</label>
@@ -103,8 +97,12 @@
                     <span ng-bind="item.name"></span>
                 </ui-select-choices>
             </ui-select>
+        </div>
+        <div class="form-group">
+            <label for="inputTimeZone">TimeZone</label>
+            <input type="text" name="inputTimeZone" id="inputTimeZone" class="form-control" data-ng-model="userDialog.user.timeZone" data-ng-pattern="/^(?:Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])$/">
             <div class="errinfo-wrapper">
-                <span class="errinfo" data-ng-show="userDialog.formCreateUpdate.inputTimeZone.$error.email && userDialog.formCreateUpdate.inputTimeZone.$touched">Maximum 50 characters allowed.</span>
+                <span class="errinfo" data-ng-show="userDialog.formCreateUpdate.inputTimeZone.$error.pattern && userDialog.formCreateUpdate.inputTimeZone.$touched">Needs to be a valid timezone (ex: +02:30)</span>
             </div>
         </div>
         <div class="submit-group">
