@@ -229,7 +229,7 @@
             })
             .join(',');
             vm.searchOptions.createdByUserIds = temp || undefined;
-            loadRoleList();
+            loadRoleList(vm.searchOptions);
         }
 
         function getSearchOptions () {

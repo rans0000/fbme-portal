@@ -33,8 +33,18 @@
             if(tempObj && tempObj.createdDateTo){
                 tempObj.createdDateTo = utils.getDateString(requestObj.createdDateTo);
             }
-            //return $http.get(url, {params: tempObj});
-            return $http.get(url);
+
+            delete tempObj.createdDateFrom;
+            delete tempObj.createdDateTo;
+            delete tempObj.createdByUserIds;
+            delete tempObj.totalItems;
+            if(!tempObj.searchText){
+                delete tempObj.searchText;
+            }
+
+            //tempObj = {searchText : "2"};
+            return $http.get(url, {params: tempObj});
+            //return $http.get(url);
         }
 
         function deleteRole (requestObj) {
