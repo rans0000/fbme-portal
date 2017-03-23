@@ -50,7 +50,7 @@
         function onLoadBranchListSuccess (response) {
             //console.log(response);
             vm.branchList = response.items;
-            vm.searchOptions.totalItems = response.totalNumPages;
+            vm.searchOptions.totalItems = response.totalNumItems;
         }
 
         function onLoadBranchListError (error) {
@@ -239,7 +239,7 @@
             var temp = {
                 totalItems: 0,
                 page : 1,
-                pageSize: 30,
+                pageSize: 4,
                 sortBy: 'name',
                 sortOrder: 'A',
                 searchText: '',
