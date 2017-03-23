@@ -234,15 +234,14 @@
         }
 
         function loadUserData () {
-            var temp = vm.idList
-            .split(/\s*,\s*/)
-            .map(function (item) {
-                return parseInt(item.trim(), 10);
-            })
-            .filter(function (item) {
-                return !isNaN(item);
-            })
-            .join(',');
+            var temp;
+            if(vm.idList){
+                temp = vm.idList
+                    .split(/\s*,\s*/)
+                    .map(function (item) {
+                    return parseInt(item.trim(), 10);
+                });
+            }
             vm.searchOptions.createdByUserIds = temp || undefined;
             loadUserList();
         }
@@ -256,7 +255,7 @@
                 totalItems: 0,
                 page : 1,
                 pageSize: 30,
-                sortBy: 'name',
+                sortBy: 'firstName',
                 sortOrder: 'A',
                 searchText: '',
                 createdDateFrom: fromDate,

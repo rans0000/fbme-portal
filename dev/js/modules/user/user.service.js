@@ -59,11 +59,9 @@
 
         function loadUserList (requestObj) {
             var url = webServiceURL.apiBase + webServiceURL.userList;
-            var tempObj = angular.copy(requestObj);
-            tempObj.createdDateFrom = utils.getDateString(requestObj.createdDateFrom);
-            tempObj.createdDateTo = utils.getDateString(requestObj.createdDateTo);
-            //return $http.get(url, {params: tempObj});
-            return $http.get(url);
+            var tempObj = utils.prepareListRequest(requestObj);
+
+            return $http.get(url, {params: tempObj});
         }
 
         function deleteUser (requestObj) {
