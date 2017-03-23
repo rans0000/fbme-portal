@@ -146,23 +146,19 @@
             return text;
         }
 
+        function isEmpty (value) {
+            var flag = false;
+            if(value === '' || value === undefined || (value !== value) || (value instanceof Array && !value.length)){
+                flag = true;
+            }
+            return flag;
+        }
+
         function prepareListRequest (requestObj) {
             var tempObj = angular.copy(requestObj);
-            /*if(tempObj && tempObj.createdDateFrom){
-                tempObj.createdDateFrom = getDateString(requestObj.createdDateFrom);
-            }
-            if(tempObj && tempObj.createdDateTo){
-                tempObj.createdDateTo = getDateString(requestObj.createdDateTo);
-            }
-
-            delete tempObj.createdByUserIds;
-            delete tempObj.totalItems;
-            if(!tempObj.searchText){
-                delete tempObj.searchText;
-            }*/
             for (var key in tempObj){
                 if(tempObj.hasOwnProperty(key)){
-                    if(tempObj[key] === '' || tempObj[key] === undefined || (tempObj[key] !== tempObj[key])){
+                    if(isEmpty(tempObj[key])){
                         delete tempObj[key];
                         continue;
                     }

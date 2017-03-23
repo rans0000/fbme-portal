@@ -33,7 +33,7 @@
             vm.selectedListData.roleList = response.roleList.items.map(copyObject);
             vm.selectedListData.branchList = response.branchList.items.map(copyObject);
             vm.selectedListData.departmentList = response.departmentList.items.map(copyObject);
-            console.log(vm.selectedListData);
+            //console.log(vm.selectedListData);
         }
         function copyObject(item) {
             return {
@@ -72,9 +72,9 @@
         function createUser () {
             var requestObj = createRequestObject(vm.user);
             console.log(requestObj);
-            /*userService.createUser(requestObj)
+            userService.createUser(requestObj)
                 .then(onCreateUserSuccess)
-                .catch(onCreateUserError);*/
+                .catch(onCreateUserError);
         }
 
         function onCreateUserSuccess () {
@@ -111,20 +111,24 @@
             var errorTranslation = userService.getErrorTranslationValue(error.header.responseCode);
             toastr.error(errorTranslation, 'Error in updating User');
         }
-        
+
         function createRequestObject (obj) {
-            var requestObj= {};
-            for(var key in obj){
-                if(obj.hasOwnProperty(key)){
-                    if(obj[key] instanceof Array){
-                        requestObj[key] = obj[key];
-                    }
-                    else{
-                        requestObj[key] = obj[key];
-                    }
-                }
+            var objCopy = angular.copy(obj);
+            if(obj.roleIds.length){
+                objCopy.roleIds = obj.roleIds.map(mapIds);
             }
+            if(obj.branchIds.length){
+                objCopy.branchIds = obj.branchIds.map(mapIds);
+            }
+            if(obj.departmentIds.length){
+                objCopy.departmentIds = obj.departmentIds.map(mapIds);
+            }
+            var requestObj = utils.prepareListRequest(objCopy);
             return requestObj;
+        }
+
+        function mapIds (item) {
+            return parseInt(item.id, 10);
         }
     }
 })();

@@ -62,7 +62,7 @@
             <label for="inputEmail">Email</label>
             <input type="email" class="form-control" id="inputEmail" name="inputEmail" data-ng-model="userDialog.user.email" maxlength="50">
             <div class="errinfo-wrapper">
-                <span class="errinfo" data-ng-show="userDialog.formCreateUpdate.inputEmail.$error.email && userDialog.formCreateUpdate.inputEmail.$touched">Maximum 50 characters allowed.</span>
+                <span class="errinfo" data-ng-show="userDialog.formCreateUpdate.inputEmail.$error.email && userDialog.formCreateUpdate.inputEmail.$touched">Invalid email format</span>
             </div>
         </div>
         <div class="form-group">
