@@ -47,7 +47,7 @@
 
         function loadDepartmentDetails (requestObj) {
             var url = webServiceURL.apiBase + webServiceURL.departmentDetails;
-            return $http.get(url, requestObj);
+            return $http.get(url, {params: requestObj});
         }
 
         function getSidenavItems () {
