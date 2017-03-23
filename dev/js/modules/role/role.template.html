@@ -87,7 +87,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <ul uib-pagination total-items="role.searchOptions.totalItems" data-ng-model="role.searchOptions.page" data-ng-change="role.loadRoleData()"></ul>
+                    <ul uib-pagination data-total-items="role.searchOptions.totalItems" data-items-per-page="role.searchOptions.pageSize" data-ng-model="role.searchOptions.page" data-ng-change="role.loadRoleData()"></ul>
                 </div>
             </div>
         </div>

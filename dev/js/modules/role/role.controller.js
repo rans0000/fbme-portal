@@ -52,7 +52,7 @@
         function onLoadRoleListSuccess (response) {
             //console.log(response);
             vm.roleList = response.items;
-            vm.searchOptions.totalItems = response.totalNumPages;
+            vm.searchOptions.totalItems = response.totalNumItems;
         }
 
         function onLoadRoleListError (error) {
