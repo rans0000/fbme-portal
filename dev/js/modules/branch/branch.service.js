@@ -48,7 +48,7 @@
 
         function loadBranchDetails (requestObj) {
             var url = webServiceURL.apiBase + webServiceURL.branchDetails;
-            return $http.get(url, requestObj);
+            return $http.get(url, {params: requestObj});
         }
 
         function getPermissionArray (privileges) {
