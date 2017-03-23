@@ -219,11 +219,14 @@
         }
 
         function loadRoleData () {
-            var temp = vm.idList
-            .split(/\s*,\s*/)
-            .map(function (item) {
-                return parseInt(item.trim(), 10);
-            });
+            var temp;
+            if(vm.idList){
+                temp = vm.idList
+                    .split(/\s*,\s*/)
+                    .map(function (item) {
+                    return parseInt(item.trim(), 10);
+                });
+            }
             vm.searchOptions.createdByUserIds = temp || undefined;
             loadRoleList(vm.searchOptions);
         }
