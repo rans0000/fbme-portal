@@ -219,15 +219,14 @@
         }
 
         function loadDepartmentData () {
-            var temp = vm.idList
-            .split(/\s*,\s*/)
-            .map(function (item) {
-                return parseInt(item.trim(), 10);
-            })
-            .filter(function (item) {
-                return !isNaN(item);
-            })
-            .join(',');
+            var temp;
+            if(vm.idList){
+                temp = vm.idList
+                    .split(/\s*,\s*/)
+                    .map(function (item) {
+                    return parseInt(item.trim(), 10);
+                });
+            }
             vm.searchOptions.createdByUserIds = temp || undefined;
             loadDepartmentList();
         }
