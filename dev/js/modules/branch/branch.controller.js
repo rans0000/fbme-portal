@@ -239,7 +239,7 @@
             var temp = {
                 totalItems: 0,
                 page : 1,
-                pageSize: 4,
+                pageSize: 30,
                 sortBy: 'name',
                 sortOrder: 'A',
                 searchText: '',

@@ -52,7 +52,7 @@
         function onLoadDepartmentListSuccess (response) {
             //console.log(response);
             vm.departmentList = response.items;
-            vm.searchOptions.totalItems = response.totalNumPages;
+            vm.searchOptions.totalItems = response.totalNumItems;
         }
 
         function onLoadDepartmentListError (error) {

@@ -77,7 +77,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <ul uib-pagination total-items="dept.searchOptions.totalItems" data-ng-model="dept.searchOptions.page" data-ng-change="dept.loadDepartmentData()"></ul>
+                    <ul uib-pagination data-total-items="dept.searchOptions.totalItems" data-items-per-page="dept.searchOptions.pageSize" data-ng-model="dept.searchOptions.page" data-ng-change="dept.loadDepartmentData()"></ul>
                 </div>
             </div>
         </div>
