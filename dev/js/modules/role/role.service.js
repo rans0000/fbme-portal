@@ -48,7 +48,7 @@
 
         function loadRoleDetails (requestObj) {
             var url = webServiceURL.apiBase + webServiceURL.roleDetails;
-            return $http.get(url, requestObj);
+            return $http.get(url, {params: requestObj});
         }
 
         function getPermissionArray (privileges) {
