@@ -223,11 +223,11 @@
             .split(/\s*,\s*/)
             .map(function (item) {
                 return parseInt(item.trim(), 10);
-            })
-            .filter(function (item) {
+            });
+            /*.filter(function (item) {
                 return !isNaN(item);
             })
-            .join(',');
+            .join(',');*/
             vm.searchOptions.createdByUserIds = temp || undefined;
             loadRoleList(vm.searchOptions);
         }

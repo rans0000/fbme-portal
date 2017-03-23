@@ -34,8 +34,6 @@
                 tempObj.createdDateTo = utils.getDateString(requestObj.createdDateTo);
             }
 
-            delete tempObj.createdDateFrom;
-            delete tempObj.createdDateTo;
             delete tempObj.createdByUserIds;
             delete tempObj.totalItems;
             if(!tempObj.searchText){

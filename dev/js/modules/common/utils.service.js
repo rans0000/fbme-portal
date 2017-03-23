@@ -126,7 +126,8 @@
         
         function getDateString (date) {
             var temp = date.toISOString();
-            temp = temp.substring(0, 19) + 'Z';
+            //temp = temp.substring(0, 19) + 'Z';
+            temp = temp.substring(0, 10);
             return temp;
         }
         
