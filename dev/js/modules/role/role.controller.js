@@ -224,10 +224,6 @@
             .map(function (item) {
                 return parseInt(item.trim(), 10);
             });
-            /*.filter(function (item) {
-                return !isNaN(item);
-            })
-            .join(',');*/
             vm.searchOptions.createdByUserIds = temp || undefined;
             loadRoleList(vm.searchOptions);
         }

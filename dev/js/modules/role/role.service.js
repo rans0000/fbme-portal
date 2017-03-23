@@ -26,23 +26,9 @@
 
         function loadRoleList (requestObj) {
             var url = webServiceURL.apiBase + webServiceURL.roleList;
-            var tempObj = angular.copy(requestObj);
-            if(tempObj && tempObj.createdDateFrom){
-                tempObj.createdDateFrom = utils.getDateString(requestObj.createdDateFrom);
-            }
-            if(tempObj && tempObj.createdDateTo){
-                tempObj.createdDateTo = utils.getDateString(requestObj.createdDateTo);
-            }
+            var tempObj = utils.prepareListRequest(requestObj);
 
-            delete tempObj.createdByUserIds;
-            delete tempObj.totalItems;
-            if(!tempObj.searchText){
-                delete tempObj.searchText;
-            }
-
-            //tempObj = {searchText : "2"};
             return $http.get(url, {params: tempObj});
-            //return $http.get(url);
         }
 
         function deleteRole (requestObj) {

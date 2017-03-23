@@ -21,6 +21,7 @@
         utilsObj.loadSideMenu = loadSideMenu;
         utilsObj.getDateString = getDateString;
         utilsObj.translate = translate;
+        utilsObj.prepareListRequest = prepareListRequest;
         return utilsObj;
 
         //--------------------------------------
@@ -123,14 +124,14 @@
                 return error;
             });
         }
-        
+
         function getDateString (date) {
             var temp = date.toISOString();
             //temp = temp.substring(0, 19) + 'Z';
             temp = temp.substring(0, 10);
             return temp;
         }
-        
+
         function translate(string, array) {
             //@Desc: Method accepts string with placeholders ex: "Change file from {0:label} to {1:label}
             //and array with values ex: ['Active', 'Inactive']
@@ -138,11 +139,46 @@
 
             var pattern = /\{\d[:\w]*\}/gi;
             var text = string.replace(pattern, function (match) {
-                 var index = match.match(/\{(\d)[:\w]*/)[1];
+                var index = match.match(/\{(\d)[:\w]*/)[1];
                 return array[index];
             });
             //text = text.replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, "\"");
             return text;
+        }
+
+        function prepareListRequest (requestObj) {
+            var tempObj = angular.copy(requestObj);
+            /*if(tempObj && tempObj.createdDateFrom){
+                tempObj.createdDateFrom = getDateString(requestObj.createdDateFrom);
+            }
+            if(tempObj && tempObj.createdDateTo){
+                tempObj.createdDateTo = getDateString(requestObj.createdDateTo);
+            }
+
+            delete tempObj.createdByUserIds;
+            delete tempObj.totalItems;
+            if(!tempObj.searchText){
+                delete tempObj.searchText;
+            }*/
+            for (var key in tempObj){
+                if(tempObj.hasOwnProperty(key)){
+                    if(tempObj[key] === '' || tempObj[key] === undefined || (tempObj[key] !== tempObj[key])){
+                        delete tempObj[key];
+                        continue;
+                    }
+                    if(key === 'createdDateFrom'){
+                        tempObj.createdDateFrom = getDateString(requestObj.createdDateFrom);
+                    }
+                    if(key === 'createdDateTo'){
+                        tempObj.createdDateTo = getDateString(requestObj.createdDateTo);
+                    }
+                    if(key === 'totalItems'){
+                        delete tempObj.totalItems;
+                    }
+                }
+            }
+
+            return tempObj;
         }
     }
 })();
