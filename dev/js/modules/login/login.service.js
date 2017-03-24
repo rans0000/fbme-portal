@@ -14,6 +14,8 @@
         loginObj.requestLogin = requestLogin;
         loginObj.saveCurrentUserProfile = saveCurrentUserProfile;
         loginObj.getErrorTranslationValue = getErrorTranslationValue;
+        loginObj.getAllPrivileges = getAllPrivileges;
+        loginObj.setAllPrivileges = setAllPrivileges;
 
         return loginObj;
 
@@ -37,6 +39,20 @@
 
         function getErrorTranslationValue (errorcode) {
             return utils.errorHandler(errorcode);
+        }
+        
+        function getAllPrivileges () {
+            return userService.getAllPrivileges();
+        }
+        
+        function setAllPrivileges (privileges) {
+            var tempObj = {};
+            var key;
+            for(var ii = 0; ii < privileges.length; ++ii){
+                key = privileges[ii].code;
+                tempObj[key] = tempObj.value;
+            }
+            userService.setAllPrivileges(tempObj);
         }
 
     }

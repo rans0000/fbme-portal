@@ -4,7 +4,7 @@
 (function(){
     'use strict';
 
-    angular.module('user.module', ['role.module', 'branch.module', 'department.module'])
+    angular.module('user.module', ['ngStorage', 'role.module', 'branch.module', 'department.module'])
         .config(routerConfiguration);
 
     routerConfiguration.$inject = ['$stateProvider'];

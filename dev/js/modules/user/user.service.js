@@ -6,9 +6,9 @@
     angular.module('user.module')
         .factory('userService', userService);
 
-    userService.$inject = ['$http', '$q', 'webServiceURL', 'utils', 'roleService', 'branchService', 'departmentService'];
+    userService.$inject = ['$http', '$q', 'webServiceURL', 'utils', '$sessionStorage', 'permissions', 'roleService', 'branchService', 'departmentService'];
 
-    function userService ($http, $q, webServiceURL, utils, roleService,  branchService,  departmentService) {
+    function userService ($http, $q, webServiceURL, utils, $sessionStorage, permissions, roleService,  branchService,  departmentService) {
         var userObj = {};
         var currentUserProfile;
         
@@ -24,7 +24,8 @@
         userObj.getAllCurrentUserProfile = getAllCurrentUserProfile;
         userObj.getCurrentUserProfile = getCurrentUserProfile;
         userObj.hasPermission = hasPermission;
-        userObj.buildListItems = buildListItems;
+        userObj.getAllPrivileges = getAllPrivileges;
+        userObj.setAllPrivileges = setAllPrivileges;
 
         return userObj;
 
@@ -34,6 +35,7 @@
         function saveCurrentUserProfile (userProfile) {
             currentUserProfile = angular.copy(userProfile);
             currentUserProfile.privilegeArray = currentUserProfile.privileges.split(',');
+            $sessionStorage.privilegeArray = currentUserProfile.privilegeArray;
             userProfile = null;
         }
         
@@ -53,7 +55,8 @@
         }
         
         function hasPermission (permissionString) {
-            var isValid = (currentUserProfile.privilegeArray.indexOf(permissionString) === -1)? false: true;
+            var privilegeArray = currentUserProfile.privilegeArray || $sessionStorage.privilegeArray;
+            var isValid = (privilegeArray.indexOf(permissionString) === -1)? false: true;
             return isValid;
         }
 
@@ -101,8 +104,13 @@
             return $q.all(reqObj);
         }
         
-        function buildListItems (items) {
-            
+        function getAllPrivileges () {
+            var url = webServiceURL.apiBase + webServiceURL.allPrivileges;
+            return $http.get(url);
+        }
+        
+        function setAllPrivileges (privileges) {
+            permissions = privileges;
         }
     }
 })();

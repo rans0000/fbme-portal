@@ -62,7 +62,17 @@
         }
 
         function onLoginSuccess (response) {
+            console.log(response);
             loginService.saveCurrentUserProfile(response.items[0]);
+            loginService.getAllPrivileges()
+                .then(onGetAllPrivilegesSuccess)
+                .catch(onLoginError);
+
+        }
+
+        function onGetAllPrivilegesSuccess (response) {
+            console.log(response);
+            loginService.setAllPrivileges(response.items);
             $state.go('root.dashboard');
         }
 
