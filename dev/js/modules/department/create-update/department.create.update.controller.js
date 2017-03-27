@@ -10,6 +10,7 @@
 
     function DepartmentUpdateController ($uibModalInstance, dialogData, toastr, utils, departmentService) {
         var vm = this;
+        vm.isLoading = false;
         vm.data = dialogData;
         vm.department = {
             name: dialogData.item.name,
@@ -50,17 +51,20 @@
                 code: vm.department.code
             };
             console.log(requestObj);
+            vm.isLoading = true;
             departmentService.createDepartment(requestObj)
                 .then(onCreateDepartmentSuccess)
                 .catch(onCreateDepartmentError);
         }
 
         function onCreateDepartmentSuccess () {
+            vm.isLoading = false;
             $uibModalInstance.close();
             toastr.success('Success', 'Creating Department');
         }
 
         function onCreateDepartmentError (error) {
+            vm.isLoading = false;
             console.log(error);
             var errorTranslation = departmentService.getErrorTranslationValue(error.header.responseCode);
             toastr.error(errorTranslation, 'Error in creating Department');
@@ -74,18 +78,21 @@
                 code: vm.department.code
             };
             console.log(requestObj);
+            vm.isLoading = true;
             departmentService.updateDepartment(requestObj)
                 .then(onUpdateDepartmentSuccess)
                 .catch(onUpdateDepartmentError);
         }
 
         function onUpdateDepartmentSuccess () {
+            vm.isLoading = false;
             $uibModalInstance.close();
             toastr.success('Success', 'Updating Department');
         }
 
         function onUpdateDepartmentError (error) {
             console.log(error);
+            vm.isLoading = false;
             var errorTranslation = departmentService.getErrorTranslationValue(error.header.responseCode);
             toastr.error(errorTranslation, 'Error in updating Department');
         }

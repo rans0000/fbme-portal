@@ -20,6 +20,7 @@
         vm.searchOptions = getSearchOptions();
         vm.advSearch = getAdvSearchOptions();
         vm.idList = '';
+        vm.isLoading = false;
 
         vm.onDeleteBranchInitiate = onDeleteBranchInitiate;
         vm.onUpdateBranchInitiate = onUpdateBranchInitiate;
@@ -42,6 +43,7 @@
         }
 
         function loadBranchList () {
+            vm.isLoading = true;
             branchService.loadBranchList(vm.searchOptions)
                 .then(onLoadBranchListSuccess)
                 .catch(onLoadBranchListError);
@@ -49,12 +51,15 @@
 
         function onLoadBranchListSuccess (response) {
             //console.log(response);
+            vm.isLoading = false;
             vm.branchList = response.items;
             vm.searchOptions.totalItems = response.totalNumItems;
         }
 
         function onLoadBranchListError (error) {
             //console.log(error);
+            vm.isLoading = false;
+            vm.branchList = [];
             var errorTranslation = branchService.getErrorTranslationValue(error.header.responseCode);
             toastr.error(errorTranslation, 'Error at listing Branch');
         }
@@ -98,6 +103,7 @@
             var requestObj = {
                 ids: [branchId]
             };
+            vm.isLoading = true;
             branchService.deleteBranch(requestObj)
                 .then(onDeleteBranchSuccess)
                 .catch(onDeleteBranchError);
@@ -105,12 +111,14 @@
 
         function onDeleteBranchSuccess (response) {
             console.log(response);
+            vm.isLoading = false;
             toastr.success('Deleted the branch', 'Delete Branch');
             //reload branch table
             loadBranchList();
         }
 
         function onDeleteBranchError (error) {
+            vm.isLoading = false;
             var errorTranslation = branchService.getErrorTranslationValue(error.header.responseCode);
             toastr.error(errorTranslation, 'Error at listing Branch');
         }

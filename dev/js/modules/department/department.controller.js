@@ -22,6 +22,7 @@
         vm.searchOptions = getSearchOptions();
         vm.advSearch = getAdvSearchOptions();
         vm.idList = '';
+        vm.isLoading = false;
 
         vm.onDeleteDepartmentInitiate = onDeleteDepartmentInitiate;
         vm.onUpdateDepartmentInitiate = onUpdateDepartmentInitiate;
@@ -44,6 +45,7 @@
         }
 
         function loadDepartmentList () {
+            vm.isLoading = true;
             departmentService.loadDepartmentList(vm.searchOptions)
                 .then(onLoadDepartmentListSuccess)
                 .catch(onLoadDepartmentListError);
@@ -51,12 +53,15 @@
 
         function onLoadDepartmentListSuccess (response) {
             //console.log(response);
+            vm.isLoading = false;
             vm.departmentList = response.items;
             vm.searchOptions.totalItems = response.totalNumItems;
         }
 
         function onLoadDepartmentListError (error) {
             //console.log(error);
+            vm.isLoading = false;
+            vm.departmentList = [];
             var errorTranslation = departmentService.getErrorTranslationValue(error.header.responseCode);
             toastr.error(errorTranslation, 'Error at listing Department');
         }
@@ -100,6 +105,7 @@
             var requestObj = {
                 ids: [departmentId]
             };
+            vm.isLoading = true;
             departmentService.deleteDepartment(requestObj)
                 .then(onDeleteDepartmentSuccess)
                 .catch(onDeleteDepartmentError);
@@ -107,12 +113,14 @@
 
         function onDeleteDepartmentSuccess (response) {
             console.log(response);
+            vm.isLoading = false;
             toastr.success('Deleted the department', 'Delete Department');
             //reload department table
             loadDepartmentList();
         }
 
         function onDeleteDepartmentError (error) {
+            vm.isLoading = false;
             var errorTranslation = departmentService.getErrorTranslationValue(error.header.responseCode);
             toastr.error(errorTranslation, 'Error at listing Department');
         }

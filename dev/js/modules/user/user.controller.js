@@ -22,6 +22,7 @@
         vm.searchOptions = getSearchOptions();
         vm.advSearch = getAdvSearchOptions();
         vm.idList = '';
+        vm.isLoading = false;
 
         vm.onDeleteUserInitiate = onDeleteUserInitiate;
         vm.onUpdateUserInitiate = onUpdateUserInitiate;
@@ -44,6 +45,7 @@
         }
 
         function loadUserList () {
+            vm.isLoading = true;
             userService.loadUserList(vm.searchOptions)
                 .then(onLoadUserListSuccess)
                 .catch(onLoadUserListError);
@@ -51,12 +53,14 @@
 
         function onLoadUserListSuccess (response) {
             //console.log(response);
+            vm.isLoading = false;
             vm.userList = response.items;
             vm.searchOptions.totalItems = response.totalNumPages;
         }
 
         function onLoadUserListError (error) {
             //console.log(error);
+            vm.isLoading = false;
             var errorTranslation = userService.getErrorTranslationValue(error.header.responseCode);
             toastr.error(errorTranslation, 'Error at listing User');
         }
@@ -100,6 +104,7 @@
             var requestObj = {
                 ids: [userId]
             };
+            vm.isLoading = true;
             userService.deleteUser(requestObj)
                 .then(onDeleteUserSuccess)
                 .catch(onDeleteUserError);
@@ -107,12 +112,14 @@
 
         function onDeleteUserSuccess (response) {
             console.log(response);
+            vm.isLoading = false;
             toastr.success('Deleted the user', 'Delete User');
             //reload user table
             loadUserList();
         }
 
         function onDeleteUserError (error) {
+            vm.isLoading = false;
             var errorTranslation = userService.getErrorTranslationValue(error.header.responseCode);
             toastr.error(errorTranslation, 'Error at listing User');
         }

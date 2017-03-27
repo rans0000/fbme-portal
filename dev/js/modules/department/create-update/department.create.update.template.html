@@ -7,7 +7,7 @@
         </button>
     </div>
 </div>
-<div class="modal-body" id="modal-body">
+<div class="modal-body relative-parent" id="modal-body">
     <form name="deptDialog.formCreateUpdate" data-ng-submit="deptDialog.createUpdateDepartment()" novalidate>
         <div class="form-group">
             <label for="inputName">Name</label>
@@ -41,4 +41,5 @@
             </div>
         </div>
     </form>
+    <ng-include src="'js/modules/common/commonTemplates/loader.template.html'" ng-show="deptDialog.isLoading"></ng-include>
 </div>

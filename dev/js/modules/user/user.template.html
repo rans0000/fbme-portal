@@ -47,36 +47,39 @@
         <div class="wrapper-main-inner">
             <div class="row">
                 <div class="col-md-12">
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Login Name</th>
-                                <th class="text-center">Status</th>
-                                <th class="text-right">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr data-ng-repeat="item in user.userList track by item.id">
-                                <td data-ng-bind="item.firstName + ' ' + item.lastName"></td>
-                                <td data-ng-bind="item.userName"></td>
-                                <td class="text-center" data-ng-bind="item.status"></td>
-                                <td class="text-right">
-                                    <button type="button" class="btn btn-iconed" title="Edit" data-ng-click="user.onUpdateUserInitiate(item)">
-                                        <span class="glyphicon glyphicon-edit"></span>
-                                        <span class="sr-only">Edit</span>
-                                    </button>
-                                    <button type="button" class="btn btn-iconed btn-risky" title="Delete" data-ng-click="user.onDeleteUserInitiate(item)">
-                                        <span class="glyphicon glyphicon-trash"></span>
-                                        <span class="sr-only">Delete</span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr ng-if="!user.userList.length">
-                                <td colspan="4"><div class="text-center">There are no Users to show!!</div></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="relative-parent">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Login Name</th>
+                                    <th class="text-center">Status</th>
+                                    <th class="text-right">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-ng-repeat="item in user.userList track by item.id">
+                                    <td data-ng-bind="item.firstName + ' ' + item.lastName"></td>
+                                    <td data-ng-bind="item.userName"></td>
+                                    <td class="text-center" data-ng-bind="item.status"></td>
+                                    <td class="text-right">
+                                        <button type="button" class="btn btn-iconed" title="Edit" data-ng-click="user.onUpdateUserInitiate(item)">
+                                            <span class="glyphicon glyphicon-edit"></span>
+                                            <span class="sr-only">Edit</span>
+                                        </button>
+                                        <button type="button" class="btn btn-iconed btn-risky" title="Delete" data-ng-click="user.onDeleteUserInitiate(item)">
+                                            <span class="glyphicon glyphicon-trash"></span>
+                                            <span class="sr-only">Delete</span>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr ng-if="!user.userList.length">
+                                    <td colspan="4"><div class="text-center">There are no Users to show!!</div></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <ng-include src="'js/modules/common/commonTemplates/loader.template.html'" ng-show="user.isLoading"></ng-include>
+                    </div>
                     <ul uib-pagination total-items="user.searchOptions.totalItems" data-ng-model="user.searchOptions.page" data-ng-change="user.loadUserData()"></ul>
                 </div>
             </div>

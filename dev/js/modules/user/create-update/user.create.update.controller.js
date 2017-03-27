@@ -10,6 +10,7 @@
 
     function UserUpdateController ($uibModalInstance, dialogData, toastr, utils, userService) {
         var vm = this;
+        vm.isLoading = false;
         vm.data = dialogData;
         vm.user = angular.copy(dialogData.item);
         var mode = dialogData.mode;
@@ -24,12 +25,14 @@
         //function declarations
 
         function init () {
+            vm.isLoading = true;
             userService.getRoleBranchDeptData()
                 .then(onGetRoleBranchDeptDataSuccess)
                 .catch(onGetRoleBranchDeptDataError);
         }
 
         function onGetRoleBranchDeptDataSuccess (response) {
+            vm.isLoading = false;
             vm.selectedListData.roleList = response.roleList.items.map(copyObject);
             vm.selectedListData.branchList = response.branchList.items.map(copyObject);
             vm.selectedListData.departmentList = response.departmentList.items.map(copyObject);
@@ -42,7 +45,10 @@
             };
         }
         function onGetRoleBranchDeptDataError (error) {
-            alert(error);
+            vm.isLoading = false;
+            var errorTranslation = userService.getErrorTranslationValue(error.header.responseCode);
+            toastr.error(errorTranslation, 'Error in loading data');
+            //alert(error);
         }
 
         function validateUserDetail () {
@@ -70,6 +76,7 @@
         }
 
         function createUser () {
+            vm.isLoading = true;
             var requestObj = createRequestObject(vm.user);
             console.log(requestObj);
             userService.createUser(requestObj)
@@ -78,12 +85,14 @@
         }
 
         function onCreateUserSuccess () {
+            vm.isLoading = false;
             $uibModalInstance.close();
             toastr.success('Success', 'Creating User');
         }
 
         function onCreateUserError (error) {
             console.log(error);
+            vm.isLoading = false;
             var errorTranslation = userService.getErrorTranslationValue(error.header.responseCode);
             toastr.error(errorTranslation, 'Error in creating User');
         }
@@ -96,18 +105,21 @@
                 code: vm.user.code
             };
             console.log(requestObj);
+            vm.isLoading = true;
             userService.updateUser(requestObj)
                 .then(onUpdateUserSuccess)
                 .catch(onUpdateUserError);
         }
 
         function onUpdateUserSuccess () {
+            vm.isLoading = false;
             $uibModalInstance.close();
             toastr.success('Success', 'Updating User');
         }
 
         function onUpdateUserError (error) {
             console.log(error);
+            vm.isLoading = false;
             var errorTranslation = userService.getErrorTranslationValue(error.header.responseCode);
             toastr.error(errorTranslation, 'Error in updating User');
         }

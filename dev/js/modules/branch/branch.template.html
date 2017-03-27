@@ -47,34 +47,37 @@
         <div class="wrapper-main-inner">
             <div class="row">
                 <div class="col-md-12">
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th>Branch Name</th>
-                                <th class="text-right">Created Date</th>
-                                <th class="text-right">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr data-ng-repeat="item in branch.branchList track by item.id">
-                                <td data-ng-bind="item.name"></td>
-                                <td class="text-right" data-ng-bind="item.createdDate | date"></td>
-                                <td class="text-right">
-                                    <button type="button" class="btn btn-iconed" title="Edit" data-ng-click="branch.onUpdateBranchInitiate(item)">
-                                        <span class="glyphicon glyphicon-edit"></span>
-                                        <span class="sr-only">Edit</span>
-                                    </button>
-                                    <button type="button" class="btn btn-iconed btn-risky" title="Delete" data-ng-click="branch.onDeleteBranchInitiate(item)">
-                                        <span class="glyphicon glyphicon-trash"></span>
-                                        <span class="sr-only">Delete</span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr ng-if="!branch.branchList.length">
-                                <td colspan="3"><div class="text-center">There are no Branchs to show!!</div></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="relative-parent">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Branch Name</th>
+                                    <th class="text-right">Created Date</th>
+                                    <th class="text-right">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-ng-repeat="item in branch.branchList track by item.id">
+                                    <td data-ng-bind="item.name"></td>
+                                    <td class="text-right" data-ng-bind="item.createdDate | date"></td>
+                                    <td class="text-right">
+                                        <button type="button" class="btn btn-iconed" title="Edit" data-ng-click="branch.onUpdateBranchInitiate(item)">
+                                            <span class="glyphicon glyphicon-edit"></span>
+                                            <span class="sr-only">Edit</span>
+                                        </button>
+                                        <button type="button" class="btn btn-iconed btn-risky" title="Delete" data-ng-click="branch.onDeleteBranchInitiate(item)">
+                                            <span class="glyphicon glyphicon-trash"></span>
+                                            <span class="sr-only">Delete</span>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr ng-if="!branch.branchList.length">
+                                    <td colspan="3"><div class="text-center">There are no Branchs to show!!</div></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <ng-include src="'js/modules/common/commonTemplates/loader.template.html'" ng-show="branch.isLoading"></ng-include>
+                    </div>
                     <ul uib-pagination data-total-items="branch.searchOptions.totalItems" data-items-per-page="branch.searchOptions.pageSize" data-ng-model="branch.searchOptions.page" data-ng-change="branch.loadBranchData()"></ul>
                 </div>
             </div>

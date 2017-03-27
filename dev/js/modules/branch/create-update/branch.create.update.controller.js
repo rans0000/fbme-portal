@@ -10,6 +10,7 @@
 
     function BranchUpdateController ($uibModalInstance, dialogData, toastr, utils, branchService) {
         var vm = this;
+        vm.isLoading = false;
         vm.data = dialogData;
         vm.branch = {
             name: dialogData.item.name,
@@ -51,6 +52,7 @@
         }
 
         function createBranch () {
+            vm.isLoading = true;
             var requestObj = angular.copy(vm.branch);
             console.log(requestObj);
             branchService.createBranch(requestObj)
@@ -59,17 +61,20 @@
         }
 
         function onCreateBranchSuccess () {
+            vm.isLoading = false;
             $uibModalInstance.close();
             toastr.success('Success', 'Creating Branch');
         }
 
         function onCreateBranchError (error) {
+            vm.isLoading = false;
             console.log(error);
             var errorTranslation = branchService.getErrorTranslationValue(error.header.responseCode);
             toastr.error(errorTranslation, 'Error in creating Branch');
         }
 
         function updateBranch () {
+            vm.isLoading = true;
             var requestObj = {
                 id: vm.data.item.id,
                 name: vm.branch.name,
@@ -82,12 +87,14 @@
         }
 
         function onUpdateBranchSuccess () {
+            vm.isLoading = false;
             $uibModalInstance.close();
             toastr.success('Success', 'Updating Branch');
         }
 
         function onUpdateBranchError (error) {
             console.log(error);
+            vm.isLoading = false;
             var errorTranslation = branchService.getErrorTranslationValue(error.header.responseCode);
             toastr.error(errorTranslation, 'Error in updating Branch');
         }

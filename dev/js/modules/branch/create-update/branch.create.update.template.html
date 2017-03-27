@@ -7,7 +7,7 @@
         </button>
     </div>
 </div>
-<div class="modal-body" id="modal-body">
+<div class="modal-body relative-parent" id="modal-body">
     <form name="branchDialog.formCreateUpdate" data-ng-submit="branchDialog.createUpdateBranch()" novalidate>
         <div class="form-group">
             <label for="inputName">Name</label>
@@ -69,4 +69,5 @@
             </div>
         </div>
     </form>
+    <ng-include src="'js/modules/common/commonTemplates/loader.template.html'" ng-show="branchDialog.isLoading"></ng-include>
 </div>
