@@ -12,6 +12,7 @@
         var vm = this;
         vm.activeTab = 0;
         vm.data = dialogData;
+        vm.isLoading = false;
         vm.role = {
             name: dialogData.item.name,
             description: dialogData.item.description
@@ -58,6 +59,7 @@
         }
 
         function createUpdateRole () {
+            vm.isLoading = true;
             if(mode === 'create'){
                 createRole();
             }
@@ -81,11 +83,13 @@
 
         function onCreateRoleSuccess () {
             $uibModalInstance.close();
+            vm.isLoading = false;
             toastr.success('Success', 'Creating Role');
         }
 
         function onCreateRoleError (error) {
             console.log(error);
+            vm.isLoading = false;
             var errorTranslation = roleService.getErrorTranslationValue(error.header.responseCode);
             toastr.error(errorTranslation, 'Error in creating Role');
         }
@@ -105,11 +109,13 @@
         }
 
         function onUpdateRoleSuccess () {
+            vm.isLoading = false;
             $uibModalInstance.close();
             toastr.success('Success', 'Updating Role');
         }
 
         function onUpdateRoleError (error) {
+            vm.isLoading = false;
             console.log(error);
             var errorTranslation = roleService.getErrorTranslationValue(error.header.responseCode);
             toastr.error(errorTranslation, 'Error in updating Role');

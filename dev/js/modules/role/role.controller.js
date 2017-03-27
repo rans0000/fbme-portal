@@ -22,6 +22,7 @@
         vm.searchOptions = getSearchOptions();
         vm.advSearch = getAdvSearchOptions();
         vm.idList = '';
+        vm.isLoading = false;
 
         vm.onDeleteRoleInitiate = onDeleteRoleInitiate;
         vm.onUpdateRoleInitiate = onUpdateRoleInitiate;
@@ -44,6 +45,7 @@
         }
 
         function loadRoleList () {
+            vm.isLoading = true;
             roleService.loadRoleList(vm.searchOptions)
                 .then(onLoadRoleListSuccess)
                 .catch(onLoadRoleListError);
@@ -51,12 +53,15 @@
 
         function onLoadRoleListSuccess (response) {
             //console.log(response);
+            vm.isLoading = false;
             vm.roleList = response.items;
             vm.searchOptions.totalItems = response.totalNumItems;
         }
 
         function onLoadRoleListError (error) {
             //console.log(error);
+            vm.isLoading = false;
+            vm.roleList = [];
             var errorTranslation = roleService.getErrorTranslationValue(error.header.responseCode);
             toastr.error(errorTranslation, 'Error at listing Role');
         }
@@ -100,6 +105,7 @@
             var requestObj = {
                 ids: [roleId]
             };
+            vm.isLoading = true;
             roleService.deleteRole(requestObj)
                 .then(onDeleteRoleSuccess)
                 .catch(onDeleteRoleError);
@@ -107,12 +113,14 @@
 
         function onDeleteRoleSuccess (response) {
             console.log(response);
+            vm.isLoading = false;
             toastr.success('Deleted the role', 'Delete Role');
             //reload role table
             loadRoleList();
         }
 
         function onDeleteRoleError (error) {
+            vm.isLoading = false;
             var errorTranslation = roleService.getErrorTranslationValue(error.header.responseCode);
             toastr.error(errorTranslation, 'Error at listing Role');
         }

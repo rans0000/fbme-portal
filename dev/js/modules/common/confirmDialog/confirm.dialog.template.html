@@ -11,12 +11,14 @@
     <p class="text-center" ng-bind="$ctrl.data.description"></p> 
 </div>
 <div class="modal-footer">
-    <div class="row">
-        <div class="col-sm-6">
-            <button class="btn btn-primary btn-block" type="button" data-ng-click="$ctrl.ok()" ng-bind="$ctrl.data.confirmText">OK</button>
-        </div>
-        <div class="col-sm-6">
-            <button class="btn btn-default btn-risky btn-block" type="button" data-ng-click="$ctrl.cancel()" ng-bind="$ctrl.data.cancelText">Cancel</button>
+    <div class="submit-group">
+        <div class="row">
+            <div class="col-sm-6">
+                <button class="btn btn-primary btn-block" type="button" data-ng-click="$ctrl.ok()" ng-bind="$ctrl.data.confirmText">OK</button>
+            </div>
+            <div class="col-sm-6">
+                <button class="btn btn-default btn-risky btn-block" type="button" data-ng-click="$ctrl.cancel()" ng-bind="$ctrl.data.cancelText">Cancel</button>
+            </div>
         </div>
     </div>
 </div>

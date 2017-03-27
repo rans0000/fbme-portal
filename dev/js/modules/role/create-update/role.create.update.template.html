@@ -7,7 +7,7 @@
         </button>
     </div>
 </div>
-<div class="modal-body" id="modal-body">
+<div class="modal-body relative-parent" id="modal-body">
     <uib-tabset active="roleDialog.activeTab">
         <uib-tab index="0" heading="Role Details">
             <div class="row">
@@ -100,4 +100,5 @@
             </div>
         </uib-tab>
     </uib-tabset>
+    <ng-include src="'js/modules/common/commonTemplates/loader.template.html'" ng-show="roleDialog.isLoading"></ng-include>
 </div>

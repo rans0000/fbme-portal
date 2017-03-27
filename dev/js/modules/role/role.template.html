@@ -59,34 +59,37 @@
         <div class="wrapper-main-inner">
             <div class="row">
                 <div class="col-md-12">
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th>Role Name</th>
-                                <th class="text-right">Created Date</th>
-                                <th class="text-right">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr data-ng-repeat="item in role.roleList track by item.id">
-                                <td data-ng-bind="item.name"></td>
-                                <td class="text-right" data-ng-bind="item.createdDate | date"></td>
-                                <td class="text-right">
-                                    <button type="button" class="btn btn-iconed" title="Edit" data-ng-click="role.onUpdateRoleInitiate(item)">
-                                        <span class="glyphicon glyphicon-edit"></span>
-                                        <span class="sr-only">Edit</span>
-                                    </button>
-                                    <button type="button" class="btn btn-iconed btn-risky" title="Delete" data-ng-click="role.onDeleteRoleInitiate(item)">
-                                        <span class="glyphicon glyphicon-trash"></span>
-                                        <span class="sr-only">Delete</span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr ng-if="!role.roleList.length">
-                                <td colspan="3"><div class="text-center">There are no Roles to show!!</div></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="relative-parent">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Role Name</th>
+                                    <th class="text-right">Created Date</th>
+                                    <th class="text-right">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-ng-repeat="item in role.roleList track by item.id">
+                                    <td data-ng-bind="item.name"></td>
+                                    <td class="text-right" data-ng-bind="item.createdDate | date"></td>
+                                    <td class="text-right">
+                                        <button type="button" class="btn btn-iconed" title="Edit" data-ng-click="role.onUpdateRoleInitiate(item)">
+                                            <span class="glyphicon glyphicon-edit"></span>
+                                            <span class="sr-only">Edit</span>
+                                        </button>
+                                        <button type="button" class="btn btn-iconed btn-risky" title="Delete" data-ng-click="role.onDeleteRoleInitiate(item)">
+                                            <span class="glyphicon glyphicon-trash"></span>
+                                            <span class="sr-only">Delete</span>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr ng-if="!role.roleList.length">
+                                    <td colspan="3"><div class="text-center">There are no Roles to show!!</div></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <ng-include src="'js/modules/common/commonTemplates/loader.template.html'" ng-show="role.isLoading"></ng-include>
+                    </div>
                     <ul uib-pagination data-total-items="role.searchOptions.totalItems" data-items-per-page="role.searchOptions.pageSize" data-ng-model="role.searchOptions.page" data-ng-change="role.loadRoleData()"></ul>
                 </div>
             </div>
