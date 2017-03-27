@@ -19,6 +19,7 @@
         vm.translation = {};
         vm.languagesAvailable = utils.getLanguagesAvailable();
         vm.selectedLanguage = null;
+        vm.isLoading = false;
 
         vm.onLoginSubmit = onLoginSubmit;
         vm.onLanguageChange = onLanguageChange;
@@ -55,6 +56,7 @@
         function onLoginSubmit () {
             var isValid = loginService.validateLoginForm(vm.user);
             if(isValid){
+                vm.isLoading = true;
                 loginService.requestLogin(vm.user)
                     .then(onLoginSuccess)
                     .catch(onLoginError);
@@ -77,6 +79,7 @@
         }
 
         function onLoginError (error) {
+            vm.isLoading = false;
             var errorTranslation = loginService.getErrorTranslationValue(error.header.responseCode);
             toastr.error(errorTranslation, 'Login Error');
         }

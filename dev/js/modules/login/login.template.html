@@ -6,7 +6,7 @@
                 <div class="logo-container">
                     <img src="images/fbme-bank-logo.png" width="176" height="88" alt="FBME Logo">
                 </div>
-                <article class="panel panel-secondary">
+                <article class="panel panel-secondary relative-parent">
                     <header class="panel-heading">
                         <h1 class="panel-title" data-ng-bind="login.translation.aclg_Login">Login</h1>
                     </header>
@@ -36,6 +36,7 @@
                             <a href="#" data-ng-bind="login.translation.aclg_ForgotPassword">Forgot Password?</a>
                         </form>
                     </div>
+                    <ng-include src="'js/modules/common/commonTemplates/loader.template.html'" ng-show="login.isLoading"></ng-include>
                 </article>
             </div>
             <footer class="wrapper-footer">
