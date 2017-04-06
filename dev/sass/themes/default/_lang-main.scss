@@ -16,7 +16,9 @@ body{
 .text-right.text-right{
     text-align: $text-reverse;
 }
-
+b{
+    font-weight: $fw-bold;
+}
 //----------------------------------------------------
 //ovverrides: forms
 .form-group{
@@ -282,6 +284,9 @@ th{
 }
 
 //----------------------------------------------------
+.switchbox-button-wrap{
+    margin-top: 11rem;
+}
 .checkbox-switchbox{
     input[type=checkbox], input[type=radio]{
         + label{

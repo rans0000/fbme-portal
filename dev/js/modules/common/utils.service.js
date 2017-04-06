@@ -137,12 +137,19 @@
             //and array with values ex: ['Active', 'Inactive']
             //and returns a string with placeholders replaced with values.
 
-            var pattern = /\{\d[:\w]*\}/gi;
-            var text = string.replace(pattern, function (match) {
-                var index = match.match(/\{(\d)[:\w]*/)[1];
-                return array[index];
-            });
-            //text = text.replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, "\"");
+            var text;
+            var pattern;
+            if(!string){
+                text = 'UNKNOWN KEY';
+            }
+            else{
+                pattern = /\{\d[:\w]*\}/gi;
+                text = string.replace(pattern, function (match) {
+                    var index = match.match(/\{(\d)[:\w]*/)[1];
+                    return array[index];
+                });
+                //text = text.replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, "\"");
+            }
             return text;
         }
 

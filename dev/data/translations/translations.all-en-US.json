@@ -8,8 +8,8 @@
         "aclg_Login": "Login",
         "aclg_ForgotPassword": "Forgot Password?",
         "aclg_Language": "Language",
-        
-        
+
+
         "apcm_Home": "Home",
         "apcm_Name": "Name",
         "apcm_Description": "Description",
@@ -19,8 +19,8 @@
         "apcm_No": "No",
         "apcm_Previous": "Previous",
         "apcm_Next": "Next",
-        
-        
+
+
         "rlcm_Administration": "Administration",
         "rlcm_RoleManagement": "Role Management",
         "rlcm_RoleManagement": "Role Management",
@@ -35,14 +35,14 @@
         "rlcm_RoleDetails": "Role Details",
         "rlcm_PermissionAndPriviliges": "Permission & Priviliges",
         "rlcm_CreateRole": "Create Role",
-        
-        
+
+
         "cmcm_Success": "Success",
         "cmcm_MultipleStatusCodes": "Multiple status codes",
         "cmcm_BadRequest": "Bad Request",
         "cmcm_ServerError": "Server Error",
-        "cmcm_UnauthorizedAccess": "Un authorized access",
-        "cmcm_UnsupportedOperation": "Un supported operation",
+        "cmcm_UnauthorizedAccess": "Unauthorized access",
+        "cmcm_UnsupportedOperation": "Unsupported operation",
         "cmcm_LoginRequired": "Login required",
         "cmcm_InvalidCredentials": "Invalid credentials",
         "cmcm_ValidUserNameRequired": "Valid userName required",
@@ -77,6 +77,16 @@
         "cmcm_EmailIdNotAvailable": "Email Id not available",
         "cmcm_UserNotFound": "User Not Found",
         "cmcm_UnknownError": "Unknown Error",
-        "cmcm_TranslationLoadError": "Loading translation failed"
+        "cmcm_TranslationLoadError": "Loading translation failed",
+
+        "PERSONAL_DOCS": "Personal Docs",
+        "ADMIN": "Admin",
+        "COLLABORATION_ADMIN": "Collaboration Admin",
+        "ROLE_MANAGEMENT": "Role Management",
+        "BRANCH_MANAGEMENT": "Branch Management",
+        "DEPARTMENT_MANAGEMENT": "Department Management",
+        "SETTINGS_MANAGEMENT": "Settings Management",
+        "USER_MANAGEMENT": "User Management",
+        "USER_GROUP_MANAGEMENT": "Usergroup Management"
     }
 }

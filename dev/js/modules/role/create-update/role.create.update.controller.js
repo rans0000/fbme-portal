@@ -19,6 +19,7 @@
         };
         var permissionList = roleService.getPermissionArray(dialogData.item.privileges);
         var mode = dialogData.mode;
+        vm.translation = dialogData.translation;
 
         vm.unselectedPermissions = permissionList.selected;
         vm.selectedPermissions = permissionList.unselected;
@@ -28,6 +29,7 @@
         vm.createUpdateRole = createUpdateRole;
         vm.nextTab = nextTab;
         vm.cancel = cancel;
+        vm.translate = translate;
 
         //--------------------------------------
         //function declarations
@@ -90,7 +92,7 @@
         function onCreateRoleError (error) {
             console.log(error);
             vm.isLoading = false;
-            var errorTranslation = roleService.getErrorTranslationValue(error.header.responseCode);
+            var errorTranslation = roleService.getErrorTranslationValue(error.header.responseCode, vm.translation);
             toastr.error(errorTranslation, 'Error while creating Role');
         }
 
@@ -117,7 +119,7 @@
         function onUpdateRoleError (error) {
             vm.isLoading = false;
             console.log(error);
-            var errorTranslation = roleService.getErrorTranslationValue(error.header.responseCode);
+            var errorTranslation = roleService.getErrorTranslationValue(error.header.responseCode, vm.translation);
             toastr.error(errorTranslation, 'Error in modifying Role');
         }
 
@@ -134,6 +136,11 @@
             }
             
             return privileges;
+        }
+        
+        function translate (key) {
+            var returnText = vm.translation.hasOwnProperty(key)? vm.translation[key]: 'UNKNOWN KEY';
+            return returnText;
         }
     }
 })();

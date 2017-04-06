@@ -7,9 +7,9 @@
     angular.module('role.module')
         .controller('RoleController', RoleController);
 
-    RoleController.$inject = ['roleService', '$uibModal', 'toastr'];
+    RoleController.$inject = ['roleService', '$uibModal', 'toastr', 'utils'];
 
-    function RoleController (roleService, $uibModal, toastr) {
+    function RoleController (roleService, $uibModal, toastr, utils) {
 
         var vm = this;
         vm.roleList = [];
@@ -36,12 +36,15 @@
         //function declarations
 
         function init () {
-            onAllAPISuccess();
+            var lang = utils.getLanguage();
+            utils.getTranslation(lang)
+                .then(onAllAPISuccess);
             roleService.getSidenavItems()
                 .then(populateSidenav);
         }
 
-        function onAllAPISuccess () {
+        function onAllAPISuccess (response) {
+            vm.translation = response;
             loadRoleList();
         }
 
@@ -63,7 +66,7 @@
             //console.log(error);
             vm.isLoading = false;
             vm.roleList = [];
-            var errorTranslation = roleService.getErrorTranslationValue(error.header.responseCode);
+            var errorTranslation = roleService.getErrorTranslationValue(error.header.responseCode, vm.translation);
             toastr.error(errorTranslation, 'Error at listing Role');
         }
 
@@ -122,7 +125,7 @@
 
         function onDeleteRoleError (error) {
             vm.isLoading = false;
-            var errorTranslation = roleService.getErrorTranslationValue(error.header.responseCode);
+            var errorTranslation = roleService.getErrorTranslationValue(error.header.responseCode, vm.translation);
             toastr.error(errorTranslation, 'Error at listing Role');
         }
 
@@ -137,6 +140,8 @@
 
         function onLoadRoleDetailsSuccess (response) {
             vm.updateRolePopupData.item = response.items[0];
+            vm.updateRolePopupData.translation = vm.translation;
+            
             var modalInstance = $uibModal.open({
                 ariaLabelledBy: 'modal-title',
                 ariaDescribedBy: 'modal-body',
@@ -156,7 +161,7 @@
 
         function onLoadRoleDetailsError (error) {
             console.log(error);
-            var errorTranslation = roleService.getErrorTranslationValue(error.header.responseCode);
+            var errorTranslation = roleService.getErrorTranslationValue(error.header.responseCode, vm.translation);
             toastr.error(errorTranslation, 'Error at loading Role details');
         }
 
@@ -188,6 +193,8 @@
                 description: '',
                 privileges: ''
             };
+            vm.createRolePopupData.translation = vm.translation;
+            
             var modalInstance = $uibModal.open({
                 ariaLabelledBy: 'modal-title',
                 ariaDescribedBy: 'modal-body',
@@ -272,7 +279,7 @@
             vm.itemTree = response;
             vm.selectedFolder = vm.itemTree[0];
         }
-        
+
         function onSortByPropertyInitiate (type) {
             if(vm.searchOptions.sortBy === type){
                 vm.searchOptions.sortOrder = (vm.searchOptions.sortOrder === 'A')? 'D' : 'A';
