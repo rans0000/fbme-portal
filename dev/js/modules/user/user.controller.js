@@ -28,6 +28,7 @@
         vm.onUpdateUserInitiate = onUpdateUserInitiate;
         vm.onCreateUserInitiate = onCreateUserInitiate;
         vm.loadUserData = loadUserData;
+        vm.onSortByPropertyInitiate = onSortByPropertyInitiate;
 
         init();
 
@@ -284,6 +285,17 @@
         function populateSidenav (response) {
             vm.itemTree = response;
             vm.selectedFolder = vm.itemTree[0];
+        }
+        
+        function onSortByPropertyInitiate (type) {
+            if(vm.searchOptions.sortBy === type){
+                vm.searchOptions.sortOrder = (vm.searchOptions.sortOrder === 'A')? 'D' : 'A';
+            }
+            else{
+                vm.searchOptions.sortBy = type;
+                vm.searchOptions.sortOrder = 'A';
+            }
+            loadUserList();
         }
     }
 })();
