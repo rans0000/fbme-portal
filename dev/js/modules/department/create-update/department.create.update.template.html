@@ -10,8 +10,8 @@
 <div class="modal-body relative-parent" id="modal-body">
     <form name="deptDialog.formCreateUpdate" data-ng-submit="deptDialog.createUpdateDepartment()" novalidate>
         <div class="form-group">
-            <label for="inputName">Name</label>
-            <input type="text" class="form-control" id="inputName" name="inputName" data-ng-model="deptDialog.department.name" required>
+            <label for="inputName">Name<sup>*</sup></label>
+            <input type="text" class="form-control" id="inputName" name="inputName" data-ng-model="deptDialog.department.name" autofocus required>
             <div class="errinfo-wrapper">
                 <span class="errinfo" data-ng-show="deptDialog.formCreateUpdate.inputName.$error.required && deptDialog.formCreateUpdate.inputName.$touched">Please fill in the branch name.</span>
             </div>

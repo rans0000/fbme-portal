@@ -497,7 +497,7 @@
         function getCreateBranchPopupData () {
             var temp = {
                 headingText: 'Create Branch',
-                confirmText: 'Create',
+                confirmText: 'Save',
                 cancelText: 'Cancel',
                 description: '',
                 successResult: '',
@@ -1232,7 +1232,7 @@
         function getCreateRolePopupData () {
             var temp = {
                 headingText: 'Create Role',
-                confirmText: 'Create',
+                confirmText: 'Save',
                 cancelText: 'Cancel',
                 description: '',
                 successResult: '',

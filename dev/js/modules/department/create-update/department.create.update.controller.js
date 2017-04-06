@@ -87,14 +87,14 @@
         function onUpdateDepartmentSuccess () {
             vm.isLoading = false;
             $uibModalInstance.close();
-            toastr.success('Success', 'Updating Department');
+            toastr.success('Success', 'Modifying Department success');
         }
 
         function onUpdateDepartmentError (error) {
             console.log(error);
             vm.isLoading = false;
             var errorTranslation = departmentService.getErrorTranslationValue(error.header.responseCode);
-            toastr.error(errorTranslation, 'Error in updating Department');
+            toastr.error(errorTranslation, 'Error in modifying Department');
         }
     }
 })();

@@ -11,7 +11,7 @@
     <form name="userDialog.formCreateUpdate" data-ng-submit="userDialog.createUpdateUser()" novalidate>
         <div class="form-group">
             <label for="inputFirstName">First Name</label>
-            <input type="text" class="form-control" id="inputFirstName" name="inputFirstName" data-ng-model="userDialog.user.firstName" maxlength="50">
+            <input type="text" class="form-control" id="inputFirstName" name="inputFirstName" data-ng-model="userDialog.user.firstName" maxlength="50" autofocus>
             <div class="errinfo-wrapper">
                 <span class="errinfo" data-ng-show="userDialog.formCreateUpdate.inputFirstName.$error.maxlength && userDialog.formCreateUpdate.inputFirstName.$touched">Maximum 50 characters allowed.</span>
             </div>

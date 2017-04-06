@@ -164,8 +164,8 @@
 
         function getUpdateBranchPopupData () {
             var temp = {
-                headingText: 'Update Branch',
-                confirmText: 'Update',
+                headingText: 'Modify Branch',
+                confirmText: 'Save',
                 cancelText: 'Cancel',
                 description: '',
                 successResult: '',
@@ -213,7 +213,7 @@
         function getCreateBranchPopupData () {
             var temp = {
                 headingText: 'Create Branch',
-                confirmText: 'Create',
+                confirmText: 'Save',
                 cancelText: 'Cancel',
                 description: '',
                 successResult: '',
@@ -247,7 +247,7 @@
             var temp = {
                 totalItems: 0,
                 page : 1,
-                pageSize: 30,
+                pageSize: 10,
                 sortBy: 'name',
                 sortOrder: 'A',
                 searchText: '',

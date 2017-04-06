@@ -89,14 +89,14 @@
         function onUpdateBranchSuccess () {
             vm.isLoading = false;
             $uibModalInstance.close();
-            toastr.success('Success', 'Updating Branch');
+            toastr.success('Success', 'Modifying Branch');
         }
 
         function onUpdateBranchError (error) {
             console.log(error);
             vm.isLoading = false;
             var errorTranslation = branchService.getErrorTranslationValue(error.header.responseCode);
-            toastr.error(errorTranslation, 'Error in updating Branch');
+            toastr.error(errorTranslation, 'Error in modifying Branch');
         }
     }
 })();

@@ -33,7 +33,7 @@
         //function declarations
 
         function validateRoleDetail () {
-            var isValid =  ((vm.role.name) && (vm.role.description))? true : false;
+            var isValid =  ((vm.role.name) && (vm.role.name.length <= 50))? true : false;
             return isValid;
         }
 
@@ -91,7 +91,7 @@
             console.log(error);
             vm.isLoading = false;
             var errorTranslation = roleService.getErrorTranslationValue(error.header.responseCode);
-            toastr.error(errorTranslation, 'Error in creating Role');
+            toastr.error(errorTranslation, 'Error while creating Role');
         }
 
         function updateRole () {
@@ -111,14 +111,14 @@
         function onUpdateRoleSuccess () {
             vm.isLoading = false;
             $uibModalInstance.close();
-            toastr.success('Success', 'Updating Role');
+            toastr.success('Success', 'Modifying Role Success');
         }
 
         function onUpdateRoleError (error) {
             vm.isLoading = false;
             console.log(error);
             var errorTranslation = roleService.getErrorTranslationValue(error.header.responseCode);
-            toastr.error(errorTranslation, 'Error in updating Role');
+            toastr.error(errorTranslation, 'Error in modifying Role');
         }
 
         function createPermissionString (Obj) {

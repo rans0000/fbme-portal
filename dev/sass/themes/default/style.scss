@@ -47,6 +47,13 @@ hr{
 .relative-parent{
     position: relative;
 }
+.flex-parent{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+}
 
 //----------------------------------------------------
 //links
@@ -67,6 +74,22 @@ label{
         border-color: $color-danger;
     }
 }
+
+::-webkit-input-placeholder {
+    color:    #909;
+}
+:-moz-placeholder {
+   color:    #909;
+   opacity:  1;
+}
+::-moz-placeholder {
+   color:    #909;
+   opacity:  1;
+}
+:-ms-input-placeholder {
+   color:    #909;
+}
+
 .form-lg{
     .form-control{
         border-radius: 0;
@@ -83,7 +106,7 @@ label{
 .checkbox-primary{
     display: inline-block;vertical-align: bottom;
     input[type="checkbox"]{
-        width: 0;height: 0;display: block;margin: 0;padding: 0;overflow: hidden;
+        width: 0;height: 0;display: block;margin: 0;padding: 0;overflow: hidden;display: none;
         + label{
             display: block;background-color: $color-neutral;border: .1rem solid $color-border;text-indent: 100%;overflow: hidden;white-space: nowrap;position: relative;font-family: 'Glyphicons Halflings';-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;user-select: none;cursor: pointer;
 
@@ -166,7 +189,7 @@ label{
         > tr{
             transition: .3s;
             th{
-                border-bottom-color: $color-border;
+                border-bottom-color: $color-border;background-color: lighten($color-border, 10%);
             }
         }
     }
@@ -180,10 +203,14 @@ label{
 }
 .table-hover{
     > tbody{
-        > tr:hover{
-            background-color: lighten($color-border, 10%);
+        > tr:hover, > tr:nth-of-type(odd):hover{
+            background-color: lighten($color-border, 5%);
         }
     }
+}
+
+.table-striped>tbody>tr:nth-of-type(odd){
+    background-color: lighten($color-border, 10%);
 }
 
 //----------------------------------------------------
@@ -393,6 +420,9 @@ label{
 .wrapper-main{
     flex-grow: 1;
     flex-basis: 100%;
+    &.flex-parent{
+        flex-direction:column;padding: 0;
+    }
 }
 .wrapper-main-inner{
     background: $color-neutral;padding: 0 1.5rem;
@@ -413,8 +443,9 @@ label{
     display: -ms-flex;
     display: -o-flex;
     display: flex;
-    flex-grow: 1;
+    /*flex-grow: 1;*/
     flex-wrap: wrap;
+    align-self:center;
     max-width: 60rem;margin: auto;
 }
 .box-item{
@@ -482,7 +513,7 @@ word-break: break-all;display: inline;
 
 //----------------------------------------------------
 .wrapper-footer{
-    text-align: center;
+    text-align: center;margin-top: auto;
 }
 
 
@@ -514,4 +545,11 @@ word-break: break-all;display: inline;
     /*.toolsarea-level1 .breadcrumb>li{
     width: 4rem;overflow: hidden;text-overflow: ellipsis;
 }*/
+}
+
+
+@media (max-width: 480px){
+    .box-item{
+        flex-basis: 100%;
+    }
 }

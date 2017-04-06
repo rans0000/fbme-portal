@@ -117,11 +117,15 @@ th{
     text-align: $text-direction;
 }
 .table{
-    margin-bottom: $lineheight;font-size: $fsize-normal;
+    margin: $lineheight 0;font-size: $fsize-normal;
     > thead{
         > tr{
             th{
                 border-bottom-width: .1rem;border-bottom-style: solid;padding: ($lineheight) 1rem ($lineheight - .1rem);line-height: $lineheight;font-weight: normal;font-size: $fsize-h2;
+                
+                &:first-of-type{
+                    padding-#{$text-direction}: 1.5rem;
+                }
             }
         }
     }
@@ -259,7 +263,7 @@ th{
 
 //----------------------------------------------------
 .box-wrapper{
-    margin: ($lineheight * 2) auto $lineheight;
+    /*margin: ($lineheight * 2) auto $lineheight;transform: translate3d(0, 50%, 0);*/
 }
 .boxes{
     padding: $lineheight 1rem 0;

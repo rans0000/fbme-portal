@@ -166,8 +166,8 @@
 
         function getUpdateRolePopupData () {
             var temp = {
-                headingText: 'Update Role',
-                confirmText: 'Update',
+                headingText: 'Modify Role',
+                confirmText: 'Save',
                 cancelText: 'Cancel',
                 description: '',
                 successResult: '',
@@ -211,8 +211,8 @@
 
         function getCreateRolePopupData () {
             var temp = {
-                headingText: 'Create Role',
-                confirmText: 'Create',
+                headingText: 'Create New Role',
+                confirmText: 'Save',
                 cancelText: 'Cancel',
                 description: '',
                 successResult: '',
@@ -247,7 +247,7 @@
             var temp = {
                 totalItems: 0,
                 page : 1,
-                pageSize: 30,
+                pageSize: 10,
                 sortBy: 'name',
                 sortOrder: 'A',
                 searchText: '',

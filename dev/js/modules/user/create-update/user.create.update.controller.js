@@ -114,14 +114,14 @@
         function onUpdateUserSuccess () {
             vm.isLoading = false;
             $uibModalInstance.close();
-            toastr.success('Success', 'Updating User');
+            toastr.success('Success', 'Modifying User Success');
         }
 
         function onUpdateUserError (error) {
             console.log(error);
             vm.isLoading = false;
             var errorTranslation = userService.getErrorTranslationValue(error.header.responseCode);
-            toastr.error(errorTranslation, 'Error in updating User');
+            toastr.error(errorTranslation, 'Error in modyfying User');
         }
 
         function createRequestObject (obj) {

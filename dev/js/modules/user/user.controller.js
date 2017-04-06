@@ -182,8 +182,8 @@
 
         function getUpdateUserPopupData () {
             var temp = {
-                headingText: 'Update User',
-                confirmText: 'Update',
+                headingText: 'Modify User',
+                confirmText: 'Save',
                 cancelText: 'Cancel',
                 description: '',
                 successResult: '',
@@ -226,7 +226,7 @@
         function getCreateUserPopupData () {
             var temp = {
                 headingText: 'Create User',
-                confirmText: 'Create',
+                confirmText: 'Save',
                 cancelText: 'Cancel',
                 description: '',
                 successResult: '',
@@ -261,7 +261,7 @@
             var temp = {
                 totalItems: 0,
                 page : 1,
-                pageSize: 30,
+                pageSize: 10,
                 sortBy: 'firstName',
                 sortOrder: 'A',
                 searchText: '',

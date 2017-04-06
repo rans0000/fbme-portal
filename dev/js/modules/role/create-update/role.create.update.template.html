@@ -12,14 +12,21 @@
         <uib-tab index="0" heading="Role Details">
             <div class="row">
                 <div class="col-md-12">
-                    <form class="form-lg">
+                    <form name="roleDialog.formCreateUpdate" class="form-lg">
                         <div class="form-group">
-                            <label>Name</label>
-                            <input type="text" class="form-control" data-ng-model="roleDialog.role.name">
+                            <label>Name<sup>*</sup></label>
+                            <input type="text" id="inputName" name="inputName" class="form-control" data-ng-model="roleDialog.role.name" maxlength="50" autofocus required>
+                            <div class="errinfo-wrapper">
+                                <span class="errinfo" data-ng-show="roleDialog.formCreateUpdate.inputName.$error.required && roleDialog.formCreateUpdate.inputName.$touched">Please fill in the role name.</span>
+                                <span class="errinfo" data-ng-show="branchDialog.formCreateUpdate.inputName.$error.maxlength && roleDialog.formCreateUpdate.inputName.$touched">Maximum 50 characters allowed.</span>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label>Description</label>
-                            <textarea class="form-control" rows="4" cols="50" data-ng-model="roleDialog.role.description"></textarea>
+                            <textarea id="inputDescription" name="inputDescription" class="form-control" rows="4" cols="50" maxlength="100" data-ng-model="roleDialog.role.description"></textarea>
+                            <div class="errinfo-wrapper">
+                                <span class="errinfo" data-ng-show="branchDialog.formCreateUpdate.inputDescription.$error.maxlength && roleDialog.formCreateUpdate.inputDescription.$touched">Maximum 100 characters allowed.</span>
+                            </div>
                         </div>
                         <div class="submit-group">
                             <div class="row">
@@ -41,6 +48,7 @@
                     <form class="form-lg">
                         <div class="row">
                             <div class="col-xs-5">
+                                <p><b>Available Permissions</b></p>
                                 <fieldset>
                                     <ul class="switchbox list-unstyled">
                                         <li data-ng-repeat="(item, enabled) in roleDialog.unselectedPermissions">
@@ -54,13 +62,13 @@
                                 </fieldset>
                             </div>
                             <div class="col-xs-2">
-                                <button type="button" class="btn btn-primary btn-sm btn-block" data-ng-click="roleDialog.movePermissions(roleDialog.unselectedPermissions, roleDialog.selectedPermissions)">
-                                    <span class="sr-only">Select</span>
-                                    <span class="glyphicon glyphicon-triangle-right"></span>
-                                </button>
                                 <button type="button" class="btn btn-primary btn-sm btn-block" data-ng-click="roleDialog.movePermissions(roleDialog.unselectedPermissions, roleDialog.selectedPermissions, true)">
                                     <span class="sr-only">Select</span>
                                     <span class="glyphicon glyphicon-forward"></span>
+                                </button>
+                                <button type="button" class="btn btn-primary btn-sm btn-block" data-ng-click="roleDialog.movePermissions(roleDialog.unselectedPermissions, roleDialog.selectedPermissions)">
+                                    <span class="sr-only">Select</span>
+                                    <span class="glyphicon glyphicon-triangle-right"></span>
                                 </button>
                                 <button type="button" class="btn btn-primary btn-sm btn-block" data-ng-click="roleDialog.movePermissions(roleDialog.selectedPermissions, roleDialog.unselectedPermissions)">
                                     <span class="sr-only">Select</span>
@@ -72,6 +80,7 @@
                                 </button>
                             </div>
                             <div class="col-xs-5">
+                                <p><b>Allowed Permissions</b></p>
                                 <fieldset>
                                     <ul class="switchbox list-unstyled">
                                         <li data-ng-repeat="(item, enabled) in roleDialog.selectedPermissions">

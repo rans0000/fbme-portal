@@ -166,8 +166,8 @@
 
         function getUpdateDepartmentPopupData () {
             var temp = {
-                headingText: 'Update Department',
-                confirmText: 'Update',
+                headingText: 'Modify Department',
+                confirmText: 'Save',
                 cancelText: 'Cancel',
                 description: '',
                 successResult: '',
@@ -212,7 +212,7 @@
         function getCreateDepartmentPopupData () {
             var temp = {
                 headingText: 'Create Department',
-                confirmText: 'Create',
+                confirmText: 'Save',
                 cancelText: 'Cancel',
                 description: '',
                 successResult: '',
@@ -247,7 +247,7 @@
             var temp = {
                 totalItems: 0,
                 page : 1,
-                pageSize: 30,
+                pageSize: 10,
                 sortBy: 'name',
                 sortOrder: 'A',
                 searchText: '',
