@@ -72,8 +72,10 @@
             return utils.loadSideMenu('administration');
         }
         
-        function getErrorTranslationValue (errorcode) {
-            return utils.errorHandler(errorcode);
+        function getErrorTranslationValue (errorcode, translation) {
+            var key = utils.errorHandler(errorcode);
+            var returnText = utils.translate(translation[key], []);
+            return returnText;
         }
     }
 })();

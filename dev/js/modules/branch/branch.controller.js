@@ -7,9 +7,9 @@
     angular.module('branch.module')
         .controller('BranchController', BranchController);
 
-    BranchController.$inject = ['branchService', '$uibModal', 'toastr'];
+    BranchController.$inject = ['branchService', '$uibModal', 'toastr', 'utils'];
 
-    function BranchController (branchService, $uibModal, toastr) {
+    function BranchController (branchService, $uibModal, toastr, utils) {
 
         var vm = this;
         vm.branchList = [];
@@ -34,12 +34,15 @@
         //function declarations
 
         function init () {
-            onAllAPISuccess();
+            var lang = utils.getLanguage();
+            utils.getTranslation(lang)
+                .then(onAllAPISuccess);
             branchService.getSidenavItems()
                 .then(populateSidenav);
         }
 
-        function onAllAPISuccess () {
+        function onAllAPISuccess (response) {
+            vm.translation = response;
             loadBranchList();
         }
 
@@ -61,7 +64,7 @@
             //console.log(error);
             vm.isLoading = false;
             vm.branchList = [];
-            var errorTranslation = branchService.getErrorTranslationValue(error.header.responseCode);
+            var errorTranslation = branchService.getErrorTranslationValue(error.header.responseCode, vm.translation);
             toastr.error(errorTranslation, 'Error at listing Branch');
         }
 
@@ -120,7 +123,7 @@
 
         function onDeleteBranchError (error) {
             vm.isLoading = false;
-            var errorTranslation = branchService.getErrorTranslationValue(error.header.responseCode);
+            var errorTranslation = branchService.getErrorTranslationValue(error.header.responseCode, vm.translation);
             toastr.error(errorTranslation, 'Error at listing Branch');
         }
 
@@ -135,6 +138,8 @@
 
         function onLoadBranchDetailsSuccess (response) {
             vm.updateBranchPopupData.item = response.items[0];
+            vm.updateBranchPopupData.translation = vm.translation;
+            
             var modalInstance = $uibModal.open({
                 ariaLabelledBy: 'modal-title',
                 ariaDescribedBy: 'modal-body',
@@ -154,7 +159,7 @@
 
         function onLoadBranchDetailsError (error) {
             console.log(error);
-            var errorTranslation = branchService.getErrorTranslationValue(error.header.responseCode);
+            var errorTranslation = branchService.getErrorTranslationValue(error.header.responseCode, vm.translation);
             toastr.error(errorTranslation, 'Error at loading Branch details');
         }
 
@@ -189,6 +194,8 @@
                 address4: undefined,
                 zip: undefined
             };
+            vm.createBranchPopupData.translation = vm.translation;
+            
             var modalInstance = $uibModal.open({
                 ariaLabelledBy: 'modal-title',
                 ariaDescribedBy: 'modal-body',

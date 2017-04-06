@@ -21,6 +21,7 @@
             address4: dialogData.item.address4,
             zip: dialogData.item.zip
         };
+        vm.translation = dialogData.translation;
         var mode = dialogData.mode;
 
         vm.validateBranchDetail = validateBranchDetail;
@@ -69,7 +70,7 @@
         function onCreateBranchError (error) {
             vm.isLoading = false;
             console.log(error);
-            var errorTranslation = branchService.getErrorTranslationValue(error.header.responseCode);
+            var errorTranslation = branchService.getErrorTranslationValue(error.header.responseCode, vm.translation);
             toastr.error(errorTranslation, 'Error in creating Branch');
         }
 
@@ -95,7 +96,7 @@
         function onUpdateBranchError (error) {
             console.log(error);
             vm.isLoading = false;
-            var errorTranslation = branchService.getErrorTranslationValue(error.header.responseCode);
+            var errorTranslation = branchService.getErrorTranslationValue(error.header.responseCode, vm.translation);
             toastr.error(errorTranslation, 'Error in modifying Branch');
         }
     }

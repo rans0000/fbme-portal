@@ -7,9 +7,9 @@
     angular.module('department.module')
         .controller('DepartmentController', DepartmentController);
 
-    DepartmentController.$inject = ['departmentService', '$uibModal', 'toastr'];
+    DepartmentController.$inject = ['departmentService', '$uibModal', 'toastr', 'utils'];
 
-    function DepartmentController (departmentService, $uibModal, toastr) {
+    function DepartmentController (departmentService, $uibModal, toastr, utils) {
 
         var vm = this;
         vm.departmentList = [];
@@ -36,12 +36,15 @@
         //function declarations
 
         function init () {
-            onAllAPISuccess();
+            var lang = utils.getLanguage();
+            utils.getTranslation(lang)
+                .then(onAllAPISuccess);
             departmentService.getSidenavItems()
                 .then(populateSidenav);
         }
 
-        function onAllAPISuccess () {
+        function onAllAPISuccess (response) {
+            vm.translation = response;
             loadDepartmentList();
         }
 
@@ -63,7 +66,7 @@
             //console.log(error);
             vm.isLoading = false;
             vm.departmentList = [];
-            var errorTranslation = departmentService.getErrorTranslationValue(error.header.responseCode);
+            var errorTranslation = departmentService.getErrorTranslationValue(error.header.responseCode, vm.translation);
             toastr.error(errorTranslation, 'Error at listing Department');
         }
 
@@ -122,7 +125,7 @@
 
         function onDeleteDepartmentError (error) {
             vm.isLoading = false;
-            var errorTranslation = departmentService.getErrorTranslationValue(error.header.responseCode);
+            var errorTranslation = departmentService.getErrorTranslationValue(error.header.responseCode, vm.translation);
             toastr.error(errorTranslation, 'Error at listing Department');
         }
 
@@ -137,6 +140,8 @@
 
         function onLoadDepartmentDetailsSuccess (response) {
             vm.updateDepartmentPopupData.item = response.items[0];
+            vm.updateDepartmentPopupData.translation = vm.translation;
+            
             var modalInstance = $uibModal.open({
                 ariaLabelledBy: 'modal-title',
                 ariaDescribedBy: 'modal-body',
@@ -156,7 +161,7 @@
 
         function onLoadDepartmentDetailsError (error) {
             console.log(error);
-            var errorTranslation = departmentService.getErrorTranslationValue(error.header.responseCode);
+            var errorTranslation = departmentService.getErrorTranslationValue(error.header.responseCode, vm.translation);
             toastr.error(errorTranslation, 'Error at loading Department details');
         }
 
@@ -188,6 +193,8 @@
                 code: '',
                 description: ''
             };
+            vm.createDepartmentPopupData.translation = vm.translation;
+            
             var modalInstance = $uibModal.open({
                 ariaLabelledBy: 'modal-title',
                 ariaDescribedBy: 'modal-body',

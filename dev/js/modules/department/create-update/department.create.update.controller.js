@@ -17,6 +17,7 @@
             code: dialogData.item.code,
             description: dialogData.item.description
         };
+        vm.translation = dialogData.translation;
         var mode = dialogData.mode;
 
         vm.validateDepartmentDetail = validateDepartmentDetail;
@@ -66,7 +67,7 @@
         function onCreateDepartmentError (error) {
             vm.isLoading = false;
             console.log(error);
-            var errorTranslation = departmentService.getErrorTranslationValue(error.header.responseCode);
+            var errorTranslation = departmentService.getErrorTranslationValue(error.header.responseCode, vm.translation);
             toastr.error(errorTranslation, 'Error in creating Department');
         }
 
@@ -93,7 +94,7 @@
         function onUpdateDepartmentError (error) {
             console.log(error);
             vm.isLoading = false;
-            var errorTranslation = departmentService.getErrorTranslationValue(error.header.responseCode);
+            var errorTranslation = departmentService.getErrorTranslationValue(error.header.responseCode, vm.translation);
             toastr.error(errorTranslation, 'Error in modifying Department');
         }
     }
