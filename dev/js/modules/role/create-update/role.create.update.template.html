@@ -49,14 +49,13 @@
                         <div class="row">
                             <div class="col-xs-5">
                                 <p><b>Available Permissions</b></p>
-                                <fieldset>
+                                <fieldset class="switchbox-col">
                                     <ul class="switchbox list-unstyled">
                                         <li data-ng-repeat="(item, enabled) in roleDialog.unselectedPermissions">
-                                            <div class="checkbox-primary">
+                                            <div class="checkbox-switchbox">
                                                 <input type="checkbox" id="inputUnselectedRoles{{$index}}" name="inputUnselectedRoles" data-ng-model="roleDialog.unselectedPermissions[item]">
                                                 <label for="inputUnselectedRoles{{$index}}">{{item}}</label>
                                             </div>
-                                            <label for="inputUnselectedRoles{{$index}}">{{item}}</label>
                                         </li>
                                     </ul>
                                 </fieldset>
@@ -81,14 +80,13 @@
                             </div>
                             <div class="col-xs-5">
                                 <p><b>Allowed Permissions</b></p>
-                                <fieldset>
+                                <fieldset class="switchbox-col">
                                     <ul class="switchbox list-unstyled">
                                         <li data-ng-repeat="(item, enabled) in roleDialog.selectedPermissions">
-                                            <div class="checkbox-primary">
+                                            <div class="checkbox-switchbox">
                                                 <input type="checkbox" id="inputSelectedRoles{{$index}}" name="inputSelectedRoles" data-ng-model="roleDialog.selectedPermissions[item]">
                                                 <label for="inputSelectedRoles{{$index}}">{{item}}</label>
                                             </div>
-                                            <label for="inputSelectedRoles{{$index}}">{{item}}</label>
                                         </li>
                                     </ul>
                                 </fieldset>

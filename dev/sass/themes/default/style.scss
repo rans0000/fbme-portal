@@ -79,15 +79,15 @@ label{
     color:    #909;
 }
 :-moz-placeholder {
-   color:    #909;
-   opacity:  1;
+    color:    #909;
+    opacity:  1;
 }
 ::-moz-placeholder {
-   color:    #909;
-   opacity:  1;
+    color:    #909;
+    opacity:  1;
 }
 :-ms-input-placeholder {
-   color:    #909;
+    color:    #909;
 }
 
 .form-lg{
@@ -496,20 +496,22 @@ label{
 }
 
 //----------------------------------------------------
-
-
+.switchbox-col{
+    height: 30rem;overflow: auto;border: 1px solid $color-border;
+}
 
 //----------------------------------------------------
-/*.switchbox{
-> li{
-> .checkbox-primary{
-display: none;
+.checkbox-switchbox{
+    input[type=checkbox], input[type=radio]{
+        display: none;
+        + label{
+            word-break: break-all;display: inline;border-bottom: .1rem solid $color-neutral;background-color: $color-neutral;transition: .3s;display: block;
+        }
+        &:checked + label{
+            background-color: $color-primary;color: $color-neutral;
+        }
+    }
 }
-> label{
-word-break: break-all;display: inline;
-}
-}
-}*/
 
 //----------------------------------------------------
 .wrapper-footer{

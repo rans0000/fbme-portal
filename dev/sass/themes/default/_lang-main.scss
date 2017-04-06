@@ -125,7 +125,7 @@ th{
         > tr{
             th{
                 border-bottom-width: .1rem;border-bottom-style: solid;padding: ($lineheight) 1rem ($lineheight - .1rem);line-height: $lineheight;font-weight: normal;font-size: $fsize-h2;
-                
+
                 &:first-of-type{
                     padding-#{$text-direction}: 1.5rem;
                 }
@@ -282,10 +282,10 @@ th{
 }
 
 //----------------------------------------------------
-.switchbox{
-    > li{
-        > label{
-            font-size: $fsize-normal;
+.checkbox-switchbox{
+    input[type=checkbox], input[type=radio]{
+        + label{
+            font-size: $fsize-normal;padding: ($lineheight / 3) 1rem;cursor: pointer;
         }
     }
 }
