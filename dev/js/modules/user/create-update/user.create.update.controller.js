@@ -87,14 +87,16 @@
         function onCreateUserSuccess () {
             vm.isLoading = false;
             $uibModalInstance.close();
-            toastr.success('Success', 'Creating User');
+            var toastMessage = utils.translate('Successfully created {0:name}', [vm.user.name]);
+            toastr.success(toastMessage, 'Creating User');
         }
 
         function onCreateUserError (error) {
             console.log(error);
             vm.isLoading = false;
             var errorTranslation = userService.getErrorTranslationValue(error.header.responseCode);
-            toastr.error(errorTranslation, 'Error in creating User');
+            var toastMessage = utils.translate('Error in creating User {0:name}', [vm.user.name]);
+            toastr.error(errorTranslation, toastMessage);
         }
 
         function updateUser () {
@@ -114,14 +116,16 @@
         function onUpdateUserSuccess () {
             vm.isLoading = false;
             $uibModalInstance.close();
-            toastr.success('Success', 'Modifying User Success');
+            var toastMessage = utils.translate('Successfully modified {0:name}', [vm.user.name]);
+            toastr.success(toastMessage, 'Modify User');
         }
 
         function onUpdateUserError (error) {
             console.log(error);
             vm.isLoading = false;
             var errorTranslation = userService.getErrorTranslationValue(error.header.responseCode);
-            toastr.error(errorTranslation, 'Error in modyfying User');
+            var toastMessage = utils.translate('Error in modyfying User {0:name}', [vm.user.name]);
+            toastr.error(errorTranslation, toastMessage);
         }
 
         function createRequestObject (obj) {

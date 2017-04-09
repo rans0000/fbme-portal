@@ -91,14 +91,16 @@
         function onCreateRoleSuccess () {
             $uibModalInstance.close();
             vm.isLoading = false;
-            toastr.success('Success', 'Creating Role');
+            var toastMessage = utils.translate('Successfully created {0:name}', [vm.role.name]);
+            toastr.success(toastMessage, 'Creating Role');
         }
 
         function onCreateRoleError (error) {
             console.log(error);
             vm.isLoading = false;
             var errorTranslation = roleService.getErrorTranslationValue(error.header.responseCode, vm.translation);
-            toastr.error(errorTranslation, 'Error while creating Role');
+            var toastMessage = utils.translate('Error while creating Role {0:name}', [vm.role.name]);
+            toastr.error(errorTranslation, toastMessage);
         }
 
         function updateRole () {
@@ -118,14 +120,16 @@
         function onUpdateRoleSuccess () {
             vm.isLoading = false;
             $uibModalInstance.close();
-            toastr.success('Success', 'Modifying Role Success');
+            var toastMessage = utils.translate('Successfully modified {0:name}', [vm.role.name]);
+            toastr.success(toastMessage, 'Modifying Role');
         }
 
         function onUpdateRoleError (error) {
             vm.isLoading = false;
             console.log(error);
             var errorTranslation = roleService.getErrorTranslationValue(error.header.responseCode, vm.translation);
-            toastr.error(errorTranslation, 'Error in modifying Role');
+            var toastMessage = utils.translate('Error in modifying Role {0:name}', [vm.role.name]);
+            toastr.error(errorTranslation, toastMessage);
         }
 
         function createPermissionString (Obj) {

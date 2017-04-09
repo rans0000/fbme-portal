@@ -64,14 +64,16 @@
         function onCreateBranchSuccess () {
             vm.isLoading = false;
             $uibModalInstance.close();
-            toastr.success('Success', 'Creating Branch');
+            var toastMessage = utils.translate('Successfully created {0:name}', [vm.branch.name]);
+            toastr.success(toastMessage, 'Creating Branch');
         }
 
         function onCreateBranchError (error) {
             vm.isLoading = false;
             console.log(error);
             var errorTranslation = branchService.getErrorTranslationValue(error.header.responseCode, vm.translation);
-            toastr.error(errorTranslation, 'Error in creating Branch');
+            var toastMessage = utils.translate('Error in creating Branch {0:name}', [vm.branch.name]);
+            toastr.error(errorTranslation, toastMessage);
         }
 
         function updateBranch () {
@@ -90,14 +92,16 @@
         function onUpdateBranchSuccess () {
             vm.isLoading = false;
             $uibModalInstance.close();
-            toastr.success('Success', 'Modifying Branch');
+            var toastMessage = utils.translate('Successfully modified {0:name}', [vm.branch.name]);
+            toastr.success(toastMessage, 'Modifying Branch');
         }
 
         function onUpdateBranchError (error) {
             console.log(error);
             vm.isLoading = false;
             var errorTranslation = branchService.getErrorTranslationValue(error.header.responseCode, vm.translation);
-            toastr.error(errorTranslation, 'Error in modifying Branch');
+            var toastMessage = utils.translate('Error in modifying Branch {0:name}', [vm.branch.name]);
+            toastr.error(errorTranslation, toastMessage);
         }
     }
 })();

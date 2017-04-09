@@ -69,7 +69,7 @@
             vm.isLoading = false;
             console.log(error);
             var errorTranslation = departmentService.getErrorTranslationValue(error.header.responseCode, vm.translation);
-            var toastMessage = utils.translate('Error in creating {0:name}', [vm.department.name]);
+            var toastMessage = utils.translate('Error in creating department {0:name}', [vm.department.name]);
             toastr.error(errorTranslation, toastMessage);
         }
 
