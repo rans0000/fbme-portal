@@ -61,14 +61,16 @@
         function onCreateDepartmentSuccess () {
             vm.isLoading = false;
             $uibModalInstance.close();
-            toastr.success('Success', 'Creating Department');
+            var toastMessage = utils.translate('Successfully created {0:name}', [vm.department.name]);
+            toastr.success(toastMessage, 'Create Department');
         }
 
         function onCreateDepartmentError (error) {
             vm.isLoading = false;
             console.log(error);
             var errorTranslation = departmentService.getErrorTranslationValue(error.header.responseCode, vm.translation);
-            toastr.error(errorTranslation, 'Error in creating Department');
+            var toastMessage = utils.translate('Error in creating {0:name}', [vm.department.name]);
+            toastr.error(errorTranslation, toastMessage);
         }
 
         function updateDepartment () {
@@ -88,7 +90,8 @@
         function onUpdateDepartmentSuccess () {
             vm.isLoading = false;
             $uibModalInstance.close();
-            toastr.success('Success', 'Modifying Department success');
+            var toastMessage = utils.translate('Successfully modified {0:name}', [vm.department.name]);
+            toastr.success(toastMessage, 'Modifying Department success');
         }
 
         function onUpdateDepartmentError (error) {
