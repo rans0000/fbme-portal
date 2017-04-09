@@ -198,8 +198,9 @@ label{
     }
     > tbody{
         > tr{
+            transition: .3s;
             td{
-                border-bottom-color: $color-border;
+                border-bottom-color: lighten($color-border, 7%);
             }
         }
     }
@@ -213,7 +214,7 @@ label{
 }
 
 .table-striped>tbody>tr:nth-of-type(odd){
-    background-color: lighten($color-border, 10%);
+    background-color: lighten($color-border, 12%);
 }
 
 //----------------------------------------------------

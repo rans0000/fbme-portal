@@ -131,7 +131,7 @@ th{
     > thead{
         > tr{
             th{
-                border-bottom-width: .1rem;border-bottom-style: solid;padding: ($lineheight) 1rem ($lineheight - .1rem);line-height: $lineheight;font-weight: bold;font-size: $fsize-h2;
+                border-bottom-width: .1rem;border-bottom-style: solid;padding: ($lineheight / 3) 1rem (($lineheight / 3) - .1rem);line-height: $lineheight;font-weight: bold;font-size: $fsize-h2;
 
                 &:first-of-type{
                     padding-#{$text-direction}: 1.5rem;

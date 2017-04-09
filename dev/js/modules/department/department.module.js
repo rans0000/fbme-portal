@@ -11,7 +11,7 @@
     function routerConfiguration ($stateProvider) {
         $stateProvider
             .state('root.department', {
-            url: '/department',
+            url: '/administration/department',
             templateUrl: 'js/modules/department/department.template.html',
             controller: 'DepartmentController',
             controllerAs: 'dept'

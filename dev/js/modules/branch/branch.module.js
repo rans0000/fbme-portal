@@ -11,7 +11,7 @@
     function routerConfiguration ($stateProvider) {
         $stateProvider
             .state('root.branch', {
-            url: '/branch',
+            url: '/administration/branch',
             templateUrl: 'js/modules/branch/branch.template.html',
             controller: 'BranchController',
             controllerAs: 'branch'

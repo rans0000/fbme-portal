@@ -11,7 +11,7 @@
     function routerConfiguration ($stateProvider) {
         $stateProvider
             .state('root.user', {
-            url: '/user',
+            url: '/administration/user',
             templateUrl: 'js/modules/user/user.template.html',
             controller: 'UserController',
             controllerAs: 'user'

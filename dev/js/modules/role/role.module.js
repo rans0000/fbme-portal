@@ -11,7 +11,7 @@
     function routerConfiguration ($stateProvider) {
         $stateProvider
             .state('root.role', {
-            url: '/role',
+            url: '/administration/role',
             templateUrl: 'js/modules/role/role.template.html',
             controller: 'RoleController',
             controllerAs: 'role'
