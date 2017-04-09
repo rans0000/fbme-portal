@@ -10,6 +10,7 @@
         'ui.bootstrap',
         'toastr',
         'ngStorage',
+        'ngAnimate',
         'headerArea.module',
         'ui.bootstrap.contextMenu',
         'ui.select',

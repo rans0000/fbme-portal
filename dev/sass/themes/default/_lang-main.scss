@@ -267,6 +267,23 @@ th{
 }
 
 //----------------------------------------------------
+.wrapper-container{
+    transition: opacity .3s;
+    &.ng-enter{
+        opacity: 0;
+    }
+    &.ng-enter-active {
+        opacity: 1;
+    }
+    &.ng-leave{
+        opacity: 0;display: none;
+    }
+    &.ng-leave-active {
+        opacity: 1;display: none;
+    }
+}
+
+//----------------------------------------------------
 .menu-tree{
     .item-name{
         position: relative;
