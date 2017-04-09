@@ -1,0 +1,61 @@
+<!--toolsarea starts here-->
+<div class="wrapper-toolsarea">
+    <!--toolsarea-level1 starts here-->
+    <div class="toolsarea-level1">
+        <div class="wrapper-inner">
+            <ol class="breadcrumb">
+                <li><a ui-sref="root.dashboard">Home</a></li>
+                <li>Administration</li>
+            </ol>
+        </div>
+    </div>
+    <!--toolsarea-level1 ends here-->
+    <!--toolsarea-level2 starts here-->
+    <div class="toolsarea-level2">
+        <div class="wrapper-inner">
+            <ul class="tools-level2">
+                <li class="tools-item">
+                    <button type="button" class="btn btn-primary" data-ng-click="admin.isExpandedState = !admin.isExpandedState">
+                        <span class="glyphicon glyphicon-menu-hamburger"></span>
+                        <span class="sr-only">Toggle Sidenav</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--toolsarea-level2 ends here-->
+</div>
+<!--toolsarea ends here-->
+<div class="app-area" data-ng-class="{'collapsed': !admin.isExpandedState}">
+    <!--sidenav starts here-->
+    <div class="sidenav-overlay" data-ng-click="admin.isExpandedState = !admin.isExpandedState"></div>
+    <div class="wrapper-sidenav">
+        <tree collection="admin.itemTree" selected-folder="admin.selectedFolder"></tree>
+    </div>
+    <!--sidenav ends here-->
+    <!--main starts here-->
+    <main class="wrapper-main flex-parent">
+        <div class="wrapper-main-inner">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="relative-parent">
+                        <ng-include src="'js/modules/common/commonTemplates/loader.template.html'" ng-show="admin.isLoading"></ng-include>
+                        <article>
+                            <img src="/images/fbme-bank-logo.png" width="176" height="88" alt="FBME">
+                            <address>
+                                221/b BakerStreet,<br>
+                                London.
+                            </address>
+                        </article>
+                        <hr>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="wrapper-footer">
+            <small class="foot-info">Copyright&copy;2017 FinnDocs Technologies Limited</small>
+        </footer>
+    </main>
+    <!--main ends here-->
+</div>

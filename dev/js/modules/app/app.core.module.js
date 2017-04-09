@@ -15,6 +15,7 @@
         'ui.select',
         'login.module',
         'dashboard.module',
+        'administration.module',
         'role.module',
         'branch.module',
         'department.module',
@@ -109,13 +110,7 @@
                     controllerAs: 'header'
                 }
             }
-        })/*
-            .state('dashboard', {
-            url: '/dashboard',
-            templateUrl: 'js/modules/dashboard/dashboard.template.html',
-            controller: 'DashboardController',
-            controllerAs: 'vm'
-        })*/;
+        });
     }
 
     httpRequestInterceptor.$inject = ['$q', 'webServiceURL'];
