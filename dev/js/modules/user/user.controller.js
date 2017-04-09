@@ -284,7 +284,7 @@
 
         function populateSidenav (response) {
             vm.itemTree = response;
-            vm.selectedFolder = vm.itemTree[0];
+            vm.selectedFolder = vm.itemTree[1];
         }
         
         function onSortByPropertyInitiate (type) {

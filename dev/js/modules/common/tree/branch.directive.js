@@ -42,20 +42,23 @@
                 event.stopPropagation();
                 ctrl.isOpen = !ctrl.isOpen;
                 if(ctrl.isOpen){
-                    $element.children('.menu-tree').slideDown();
+                    $element.children('.menu-tree').slideDown(200);
                 }
                 else{
                     scope.$emit('folderOpened');
-                    $element.children('.menu-tree').slideUp();
+                    $element.children('.menu-tree').slideUp(200);
                 }
             }
         }
 
         function TreeBranchController ($scope) {
             var vm = this;
-            //vm.isActive = false;
+            console.log(vm);
             vm.isActive = vm.item === vm.selectedFolder;
-            vm.isOpen = false;
+            vm.isOpen = vm.isActive;
+            if(vm.item.hasOwnProperty('sref') && ($state.is(vm.item.sref)) ){
+                vm.isActive = true;
+            }
             vm.onItemClick = onItemClick;
             vm.hasInnerFolder = checkForInnerFolder();
             //vm.toggleOpenState = toggleOpenState;

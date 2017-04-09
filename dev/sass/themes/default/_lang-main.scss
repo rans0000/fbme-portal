@@ -131,7 +131,7 @@ th{
     > thead{
         > tr{
             th{
-                border-bottom-width: .1rem;border-bottom-style: solid;padding: ($lineheight / 3) 1rem (($lineheight / 3) - .1rem);line-height: $lineheight;font-weight: bold;font-size: $fsize-h2;
+                border-bottom-width: .1rem;border-bottom-style: solid;padding: ($lineheight / 2) 1rem (($lineheight / 2) - .1rem);line-height: $lineheight;font-weight: bold;font-size: $fsize-h2;
 
                 &:first-of-type{
                     padding-#{$text-direction}: 1.5rem;
@@ -264,6 +264,21 @@ th{
 }
 .logo{
     float: $text-direction;
+}
+
+//----------------------------------------------------
+.menu-tree{
+    .item-name{
+        position: relative;
+        .item-name-text{
+            padding: ($lineheight / 6) .9rem (($lineheight / 6) + .1rem);
+        }
+        + .menu-tree{
+            > ul > li > .item-name{
+                padding-#{$text-direction}: 1.5rem;
+            }
+        }
+    }
 }
 
 //----------------------------------------------------
