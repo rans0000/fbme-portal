@@ -36,9 +36,11 @@
         function saveCurrentUserProfile (userProfile) {
             userService.saveCurrentUserProfile(userProfile);
         }
-
-        function getErrorTranslationValue (errorcode) {
-            return utils.errorHandler(errorcode);
+        
+        function getErrorTranslationValue (errorcode, translation) {
+            var key = utils.errorHandler(errorcode);
+            var returnText = utils.translate(translation[key], []);
+            return returnText;
         }
         
         function getAllPrivileges () {

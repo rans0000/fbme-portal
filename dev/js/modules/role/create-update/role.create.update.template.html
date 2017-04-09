@@ -14,7 +14,7 @@
                 <div class="col-md-12">
                     <form name="roleDialog.formCreateUpdate" class="form-lg">
                         <div class="form-group">
-                            <label>Name<sup>*</sup></label>
+                            <label>Name<sup class="status-req">*</sup></label>
                             <input type="text" id="inputName" name="inputName" class="form-control" data-ng-model="roleDialog.role.name" maxlength="50" autofocus required>
                             <div class="errinfo-wrapper">
                                 <span class="errinfo" data-ng-show="roleDialog.formCreateUpdate.inputName.$error.required && roleDialog.formCreateUpdate.inputName.$touched">Please fill in the role name.</span>
@@ -31,7 +31,7 @@
                         <div class="submit-group">
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <button type="button" class="btn btn-primary btn-lg btn-block" data-ng-click="roleDialog.nextTab()" data-ng-bind="roleDialog.data.confirmText" data-ng-disabled="!roleDialog.validateRoleDetail()">OK</button>
+                                    <button type="button" class="btn btn-primary btn-lg btn-block" data-ng-click="roleDialog.nextTab()" data-ng-bind="roleDialog.data.confirmText" data-ng-disabled="!roleDialog.validateRoleDetailTab1()">OK</button>
                                 </div>
                                 <div class="col-sm-6">
                                     <button type="button" class="btn btn-default btn-risky btn-lg btn-block" data-ng-click="roleDialog.cancel()" data-ng-bind="roleDialog.data.cancelText">Cancel</button>
@@ -42,7 +42,7 @@
                 </div>
             </div>
         </uib-tab>
-        <uib-tab index="1" heading="Permission &amp; Priviliges" disable="!roleDialog.validateRoleDetail()">
+        <uib-tab index="1" heading="Permission &amp; Priviliges" disable="!roleDialog.validateRoleDetailTab1()">
             <div class="row">
                 <div class="col-md-12">
                     <form class="form-lg">
@@ -97,7 +97,7 @@
                         <div class="submit-group">
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <button type="button" class="btn btn-primary btn-lg btn-block" data-ng-click="roleDialog.createUpdateRole()" data-ng-bind="roleDialog.data.confirmText" data-ng-disabled="!roleDialog.validateRoleDetail()">OK</button>
+                                    <button type="button" class="btn btn-primary btn-lg btn-block" data-ng-click="roleDialog.createUpdateRole()" data-ng-bind="roleDialog.data.confirmText" data-ng-disabled="!roleDialog.validateRoleDetailTab2()">OK</button>
                                 </div>
                                 <div class="col-sm-6">
                                     <button type="button" class="btn btn-default btn-risky btn-lg btn-block" data-ng-click="roleDialog.cancel()" data-ng-bind="roleDialog.data.cancelText">Cancel</button>

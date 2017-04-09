@@ -24,7 +24,8 @@
         vm.unselectedPermissions = permissionList.selected;
         vm.selectedPermissions = permissionList.unselected;
 
-        vm.validateRoleDetail = validateRoleDetail;
+        vm.validateRoleDetailTab1 = validateRoleDetailTab1;
+        vm.validateRoleDetailTab2 = validateRoleDetailTab2;
         vm.movePermissions = movePermissions;
         vm.createUpdateRole = createUpdateRole;
         vm.nextTab = nextTab;
@@ -34,9 +35,13 @@
         //--------------------------------------
         //function declarations
 
-        function validateRoleDetail () {
+        function validateRoleDetailTab1 () {
             var isValid =  ((vm.role.name) && (vm.role.name.length <= 50))? true : false;
             return isValid;
+        }
+        
+        function validateRoleDetailTab2 () {
+            return Object.getOwnPropertyNames(vm.selectedPermissions).length;
         }
 
         function movePermissions (item1, item2, forceMove) {

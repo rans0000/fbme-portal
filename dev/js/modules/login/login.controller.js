@@ -50,7 +50,8 @@
 
         function onGetTranslationError (error) {
             //console.log(error);
-            toastr.error(vm.translation.cmcm_TranslationLoadError);
+            var errorTranslation = loginService.getErrorTranslationValue(error.header.responseCode, vm.translation);
+            toastr.error(errorTranslation);
         }
 
         function onLoginSubmit () {
@@ -80,7 +81,7 @@
 
         function onLoginError (error) {
             vm.isLoading = false;
-            var errorTranslation = loginService.getErrorTranslationValue(error.header.responseCode);
+            var errorTranslation = loginService.getErrorTranslationValue(error.header.responseCode, vm.translation);
             toastr.error(errorTranslation, 'Login Error');
         }
 
