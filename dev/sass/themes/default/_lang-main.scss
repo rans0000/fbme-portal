@@ -295,6 +295,9 @@ th{
                 padding-#{$text-direction}: 1.5rem;
             }
         }
+        > .btn{
+            #{$text-reverse}: 0;
+        }
     }
 }
 
